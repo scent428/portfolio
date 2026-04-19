@@ -188,6 +188,30 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
 .fade-up{opacity:0;transform:translateY(14px);transition:opacity 0.5s ease,transform 0.5s ease}
 .fade-up.in{opacity:1;transform:translateY(0)}
 
+/* STUDY */
+.study-panel{padding:52px 40px;max-width:1100px;margin:0 auto}
+.study-intro{margin-bottom:52px}
+.study-intro-heading{font-family:var(--serif);font-size:clamp(28px,4vw,42px);font-weight:500;line-height:1.2;margin-bottom:16px}
+.study-intro p{color:var(--ink2);font-size:14px;line-height:1.85;max-width:640px}
+.study-stats{display:flex;gap:32px;margin-top:24px;padding-top:24px;border-top:1px solid var(--line)}
+.study-stat-num{font-family:var(--serif);font-size:36px;font-weight:500;line-height:1;color:var(--ink)}
+.study-stat-label{font-size:12px;color:var(--muted);margin-top:4px;font-family:var(--mono)}
+.study-app{margin-bottom:80px}
+.study-app-header{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.study-app-num{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--muted)}
+.study-app-name{font-family:var(--serif);font-size:24px;font-weight:500}
+.study-app-tag{font-size:11px;color:var(--muted);font-family:var(--mono);margin-left:auto}
+.study-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.study-sketch,.study-figma{display:flex;flex-direction:column}
+.study-sketch-label,.study-figma-label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;height:18px;display:flex;align-items:center}
+.study-sketch img{width:100%;height:auto;border-radius:var(--r);border:1px solid var(--line);display:block}
+.study-figma img{width:100%;height:auto;border-radius:var(--r);border:1px solid var(--line);display:block}
+@media(max-width:700px){
+  .study-panel{padding:32px 20px}
+  .study-grid{grid-template-columns:1fr}
+  .study-stats{gap:20px}
+}
+
 @media(max-width:700px){
   header{padding:0 20px}.header-bio{display:none}
   .works-panel,.about-panel{padding:32px 20px}
@@ -212,6 +236,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
   </div>
   <nav class="tabs">
     <button class="tab-btn active" data-tab="works">Works</button>
+    <button class="tab-btn" data-tab="study">Study</button>
     <button class="tab-btn" data-tab="about">About</button>
   </nav>
 </header>
@@ -264,6 +289,105 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- ════ STUDY ════ -->
+<div class="panel" id="tab-study">
+  <div class="study-panel">
+
+    <div class="study-intro fade-up">
+      <div class="study-intro-heading">UI Study<br>— 100本ノック</div>
+      <p>スクール受講期間中、毎日1アプリを選んでスケッチ・観察・分析を実施。観察眼を鍛えることと、Figmaによる実装練習を同時に続けました。</p>
+      <p>手書きスケッチでUIの構造と意図を言語化し、Figmaでトレースすることで「見る力」と「作る力」を並行して習得しています。</p>
+      <div class="study-stats">
+        <div>
+          <div class="study-stat-num">50+</div>
+          <div class="study-stat-label">Apps analyzed</div>
+        </div>
+        <div>
+          <div class="study-stat-num">30+</div>
+          <div class="study-stat-label">Figma screens</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- No.1 天気 -->
+    <div class="study-app fade-up">
+      <div class="study-app-header">
+        <div class="study-app-num">No. 01</div>
+        <div class="study-app-name">天気</div>
+        <div class="study-app-tag">iOS Default App</div>
+      </div>
+      <div class="study-grid">
+        <div class="study-sketch">
+          <div class="study-sketch-label">スケッチ & 分析</div>
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.1_weather.jpg" alt="天気 スケッチ">
+        </div>
+        <div class="study-figma">
+          <div class="study-figma-label">Figmaトレース</div>
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/figma/No.1_weather-01.png" alt="天気 トレース">
+        </div>
+      </div>
+    </div>
+
+    <!-- No.2 カレンダー -->
+    <div class="study-app fade-up">
+      <div class="study-app-header">
+        <div class="study-app-num">No. 02</div>
+        <div class="study-app-name">カレンダー</div>
+        <div class="study-app-tag">iOS Default App</div>
+      </div>
+      <div class="study-grid">
+        <div class="study-sketch">
+          <div class="study-sketch-label">スケッチ & 分析</div>
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.2_calender.jpg" alt="カレンダー スケッチ">
+        </div>
+        <div class="study-figma">
+          <div class="study-figma-label">Figmaトレース</div>
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/figma/No.2_Calender-01.png" alt="カレンダー トレース">
+        </div>
+      </div>
+    </div>
+
+    <!-- No.3 写真 -->
+    <div class="study-app fade-up">
+      <div class="study-app-header">
+        <div class="study-app-num">No. 03</div>
+        <div class="study-app-name">写真</div>
+        <div class="study-app-tag">iOS Default App</div>
+      </div>
+      <div class="study-grid">
+        <div class="study-sketch">
+          <div class="study-sketch-label">スケッチ & 分析</div>
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.3_photo.jpg" alt="写真 スケッチ">
+        </div>
+        <div class="study-figma">
+          <div class="study-figma-label">Figmaトレース</div>
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/figma/No.3_picture-01.png" alt="写真 トレース">
+        </div>
+      </div>
+    </div>
+
+    <!-- No.5 ミュージック -->
+    <div class="study-app fade-up">
+      <div class="study-app-header">
+        <div class="study-app-num">No. 05</div>
+        <div class="study-app-name">ミュージック</div>
+        <div class="study-app-tag">iOS Default App</div>
+      </div>
+      <div class="study-grid">
+        <div class="study-sketch">
+          <div class="study-sketch-label">スケッチ & 分析</div>
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.5_music.jpg" alt="ミュージック スケッチ">
+        </div>
+        <div class="study-figma">
+          <div class="study-figma-label">Figmaトレース</div>
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/figma/No.5_music-01.png" alt="ミュージック トレース">
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
