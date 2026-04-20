@@ -59,7 +59,11 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
 /* ABOUT */
 .about-panel{max-width:680px;margin:0 auto;padding:64px 40px}
 .about-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
-.about-heading{font-family:var(--serif);font-size:clamp(32px,4.5vw,48px);font-weight:500;line-height:1.25;margin-bottom:28px}
+.about-hero{display:grid;grid-template-columns:160px 1fr;gap:36px;align-items:start;margin-bottom:36px}
+.about-photo{width:160px;height:160px;border-radius:50%;object-fit:cover;object-position:top;border:1px solid var(--line);display:block}
+.about-hero-text{display:flex;flex-direction:column}
+.about-heading{font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:500;line-height:1.25;margin-bottom:28px}
+@media(max-width:700px){.about-hero{grid-template-columns:1fr;gap:20px}.about-photo{width:120px;height:120px}}
 .about-body{color:var(--ink2);line-height:1.95}.about-body p{margin-bottom:16px}
 .about-section{margin-bottom:52px}
 .about-section-title{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:20px}
@@ -396,7 +400,12 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
   <div class="about-panel">
     <div class="about-section fade-up">
       <div class="about-eyebrow">プロフィール</div>
-      <div class="about-heading">人が迷う瞬間と、<br>その背景にある文脈を<br>整理することに興味がある。</div>
+      <div class="about-hero">
+        <img class="about-photo" src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/proifile/profile-01.png" alt="木村 萌香">
+        <div class="about-hero-text">
+          <div class="about-heading">迷いの背景を読み解き、<br>次の行動を選びやすい<br>体験を設計する。</div>
+        </div>
+      </div>
       <div class="about-body">
         <p>エンジニアとして5年間、金融系システムの開発に従事し、データ構造や制約を踏まえながら設計に携わってきました。制約の多い環境の中で、システムとして成立するかを考えながら動いてきた経験が自分のベースにあります。</p>
         <p>その中で、仕様としては正しくても、ユーザーにとっては「使いづらい」「次にどうすればいいか分からない」と感じる場面があることに課題を感じ、UXデザインに関心を持つようになりました。</p>
@@ -641,7 +650,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
     <div class="ds fade-up">
       <div class="ds-label"><span>ユーザーテスト前プロトタイプ</span></div>
       <div class="ds-body">
-        <p>ユーザビリティテスト実施前の初期プロトタイプです。テスト後の改善と比較することで、どのような課題が発見され、どう改善されたかを確認できます。</p>
+        <p>「安心感」を伝えるため、あたたかみのある赤（#FE8081）とハートモチーフをビジュアルの軸に据えました。UIは、被災時に想定される2つのシナリオに沿って設計しています。①家族の状況をグループで確認する場面、②自分が被災し、周囲にステータスを登録する場面です。それぞれの場面で必要な情報と操作を最小限に絞ることで、非常時でも迷わず使える体験を目指しました。</p>
       </div>
       <div class="mockup-row">
         <div class="mockup-item">
