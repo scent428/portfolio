@@ -154,11 +154,12 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
 .ba-title{font-size:13px;font-weight:600;margin-bottom:16px;color:var(--ink)}
 .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .ba-item{}
-.ba-label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:6px 12px;margin-bottom:8px;display:inline-block;border-radius:3px}
-.ba-label.before{background:var(--off);color:var(--muted)}
+.ba-header{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+.ba-label{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.06em;padding:4px 12px;display:inline-block;border-radius:3px;flex-shrink:0}
+.ba-label.before{background:var(--ink);color:white}
 .ba-label.after{background:var(--ampy);color:white}
+.ba-note{font-size:12px;color:var(--ink2);line-height:1.5}
 .ba-item img{width:100%;border-radius:var(--r);border:1px solid var(--line);display:block}
-.ba-note{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.5}
 
 /* DECISION */
 .decision-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
@@ -236,7 +237,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
 <header>
   <div class="header-left">
     <div class="header-name">木村 萌香</div>
-    <div class="header-bio">UXデザイナー&ensp;·&ensp;エンジニア出身&ensp;·&ensp;実装を知るデザイナーへ</div>
+    <div class="header-bio">UIUXデザイナー志望｜エンジニア出身｜実装を踏まえた設計</div>
   </div>
   <nav class="tabs">
     <button class="tab-btn active" data-tab="works">作品集</button>
@@ -650,38 +651,50 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
     <div class="ds fade-up">
       <div class="ds-label"><span>ユーザーテスト前プロトタイプ</span></div>
       <div class="ds-body">
-        <p>「安心感」を伝えるため、あたたかみのある赤（#FE8081）とハートモチーフをビジュアルの軸に据えました。UIは、被災時に想定される2つのシナリオに沿って設計しています。①家族の状況をグループで確認する場面、②自分が被災し、周囲にステータスを登録する場面です。それぞれの場面で必要な情報と操作を最小限に絞ることで、非常時でも迷わず使える体験を目指しました。</p>
+        <p>「安心感」を伝えるため、あたたかみのある赤（#FE8081）とハートモチーフをビジュアルの軸に据えました。被災時に想定される2つのシナリオに沿って画面を設計しています。</p>
       </div>
-      <div class="img-2up" style="grid-template-columns:1fr 1fr 1fr">
-        <div class="img-block" style="margin:0">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/slides/ampy_maincolor.png" alt="メインカラー">
-          <div class="img-cap">メインカラー</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0;padding:28px 24px;background:var(--off);border-radius:var(--r)">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/slides/ampy_maincolor.png" alt="メインカラー" style="height:48px;width:auto;display:block">
+          <span style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em">メインカラー</span>
         </div>
-        <div class="img-block" style="margin:0">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/slides/ampy_logo.png" alt="ロゴ">
-          <div class="img-cap">ロゴ</div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/slides/ampy_logo.png" alt="ロゴ" style="height:48px;width:auto;display:block">
+          <span style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em">ロゴ</span>
         </div>
-        <div class="img-block" style="margin:0">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/slides/ampy_icon.png" alt="アイコン">
-          <div class="img-cap">アイコン</div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/slides/ampy_icon.png" alt="アイコン" style="height:48px;width:auto;display:block">
+          <span style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em">アイコン</span>
         </div>
       </div>
-      <div class="mockup-row">
-        <div class="mockup-item">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/groupInformation.png" alt="旧：グループ一覧">
-          <div class="mockup-label">グループ一覧（テスト前）</div>
+
+      <!-- シナリオ① -->
+      <div style="margin:28px 0 0">
+        <div style="font-size:13px;font-weight:600;color:var(--ampy);margin-bottom:16px">① 家族が被災し、状況を確認するとき</div>
+        <div class="mockup-row" style="justify-content:flex-start">
+          <div class="mockup-item">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/groupInformation.png" alt="グループ一覧">
+            <div class="mockup-label">グループ一覧</div>
+          </div>
+          <div class="mockup-item">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/groupSituation.png" alt="グループ詳細">
+            <div class="mockup-label">グループ詳細</div>
+          </div>
+          <div class="mockup-item">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/mySituation.png" alt="自分の状況">
+            <div class="mockup-label">自分の状況</div>
+          </div>
         </div>
-        <div class="mockup-item">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/groupSituation.png" alt="旧：グループ詳細">
-          <div class="mockup-label">グループ詳細（テスト前）</div>
-        </div>
-        <div class="mockup-item">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/mySituation.png" alt="旧：自分の状況">
-          <div class="mockup-label">自分の状況（テスト前）</div>
-        </div>
-        <div class="mockup-item">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/answerSituation.png" alt="旧：ステータス更新">
-          <div class="mockup-label">ステータス更新（テスト前）</div>
+      </div>
+
+      <!-- シナリオ② -->
+      <div style="margin:28px 0 0">
+        <div style="font-size:13px;font-weight:600;color:var(--ampy);margin-bottom:16px">② 自分が被災し、状況を登録するとき</div>
+        <div class="mockup-row" style="justify-content:flex-start">
+          <div class="mockup-item">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/answerSituation.png" alt="ステータス更新">
+            <div class="mockup-label">ステータス更新</div>
+          </div>
         </div>
       </div>
     </div>
@@ -697,14 +710,18 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <div class="ba-title">シナリオ01 — 家族が被災し、状況を確認するとき</div>
         <div class="ba-grid">
           <div class="ba-item">
-            <div class="ba-label before">Before</div>
+            <div class="ba-header">
+              <div class="ba-label before">BEFORE</div>
+              <div class="ba-note">課題：危険度が数字だと認識しづらい</div>
+            </div>
             <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/groupSituation.png" alt="Before シナリオ01">
-            <div class="ba-note">課題：危険度が数字だと認識しづらい</div>
           </div>
           <div class="ba-item">
-            <div class="ba-label after">After</div>
+            <div class="ba-header">
+              <div class="ba-label after">AFTER</div>
+              <div class="ba-note">改善：イラストで直感的に認識できるように変更</div>
+            </div>
             <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/groupSituation.png" alt="After シナリオ01">
-            <div class="ba-note">改善：イラストで直感的に認識できるように変更</div>
           </div>
         </div>
       </div>
@@ -713,21 +730,25 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <div class="ba-title">シナリオ02 — 自分が被災し、状況を登録するとき</div>
         <div class="ba-grid">
           <div class="ba-item">
-            <div class="ba-label before">Before</div>
+            <div class="ba-header">
+              <div class="ba-label before">BEFORE</div>
+              <div class="ba-note">課題：行間が広く情報取得に時間がかかる / 質問が抽象的</div>
+            </div>
             <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/answerSituation.png" alt="Before シナリオ02">
-            <div class="ba-note">課題：行間が広く情報取得に時間がかかる / 質問が抽象的</div>
           </div>
           <div class="ba-item">
-            <div class="ba-label after">After</div>
+            <div class="ba-header">
+              <div class="ba-label after">AFTER</div>
+              <div class="ba-note">改善：質問を状況例で具体化</div>
+            </div>
             <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/answerSituation.png" alt="After シナリオ02">
-            <div class="ba-note">改善：質問を状況例で具体化「公的機関の助けが必要ですか？」</div>
           </div>
         </div>
       </div>
 
       <div class="callout neutral" style="margin-top:24px">
         <div class="callout-title">改善後の反応</div>
-        <p>「イラストになって一目でわかりやすい」「選択肢が具体的で迷わなかった」というフィードバックを確認。次フェーズとして多様な被災シナリオへの対応が課題です。</p>
+        <p>改善後のテストでは、「イラストになって一目でわかりやすい」「選択肢が具体的で迷わなかった」というフィードバックが得られました。文字情報だけでなく視覚的に状況を把握できる表現にしたことで、災害時のように判断負荷が高い場面でも、次の行動を選びやすくなったと考えています。一方で、被災状況や家族構成、通信環境などによって必要な行動は変わるため、今後はより多様な被災シナリオに対応できる設計が課題です。</p>
       </div>
     </div>
 
