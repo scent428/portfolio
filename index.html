@@ -778,31 +778,23 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
 
     <div class="ds fade-up">
       <div class="ds-label"><span>完成プロトタイプ</span></div>
-      <div class="ds-body"><p>コアバリュー「判断のしやすさ」を体現する4機能で構成しています。</p></div>
+      <div class="ds-body"><p>「判断のしやすさ」をコアバリューに、検索・結果一覧・経路詳細・ルート記録の4機能で構成しています。各画面の設計意図は後述の設計判断セクションで詳しく説明しています。</p></div>
       <div class="mockup-row">
         <div class="mockup-item">
           <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Search-01.png" alt="検索">
-          <div class="mockup-label">検索（入力最小化）</div>
+          <div class="mockup-label">1. 検索</div>
         </div>
         <div class="mockup-item">
           <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/SearchResult-01.png" alt="結果一覧">
-          <div class="mockup-label">結果一覧（3択比較）</div>
+          <div class="mockup-label">2. 結果一覧</div>
         </div>
         <div class="mockup-item">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/RouteInformation-01.png" alt="詳細・ユーザー実績">
-          <div class="mockup-label">詳細・ユーザー実績</div>
-        </div>
-        <div class="mockup-item">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/RouteInformation-02.png" alt="詳細・公的データ">
-          <div class="mockup-label">詳細・公的データ</div>
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/RouteInformation-01.png" alt="経路詳細">
+          <div class="mockup-label">3. 経路詳細</div>
         </div>
         <div class="mockup-item">
           <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Record-01.png" alt="ルート記録">
-          <div class="mockup-label">ルート記録</div>
-        </div>
-        <div class="mockup-item">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Record-02.png" alt="ルート記録（入力中）">
-          <div class="mockup-label">ルート記録（入力中）</div>
+          <div class="mockup-label">4. ルート記録</div>
         </div>
       </div>
       <a href="https://www.figma.com/proto/CGSdnBXpeO5TmVpepigQaj/" target="_blank" class="figma-btn">▶ Figmaでプロトタイプを見る</a>
@@ -834,52 +826,8 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
     </div>
 
     <div class="ds fade-up">
-      <div class="ds-label"><span>主要な設計判断</span></div>
-      <div class="ds-body"><p>プロトタイプの各機能は、ユーザーの判断コストを下げるための選択の積み重ねです。</p></div>
-      <div class="decision-grid">
-        <div class="decision-item">
-          <div class="decision-label">比較は3択まで</div>
-          <div class="decision-body">選択肢が多すぎると判断コストが上がる。通過実績の多い順に上位3案のみに絞ることで、比較の負荷を最小化しました。</div>
-        </div>
-        <div class="decision-item">
-          <div class="decision-label">全体でなく「区間」で見せる</div>
-          <div class="decision-body">ユーザーが本当に知りたいのは全体の安全性より「どこが危険か」。区間単位で評価を表示することで、部分的なリスクも把握できるようにしました。</div>
-        </div>
-        <div class="decision-item">
-          <div class="decision-label">入力を最低限に</div>
-          <div class="decision-body">外出前・外出中の使用を想定し、入力項目を出発地・目的地のみに絞りました。まず候補比較に到達できることを優先。</div>
-        </div>
-        <div class="decision-item">
-          <div class="decision-label">ユーザー実績 × 公的データを切り替え可能に</div>
-          <div class="decision-body">「実際に通った人の声」と「公式バリアフリー情報」は信頼性の種類が異なります。どちらも見られる設計にすることで、ユーザーが自分の判断軸で使い分けられるようにしました。</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="ds fade-up">
-      <div class="ds-label"><span>懸念点と対応策</span></div>
-      <div class="ds-body">
-        <p>アプリに説得力を持たせるためには「実際に車椅子で通った」というユーザー通過実績データが不可欠です。しかしこのデータは現時点でビッグデータ化されておらず、独自収集が必要でした。</p>
-      </div>
-      <div class="card-3">
-        <div class="mini-card">
-          <div class="mini-card-head">方法1：府中市実証</div>
-          <div class="mini-card-body">限定エリアで自治体と連携し、初期データを取得。スモールスタートで精度を上げる。</div>
-        </div>
-        <div class="mini-card">
-          <div class="mini-card-head">方法2：通知での簡易回答</div>
-          <div class="mini-card-body">プッシュ通知を使った3択回答で、ユーザーが気軽にFBできる仕組みを実装。</div>
-        </div>
-        <div class="mini-card">
-          <div class="mini-card-head">方法3：公的データ活用</div>
-          <div class="mini-card-body">既存バリアフリー情報をベースに、ユーザー実績で補完するハイブリッド構造。</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="ds fade-up">
       <div class="ds-label"><span>ワイヤーフレーム</span></div>
-      <div class="ds-body"><p>判断プロセスに沿った3画面構成として設計しました。</p></div>
+      <div class="ds-body"><p>判断プロセスに沿った3画面構成として設計しました。ここからUIデザインに落とし込んでいます。</p></div>
       <div class="card-3">
         <div class="img-block" style="margin:0">
           <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/wireframe/search.png" alt="検索画面">
@@ -894,6 +842,96 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
           <div class="img-cap">経路詳細</div>
         </div>
       </div>
+    </div>
+
+    <div class="ds fade-up">
+      <div class="ds-label"><span>主要な設計判断 — UI・プロトタイプ</span></div>
+      <div class="ds-body"><p>プロトタイプの各機能は、ユーザーの判断コストを下げるための選択の積み重ねです。</p></div>
+
+      <!-- 1. 検索 -->
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:32px;align-items:start;margin:28px 0;padding-bottom:28px;border-bottom:1px solid var(--line)">
+        <div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;margin-bottom:8px">1. 検索</div>
+          <div style="font-size:18px;font-weight:700;color:var(--wheel);margin-bottom:12px">入力は必要最低限</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.75">外出前・外出中の使用を想定し、入力項目を出発地・目的地のみに絞りました。まず候補比較に到達できることを優先。</div>
+        </div>
+        <div class="mockup-row" style="margin:0;justify-content:flex-start">
+          <div class="mockup-item">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Search-01.png" alt="検索">
+            <div class="mockup-label">検索</div>
+          </div>
+          <div class="mockup-item">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Search-scroll-01.png" alt="検索（スクロール）">
+            <div class="mockup-label">検索（スクロール）</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. 結果一覧 -->
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:32px;align-items:start;margin:28px 0;padding-bottom:28px;border-bottom:1px solid var(--line)">
+        <div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;margin-bottom:8px">2. 結果一覧</div>
+          <div style="font-size:18px;font-weight:700;color:var(--wheel);margin-bottom:12px">比較は"3択まで"</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.75">通過実績の多い順に表示。😊/😐/😢 の3段階評価で、直感的に判断できる設計にしました。</div>
+        </div>
+        <div class="mockup-row" style="margin:0;justify-content:flex-start">
+          <div class="mockup-item">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/SearchResult-01.png" alt="結果一覧">
+            <div class="mockup-label">結果一覧</div>
+          </div>
+          <div class="mockup-item">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/SearchResult-scroll-01.png" alt="結果一覧（スクロール）">
+            <div class="mockup-label">マップ表示</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. 経路詳細 -->
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:32px;align-items:start;margin:28px 0;padding-bottom:28px;border-bottom:1px solid var(--line)">
+        <div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;margin-bottom:8px">3. 経路詳細</div>
+          <div style="font-size:18px;font-weight:700;color:var(--wheel);margin-bottom:12px">全体ではなく「区間」で</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.75">区間ごとに評価を表示。ルート全体ではなく、部分的なリスクも把握できます。ユーザー実績と公的データを切り替えて確認可能。</div>
+        </div>
+        <div class="mockup-row" style="margin:0;justify-content:flex-start">
+          <div class="mockup-item">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/RouteInformation-01.png" alt="詳細・ユーザー実績">
+            <div class="mockup-label">ユーザー実績</div>
+          </div>
+          <div class="mockup-item">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/RouteInformation-scroll-01.png" alt="詳細・スクロール">
+            <div class="mockup-label">区間詳細</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. ルート記録 -->
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:32px;align-items:start;margin:28px 0">
+        <div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;margin-bottom:8px">4. ルート記録</div>
+          <div style="font-size:18px;font-weight:700;color:var(--wheel);margin-bottom:12px">気軽なフィードバック</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.75">ルートの質を上げるためユーザーからFBを募集。通知での3択回答でできるだけ簡素化し、回答ハードルを下げました。</div>
+        </div>
+        <div class="mockup-row" style="margin:0;justify-content:flex-start">
+          <div class="mockup-item">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Notification-01.png" alt="通知（ロック画面）">
+            <div class="mockup-label">通知（ロック画面）</div>
+          </div>
+          <div class="mockup-item">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Notification-02.png" alt="通知">
+            <div class="mockup-label">通知</div>
+          </div>
+          <div class="mockup-item">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Record-01.png" alt="ルート記録">
+            <div class="mockup-label">ルート記録</div>
+          </div>
+          <div class="mockup-item">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Record-02.png" alt="ルート記録（入力中）">
+            <div class="mockup-label">記録（入力中）</div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <div class="ds fade-up">
