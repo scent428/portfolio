@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>木村 萌香 — UX Designer</title>
+<title>木村 萌香 — UXデザイナー</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
@@ -204,8 +204,8 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
 .study-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
 .study-sketch,.study-figma{display:flex;flex-direction:column}
 .study-sketch-label,.study-figma-label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;height:18px;display:flex;align-items:center}
-.study-sketch img{width:100%;height:auto;border-radius:var(--r);border:1px solid var(--line);display:block}
-.study-figma img{width:100%;height:auto;border-radius:var(--r);border:1px solid var(--line);display:block}
+.study-sketch img{width:100%;aspect-ratio:8/5;object-fit:cover;object-position:top left;border-radius:var(--r);border:1px solid var(--line);display:block}
+.study-figma img{width:100%;aspect-ratio:8/5;object-fit:cover;object-position:top left;border-radius:var(--r);border:1px solid var(--line);display:block}
 @media(max-width:700px){
   .study-panel{padding:32px 20px}
   .study-grid{grid-template-columns:1fr}
@@ -235,9 +235,9 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
     <div class="header-bio">UXデザイナー&ensp;·&ensp;エンジニア出身&ensp;·&ensp;実装を知るデザイナーへ</div>
   </div>
   <nav class="tabs">
-    <button class="tab-btn active" data-tab="works">Works</button>
-    <button class="tab-btn" data-tab="study">Study</button>
-    <button class="tab-btn" data-tab="about">About</button>
+    <button class="tab-btn active" data-tab="works">作品集</button>
+    <button class="tab-btn" data-tab="study">学習記録</button>
+    <button class="tab-btn" data-tab="about">プロフィール</button>
   </nav>
 </header>
 
@@ -255,11 +255,11 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <div class="proj-card-body">
           <div class="proj-tag-row">
             <div class="proj-dot" style="background:#d94f47"></div>
-            <span class="proj-tag-text">Disaster Safety App</span>
+            <span class="proj-tag-text">防災安否アプリ</span>
           </div>
           <div class="proj-card-title">ampy</div>
           <div class="proj-card-desc">災害時でも、大切な人と無事をシェア。コンセプト設計からUIビジュアルまで一貫して担当したアプリデザイン。</div>
-          <div class="proj-card-focus">Focus: <span>Concept / UI Design / Usability Test</span></div>
+          <div class="proj-card-focus">フォーカス：<span>コンセプト設計 / UIデザイン / ユーザビリティテスト</span></div>
           <div class="proj-card-meta">
             <span class="proj-meta-item">UXリサーチ</span>
             <span class="proj-meta-item">UIデザイン</span>
@@ -275,11 +275,11 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <div class="proj-card-body">
           <div class="proj-tag-row">
             <div class="proj-dot" style="background:#652634"></div>
-            <span class="proj-tag-text">Accessibility Navigation</span>
+            <span class="proj-tag-text">バリアフリーナビ</span>
           </div>
           <div class="proj-card-title">wheelmark</div>
           <div class="proj-card-desc">車椅子ユーザーの「行けるかどうか」を判断するアプリ。インタビューから課題を再定義したUXリサーチ中心のケーススタディ。</div>
-          <div class="proj-card-focus">Focus: <span>Research / Problem Definition / UX Design</span></div>
+          <div class="proj-card-focus">フォーカス：<span>リサーチ / 課題定義 / UXデザイン</span></div>
           <div class="proj-card-meta">
             <span class="proj-meta-item">UXリサーチ</span>
             <span class="proj-meta-item">情報設計</span>
@@ -297,17 +297,17 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
   <div class="study-panel">
 
     <div class="study-intro fade-up">
-      <div class="study-intro-heading">UI Study<br>— 100本ノック</div>
+      <div class="study-intro-heading">UIスタディ<br>— 100本ノック</div>
       <p>スクール受講期間中、毎日1アプリを選んでスケッチ・観察・分析を実施。観察眼を鍛えることと、Figmaによる実装練習を同時に続けました。</p>
       <p>手書きスケッチでUIの構造と意図を言語化し、Figmaでトレースすることで「見る力」と「作る力」を並行して習得しています。</p>
       <div class="study-stats">
         <div>
           <div class="study-stat-num">50+</div>
-          <div class="study-stat-label">Apps analyzed</div>
+          <div class="study-stat-label">分析アプリ数</div>
         </div>
         <div>
           <div class="study-stat-num">30+</div>
-          <div class="study-stat-label">Figma screens</div>
+          <div class="study-stat-label">Figma制作画面数</div>
         </div>
       </div>
     </div>
@@ -317,12 +317,12 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
       <div class="study-app-header">
         <div class="study-app-num">No. 01</div>
         <div class="study-app-name">天気</div>
-        <div class="study-app-tag">iOS Default App</div>
+        <div class="study-app-tag">iOSデフォルトアプリ</div>
       </div>
       <div class="study-grid">
         <div class="study-sketch">
           <div class="study-sketch-label">スケッチ & 分析</div>
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.1_weather.jpg" alt="天気 スケッチ">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.1_weather 1.png" alt="天気 スケッチ">
         </div>
         <div class="study-figma">
           <div class="study-figma-label">Figmaトレース</div>
@@ -336,12 +336,12 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
       <div class="study-app-header">
         <div class="study-app-num">No. 02</div>
         <div class="study-app-name">カレンダー</div>
-        <div class="study-app-tag">iOS Default App</div>
+        <div class="study-app-tag">iOSデフォルトアプリ</div>
       </div>
       <div class="study-grid">
         <div class="study-sketch">
           <div class="study-sketch-label">スケッチ & 分析</div>
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.2_calender.jpg" alt="カレンダー スケッチ">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.2_calender 1.png" alt="カレンダー スケッチ">
         </div>
         <div class="study-figma">
           <div class="study-figma-label">Figmaトレース</div>
@@ -355,12 +355,12 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
       <div class="study-app-header">
         <div class="study-app-num">No. 03</div>
         <div class="study-app-name">写真</div>
-        <div class="study-app-tag">iOS Default App</div>
+        <div class="study-app-tag">iOSデフォルトアプリ</div>
       </div>
       <div class="study-grid">
         <div class="study-sketch">
           <div class="study-sketch-label">スケッチ & 分析</div>
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.3_photo.jpg" alt="写真 スケッチ">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.3_photo 1.png" alt="写真 スケッチ">
         </div>
         <div class="study-figma">
           <div class="study-figma-label">Figmaトレース</div>
@@ -374,12 +374,12 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
       <div class="study-app-header">
         <div class="study-app-num">No. 05</div>
         <div class="study-app-name">ミュージック</div>
-        <div class="study-app-tag">iOS Default App</div>
+        <div class="study-app-tag">iOSデフォルトアプリ</div>
       </div>
       <div class="study-grid">
         <div class="study-sketch">
           <div class="study-sketch-label">スケッチ & 分析</div>
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.5_music.jpg" alt="ミュージック スケッチ">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.5_music 1.png" alt="ミュージック スケッチ">
         </div>
         <div class="study-figma">
           <div class="study-figma-label">Figmaトレース</div>
@@ -395,7 +395,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
 <div class="panel" id="tab-about">
   <div class="about-panel">
     <div class="about-section fade-up">
-      <div class="about-eyebrow">About</div>
+      <div class="about-eyebrow">プロフィール</div>
       <div class="about-heading">人が迷う瞬間と、<br>その背景にある文脈を<br>整理することに興味がある。</div>
       <div class="about-body">
         <p>エンジニアとして5年間、金融系システムの開発に従事し、データ構造や制約を踏まえながら設計に携わってきました。制約の多い環境の中で、システムとして成立するかを考えながら動いてきた経験が自分のベースにあります。</p>
@@ -422,7 +422,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
       <div>
         <div class="profile-row"><span class="profile-key">現職</span><span>バックエンドエンジニア（転身準備中）</span></div>
         <div class="profile-row"><span class="profile-key">経歴</span><span>システム開発 5年（クレジットカードトークナイゼーション）</span></div>
-        <div class="profile-row"><span class="profile-key">学歴</span><span>東京デザインプレックス研究所 UI/UX総合コース修了（2024.11）</span></div>
+        <div class="profile-row"><span class="profile-key">学歴</span><span>東京デザインプレックス研究所 UI/UX総合コース修了（2025.11）</span></div>
         <div class="profile-row"><span class="profile-key">得意領域</span><span>モバイルアプリ / 社会課題解決 / アクセシビリティ</span></div>
         <div class="profile-row"><span class="profile-key">ツール</span><span>Figma / FigJam / Miro</span></div>
       </div>
@@ -434,12 +434,12 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
 <div class="detail-panel" id="proj-ampy">
   <div class="detail-header">
     <button class="back-btn" onclick="closeProject()">← 戻る</button>
-    <span class="detail-breadcrumb">Works / <span>ampy</span></span>
+    <span class="detail-breadcrumb">作品集 / <span>ampy</span></span>
   </div>
   <div class="detail-hero">
     <div class="detail-eyebrow">
       <div class="proj-dot" style="background:#d94f47;width:7px;height:7px;border-radius:50%"></div>
-      <span style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)">Disaster Safety App</span>
+      <span style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)">防災安否アプリ</span>
     </div>
     <div class="detail-title">ampy</div>
     <div class="detail-subtitle">災害時でも、大切な人と無事をシェア。</div>
@@ -715,12 +715,12 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
 <div class="detail-panel" id="proj-wheelmark">
   <div class="detail-header">
     <button class="back-btn" onclick="closeProject()">← 戻る</button>
-    <span class="detail-breadcrumb">Works / <span>wheelmark</span></span>
+    <span class="detail-breadcrumb">作品集 / <span>wheelmark</span></span>
   </div>
   <div class="detail-hero">
     <div class="detail-eyebrow">
       <div class="proj-dot" style="background:#652634;width:7px;height:7px;border-radius:50%"></div>
-      <span style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)">Accessibility Navigation</span>
+      <span style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)">バリアフリーナビ</span>
     </div>
     <div class="detail-title">wheelmark</div>
     <div class="detail-subtitle">車椅子ユーザーのための「行けるかどうか」を判断するアプリ</div>
@@ -858,7 +858,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <p>今回はコンセプト設計とプロトタイピングまでを主眼に置いたため、本格的なユーザビリティテストは次フェーズの課題としています。</p>
       </div>
       <div class="next-step">
-        <div class="next-step-title">Next Step</div>
+        <div class="next-step-title">今後のステップ</div>
         <ul>
           <li>車椅子ユーザー本人へのインタビューを実施し、ペインの差異を検証する</li>
           <li>「区間表示」vs「全体表示」のA/Bテストで判断コストの変化を測定する</li>
