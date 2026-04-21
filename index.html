@@ -193,11 +193,21 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
 .lightbox{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;padding:24px}
 .lightbox.open{display:flex}
 .lightbox-inner{position:relative;max-width:360px;width:100%}
-.lightbox-img{width:100%;border-radius:24px;display:block}
+.lightbox-inner.wide{max-width:800px}
+.lightbox-img{width:100%;border-radius:12px;display:block}
+.lightbox-inner:not(.wide) .lightbox-img{border-radius:24px}
 .lightbox-label{text-align:center;font-size:12px;color:rgba(255,255,255,0.6);margin-top:12px;font-family:var(--mono)}
 .lightbox-close{position:absolute;top:-14px;right:-14px;width:32px;height:32px;border-radius:50%;background:var(--ink);color:white;border:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;line-height:1}
-.mockup-item.zoomable img{cursor:zoom-in}
-.mockup-item.zoomable img:hover{opacity:0.9}
+.mockup-item.zoomable{position:relative;cursor:zoom-in}
+.mockup-item.zoomable::after{content:"🔍";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:16px;background:rgba(0,0,0,0.55);color:white;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s;pointer-events:none;line-height:40px;text-align:center}
+.mockup-item.zoomable:hover::after{opacity:1}
+.mockup-item.zoomable img{transition:opacity 0.2s}
+.mockup-item.zoomable:hover img{opacity:0.75}
+.study-sketch.zoomable,.study-figma.zoomable{position:relative;cursor:zoom-in}
+.study-sketch.zoomable::after,.study-figma.zoomable::after{content:"🔍";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:16px;background:rgba(0,0,0,0.55);color:white;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s;pointer-events:none;line-height:40px;text-align:center}
+.study-sketch.zoomable:hover::after,.study-figma.zoomable:hover::after{opacity:1}
+.study-sketch img,.study-figma img{transition:opacity 0.2s}
+.study-sketch.zoomable:hover img,.study-figma.zoomable:hover img{opacity:0.75}
 .fade-up{opacity:0;transform:translateY(14px);transition:opacity 0.5s ease,transform 0.5s ease}
 .fade-up.in{opacity:1;transform:translateY(0)}
 
@@ -333,13 +343,13 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <div class="study-app-tag">iOSデフォルトアプリ</div>
       </div>
       <div class="study-grid">
-        <div class="study-sketch">
+        <div class="study-sketch zoomable">
           <div class="study-sketch-label">スケッチ & 分析</div>
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.1_weather 1.png" alt="天気 スケッチ" onclick="openLightbox(this.src, '天気 スケッチ')" style="cursor:zoom-in">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.1_weather 1.png" alt="天気 スケッチ" onclick="openLightbox(this.src, '天気 スケッチ', true)" style="cursor:zoom-in">
         </div>
-        <div class="study-figma">
+        <div class="study-figma zoomable">
           <div class="study-figma-label">Figmaトレース</div>
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/figma/No.1_weather-01.png" alt="天気 トレース" onclick="openLightbox(this.src, '天気 トレース')" style="cursor:zoom-in">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/figma/No.1_weather-01.png" alt="天気 トレース" onclick="openLightbox(this.src, '天気 トレース', true)" style="cursor:zoom-in">
         </div>
       </div>
     </div>
@@ -352,13 +362,13 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <div class="study-app-tag">iOSデフォルトアプリ</div>
       </div>
       <div class="study-grid">
-        <div class="study-sketch">
+        <div class="study-sketch zoomable">
           <div class="study-sketch-label">スケッチ & 分析</div>
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.2_calender 1.png" alt="カレンダー スケッチ" onclick="openLightbox(this.src, 'カレンダー スケッチ')" style="cursor:zoom-in">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.2_calender 1.png" alt="カレンダー スケッチ" onclick="openLightbox(this.src, 'カレンダー スケッチ', true)" style="cursor:zoom-in">
         </div>
-        <div class="study-figma">
+        <div class="study-figma zoomable">
           <div class="study-figma-label">Figmaトレース</div>
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/figma/No.2_Calender-01.png" alt="カレンダー トレース" onclick="openLightbox(this.src, 'カレンダー トレース')" style="cursor:zoom-in">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/figma/No.2_Calender-01.png" alt="カレンダー トレース" onclick="openLightbox(this.src, 'カレンダー トレース', true)" style="cursor:zoom-in">
         </div>
       </div>
     </div>
@@ -371,13 +381,13 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <div class="study-app-tag">iOSデフォルトアプリ</div>
       </div>
       <div class="study-grid">
-        <div class="study-sketch">
+        <div class="study-sketch zoomable">
           <div class="study-sketch-label">スケッチ & 分析</div>
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.3_photo 1.png" alt="写真 スケッチ" onclick="openLightbox(this.src, '写真 スケッチ')" style="cursor:zoom-in">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.3_photo 1.png" alt="写真 スケッチ" onclick="openLightbox(this.src, '写真 スケッチ', true)" style="cursor:zoom-in">
         </div>
-        <div class="study-figma">
+        <div class="study-figma zoomable">
           <div class="study-figma-label">Figmaトレース</div>
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/figma/No.3_picture-01.png" alt="写真 トレース" onclick="openLightbox(this.src, '写真 トレース')" style="cursor:zoom-in">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/figma/No.3_picture-01.png" alt="写真 トレース" onclick="openLightbox(this.src, '写真 トレース', true)" style="cursor:zoom-in">
         </div>
       </div>
     </div>
@@ -390,13 +400,13 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <div class="study-app-tag">iOSデフォルトアプリ</div>
       </div>
       <div class="study-grid">
-        <div class="study-sketch">
+        <div class="study-sketch zoomable">
           <div class="study-sketch-label">スケッチ & 分析</div>
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.5_music 1.png" alt="ミュージック スケッチ" onclick="openLightbox(this.src, 'ミュージック スケッチ')" style="cursor:zoom-in">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.5_music 1.png" alt="ミュージック スケッチ" onclick="openLightbox(this.src, 'ミュージック スケッチ', true)" style="cursor:zoom-in">
         </div>
-        <div class="study-figma">
+        <div class="study-figma zoomable">
           <div class="study-figma-label">Figmaトレース</div>
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/figma/No.5_music-01.png" alt="ミュージック トレース" onclick="openLightbox(this.src, 'ミュージック トレース')" style="cursor:zoom-in">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/figma/No.5_music-01.png" alt="ミュージック トレース" onclick="openLightbox(this.src, 'ミュージック トレース', true)" style="cursor:zoom-in">
         </div>
       </div>
     </div>
@@ -417,8 +427,8 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
       </div>
       <div class="about-body">
         <p>エンジニアとして5年間、金融系システムの開発に従事し、データ構造や制約を踏まえながら設計に携わってきました。制約の多い環境の中で、システムとして成立するかを考えながら動いてきた経験が自分のベースにあります。</p>
-        <p>その中で、仕様としては正しくても、ユーザーにとっては「使いづらい」「次にどうすればいいか分からない」と感じる場面があることに課題を感じ、UXデザインに関心を持つようになりました。</p>
-        <p>現在は、ユーザーインタビューやジャーニーマップなどのリサーチと、Figmaでのプロトタイピングを組み合わせながら、仮説検証を前提とした設計に取り組んでいます。単に見た目を整えるのではなく、ユーザーが自然に理解し、納得して次の行動を選べる体験を設計することを大切にしています。</p>
+        <p>UXデザインに関心を持ったきっかけは、業務の中というより、日常生活でサービスを使う中で感じた違和感でした。情報は揃っているのに分かりづらい、選択肢はあるのに次にどうすればいいか迷う。そうした体験を通じて、ユーザーが自然に理解し、納得して行動を選べる体験を設計したいと考えるようになりました。</p>
+        <p>現在は、ユーザーインタビューやジャーニーマップなどのリサーチと、Figmaでのプロトタイピングを組み合わせながら、仮説検証を前提とした設計に取り組んでいます。単に見た目を整えるのではなく、情報の伝わり方や判断のしやすさまで含めて、ユーザーが迷わず行動できる体験を設計することを大切にしています。</p>
       </div>
     </div>
     <div class="about-section fade-up">
@@ -789,19 +799,19 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
       <div class="ds-body"><p>「判断のしやすさ」をコアバリューに、検索・結果一覧・経路詳細・ルート記録の4機能で構成しています。各画面の設計意図は後述の設計判断セクションで詳しく説明しています。</p></div>
       <div class="mockup-row">
         <div class="mockup-item zoomable">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Search-01.png" alt="検索">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Search-01.png" alt="検索" onclick="openLightbox(this.src, '検索')">
           <div class="mockup-label">1. 検索</div>
         </div>
         <div class="mockup-item zoomable">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/SearchResult-01.png" alt="結果一覧">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/SearchResult-01.png" alt="結果一覧" onclick="openLightbox(this.src, '結果一覧')">
           <div class="mockup-label">2. 結果一覧</div>
         </div>
         <div class="mockup-item zoomable">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/RouteInformation-01.png" alt="経路詳細">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/RouteInformation-01.png" alt="経路詳細" onclick="openLightbox(this.src, '経路詳細')">
           <div class="mockup-label">3. 経路詳細</div>
         </div>
         <div class="mockup-item zoomable">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Record-01.png" alt="ルート記録">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Record-01.png" alt="ルート記録" onclick="openLightbox(this.src, 'ルート記録')">
           <div class="mockup-label">4. ルート記録</div>
         </div>
       </div>
@@ -865,7 +875,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         </div>
         <div class="mockup-row" style="margin:0;justify-content:flex-start">
           <div class="mockup-item zoomable">
-            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Search-01.png" alt="検索">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Search-01.png" alt="検索" onclick="openLightbox(this.src, '検索')">
             <div class="mockup-label">検索</div>
           </div>
           <div class="mockup-item zoomable">
@@ -884,11 +894,11 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         </div>
         <div class="mockup-row" style="margin:0;justify-content:flex-start">
           <div class="mockup-item zoomable">
-            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/SearchResult-01.png" alt="結果一覧">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/SearchResult-01.png" alt="結果一覧" onclick="openLightbox(this.src, '結果一覧')">
             <div class="mockup-label">結果一覧</div>
           </div>
           <div class="mockup-item zoomable">
-            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/SearchResult-scroll-01.png" alt="結果一覧（スクロール）">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/SearchResult-scroll-01.png" alt="結果一覧（スクロール）" onclick="openLightbox(this.src, '結果一覧（スクロール）')">
             <div class="mockup-label">マップ表示</div>
           </div>
         </div>
@@ -903,11 +913,11 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         </div>
         <div class="mockup-row" style="margin:0;justify-content:flex-start">
           <div class="mockup-item zoomable">
-            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/RouteInformation-01.png" alt="詳細・ユーザー実績">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/RouteInformation-01.png" alt="詳細・ユーザー実績" onclick="openLightbox(this.src, '詳細・ユーザー実績')">
             <div class="mockup-label">ユーザー実績</div>
           </div>
           <div class="mockup-item zoomable">
-            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/RouteInformation-scroll-01.png" alt="詳細・スクロール">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/RouteInformation-scroll-01.png" alt="詳細・スクロール" onclick="openLightbox(this.src, '詳細・スクロール')">
             <div class="mockup-label">区間詳細</div>
           </div>
         </div>
@@ -930,7 +940,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
             <div class="mockup-label">通知</div>
           </div>
           <div class="mockup-item zoomable">
-            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Record-01.png" alt="ルート記録">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Record-01.png" alt="ルート記録" onclick="openLightbox(this.src, 'ルート記録')">
             <div class="mockup-label">ルート記録</div>
           </div>
           <div class="mockup-item zoomable">
@@ -962,7 +972,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
 </div>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-  <div class="lightbox-inner">
+  <div class="lightbox-inner" id="lightbox-inner">
     <button class="lightbox-close" onclick="closeLightbox()">✕</button>
     <img class="lightbox-img" id="lightbox-img" src="" alt="">
     <div class="lightbox-label" id="lightbox-label"></div>
@@ -970,10 +980,11 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
 </div>
 
 <script>
-function openLightbox(src, label){
+function openLightbox(src, label, wide){
   document.getElementById('lightbox-img').src = src;
   document.getElementById('lightbox-label').textContent = label;
   document.getElementById('lightbox').classList.add('open');
+  document.getElementById('lightbox-inner').classList.toggle('wide', !!wide);
   document.body.style.overflow = 'hidden';
 }
 function closeLightbox(e){
