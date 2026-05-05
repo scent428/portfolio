@@ -12,6 +12,7 @@
   --muted:#666660;--line:#d8d8d0;--line2:#b0b0a8;
   --ampy:#d94f47;--ampy-bg:#fdf1f0;
   --wheel:#652634;--wheel-bg:#f5edef;
+  --react:#6B1E2E;--react-bg:#f5ebec;
   --serif:"Noto Serif JP",serif;--sans:"Noto Sans JP",sans-serif;
   --mono:"DM Mono",monospace;--r:6px;
 }
@@ -114,22 +115,25 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
 .callout{padding:18px 22px;border-radius:var(--r);margin:18px 0;border-left:3px solid}
 .callout.red{border-color:var(--ampy);background:var(--ampy-bg)}
 .callout.dark{border-color:var(--wheel);background:var(--wheel-bg)}
+.callout.react{border-color:var(--react);background:var(--react-bg)}
 .callout.neutral{border-color:var(--line2);background:var(--off)}
 .callout-title{font-size:12px;font-weight:600;margin-bottom:6px}
 .callout p{font-size:13px;color:var(--ink2);margin-bottom:4px;line-height:1.7}
 
 /* PULL QUOTE */
 .pull-quote{margin:28px 0;padding:0 0 0 22px;border-left:2px solid}
-.pull-quote.red{border-color:var(--ampy)}.pull-quote.dark{border-color:var(--wheel)}
+.pull-quote.red{border-color:var(--ampy)}.pull-quote.dark{border-color:var(--wheel)}.pull-quote.react{border-color:var(--react)}
 .pull-quote-text{font-family:var(--serif);font-size:22px;font-weight:500;line-height:1.55}
 
 /* PAIN CARDS */
 .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
 .pain-card{padding:24px 20px;border:2px solid var(--ampy);border-radius:var(--r);background:var(--ampy-bg)}
 .pain-card.wheel{border-color:var(--wheel);background:var(--wheel-bg)}
+.pain-card.react{border-color:var(--react);background:var(--react-bg)}
 .pain-num{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
 .pain-title{font-size:16px;font-weight:700;color:var(--ampy);margin-bottom:10px;line-height:1.4}
 .pain-title.wheel{color:var(--wheel)}
+.pain-title.react{color:var(--react)}
 .pain-reason{font-size:12px;color:var(--muted);margin-bottom:10px;line-height:1.6}
 .pain-why{font-size:12px;color:var(--ink2);padding-top:10px;border-top:1px solid rgba(0,0,0,0.08);line-height:1.6}
 
@@ -268,7 +272,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
 <div class="panel active" id="tab-works">
   <div class="works-panel">
     <div class="works-intro fade-up">
-      <p>リサーチから課題定義、UI設計まで一貫して取り組んだプロジェクトを掲載しています。2案件を通じて、社会課題解決とアクセシビリティという異なるテーマへのアプローチを整理しました。</p>
+      <p>リサーチから課題定義、UI設計まで一貫して取り組んだプロジェクトを掲載しています。3案件を通じて、社会課題解決・アクセシビリティ・エンタメ体験設計という異なるテーマへのアプローチを整理しました。</p>
     </div>
     <div class="works-grid">
       <div class="proj-card fade-up" onclick="openProject('ampy')">
@@ -306,6 +310,26 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
           <div class="proj-card-meta">
             <span class="proj-meta-item">UXリサーチ</span>
             <span class="proj-meta-item">情報設計</span>
+            <span class="proj-meta-item">個人制作</span>
+          </div>
+          <div class="proj-card-cta"><span class="cta-label">ケーススタディを読む</span><span class="cta-arrow">→</span></div>
+        </div>
+      </div>
+      <div class="proj-card fade-up" style="transition-delay:0.16s" onclick="openProject('react')">
+        <div class="proj-card-thumb">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/cover/react_cover.png" alt="Re:ACT">
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-tag-row">
+            <div class="proj-dot" style="background:#6B1E2E"></div>
+            <span class="proj-tag-text">観劇体験記録アプリ</span>
+          </div>
+          <div class="proj-card-title">Re:ACT</div>
+          <div class="proj-card-desc">幕が降りても終わらない、あなたの観劇録。インタビューと複数のHMWから設計した観劇体験記録アプリ。</div>
+          <div class="proj-card-focus">フォーカス：<span>リサーチ / コンセプト設計 / UIデザイン</span></div>
+          <div class="proj-card-meta">
+            <span class="proj-meta-item">UXリサーチ</span>
+            <span class="proj-meta-item">UIデザイン</span>
             <span class="proj-meta-item">個人制作</span>
           </div>
           <div class="proj-card-cta"><span class="cta-label">ケーススタディを読む</span><span class="cta-arrow">→</span></div>
@@ -964,6 +988,311 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
           <li>「区間表示」vs「全体表示」のA/Bテストで判断コストの変化を測定する</li>
           <li>通過実績データ蓄積後にユーザビリティテストを実施し「判断できた」体験を測定する</li>
           <li>視覚障害・高齢者など他のアクセシビリティニーズへの応用可能性を検討する</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════ PROJECT: react ════ -->
+<div class="detail-panel" id="proj-react">
+  <div class="detail-header">
+    <button class="back-btn" onclick="closeProject()">← 戻る</button>
+    <span class="detail-breadcrumb">作品集 / <span>Re:ACT</span></span>
+  </div>
+  <div class="detail-hero">
+    <div class="detail-eyebrow">
+      <div class="proj-dot" style="background:#6B1E2E;width:7px;height:7px;border-radius:50%"></div>
+      <span style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)">観劇体験記録アプリ</span>
+    </div>
+    <div class="detail-title">Re:ACT</div>
+    <div class="detail-subtitle">幕が降りても終わらない、あなたの観劇録。</div>
+    <div class="detail-meta-bar">
+      <div class="dmeta"><div class="dmeta-key">担当領域</div><div class="dmeta-val">UXリサーチ・インタビュー分析・コンセプト設計・UIデザイン</div></div>
+      <div class="dmeta"><div class="dmeta-key">形式</div><div class="dmeta-val">個人制作</div></div>
+      <div class="dmeta"><div class="dmeta-key">ツール</div><div class="dmeta-val">Figma / FigJam</div></div>
+    </div>
+  </div>
+  <div class="detail-body">
+
+    <!-- 完成プロトタイプ -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>完成プロトタイプ</span></div>
+      <div class="ds-body"><p>公演情報・写真・感想を1つの体験として記録・保存する観劇記録アプリ。記録一覧・チケット詳細・新規登録の3画面で構成しています。</p></div>
+      <div class="mockup-row">
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_TicketAll.png" alt="記録一覧" onclick="openLightbox(this.src, '記録一覧')">
+          <div class="mockup-label">記録一覧</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_TicketDetail.png" alt="チケット詳細" onclick="openLightbox(this.src, 'チケット詳細')">
+          <div class="mockup-label">チケット詳細</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_TixketRegist.png" alt="新規登録" onclick="openLightbox(this.src, '新規登録')">
+          <div class="mockup-label">新規登録</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_TicketRegistEdited.png" alt="新規登録（記入済）" onclick="openLightbox(this.src, '新規登録（記入済）')">
+          <div class="mockup-label">新規登録（記入済）</div>
+        </div>
+      </div>
+      <a class="figma-btn" href="https://www.figma.com/proto/veUIAYpLvFxePCGim6m0zB/%E7%84%A1%E9%A1%8C?node-id=593-388&t=paC81TXkbr7R1sWz-1" target="_blank" rel="noopener">▶ Figmaでプロトタイプを見る</a>
+    </div>
+
+    <!-- テーマ -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>テーマ</span></div>
+      <div class="pull-quote react">
+        <div class="pull-quote-text">"観劇後は感動の余韻があるのに、<br>情報が分散して後から振り返りにくい。"</div>
+      </div>
+      <div class="ds-body">
+        <p>写真・SNS・チケット・メモが別々の場所に存在し、1つの体験としてまとまって残らない——これが出発点でした。観劇記録のアプリや手帳は存在するものの、「後から自然に思い出す体験」を設計しているプロダクトは少ない。感情が冷める前に記録でき、後から余韻ごと振り返れる体験を設計することを目指しました。</p>
+      </div>
+      <div class="card-2" style="margin-top:20px">
+        <div class="mini-card">
+          <div class="mini-card-head" style="color:var(--muted)">AS-IS</div>
+          <div class="mini-card-body">観劇後は楽しかった気持ちがあるが、記録は面倒で後回しになる。写真やチケット、感想は別々の場所に残り、後から振り返りたくても情報やその時の感情を思い出しにくい。</div>
+        </div>
+        <div class="mini-card" style="border-color:var(--react);background:var(--react-bg)">
+          <div class="mini-card-head" style="color:var(--react)">TO-BE</div>
+          <div class="mini-card-body">観劇後、ユーザーは自然な流れで観劇体験を記録できる。公演情報・写真・感想が1つにまとまって保存され、後から見返した時に情報確認だけでなく、余韻まで自然に思い出せる体験設計。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 調査 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>調査 — ユーザーインタビュー</span></div>
+      <div class="ds-body">
+        <p>観劇・ライブ体験のある3名にインタビューを実施。「今どのように記録しているか」「何が残せていないか」を軸に、行動と感情の実態を探りました。</p>
+        <p style="font-family:var(--mono);font-size:11px;color:var(--muted)">実施人数：3名　形式：対面インタビュー</p>
+      </div>
+      <div class="img-full fade-up">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/Interview.png" alt="インタビュー結果" onclick="openLightbox(this.src, 'インタビュー結果', true)" style="cursor:zoom-in">
+        <div class="img-cap">インタビュー結果・インサイト整理</div>
+      </div>
+      <div class="pain-grid" style="margin-top:28px">
+        <div class="pain-card react">
+          <div class="pain-num">Finding 01</div>
+          <div class="pain-title react">チケット保管の価値観が変わっている</div>
+          <div class="pain-reason">「昔はチケットを貯めていたけど、今はデジタルチケットが増えて取っておく価値を感じない」。一方で「チケットを見返すのは楽しい」という声も。</div>
+          <div class="pain-why">保管手段が変わったことで体験が途切れている。</div>
+        </div>
+        <div class="pain-card react">
+          <div class="pain-num">Finding 02</div>
+          <div class="pain-title react">写真はあるが「ひとまとまり」がない</div>
+          <div class="pain-reason">「写真で残してあるからチケットは別にいらない」と言いながらも、「どこに何があるか分からなくなる」状況が各自に起きている。</div>
+          <div class="pain-why">情報は存在するが、体験として統合されていない。</div>
+        </div>
+        <div class="pain-card react">
+          <div class="pain-num">Finding 03</div>
+          <div class="pain-title react">細かいエピソードを残したい</div>
+          <div class="pain-reason">「細かいエピソードとかも残しておきたい。それも含めてライブの記憶だから」。SNSやメモでは拾いきれない記録の場所が求められている。</div>
+          <div class="pain-why">感情と情報を一緒に残せる場所がない。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CJM -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>分析 — カスタマージャーニーマップ（AS-IS）</span></div>
+      <div class="ds-body">
+        <p>インタビューをもとに、観劇3ヶ月前〜次の観劇予約までのAS-IS旅程を作成。「観劇当日の見た日の寝る前」フェーズで感想を記録・共有したい欲求が発生するが、余韻が冷めてしまう前にというタイミングを逃すことが多いことを確認しました。</p>
+      </div>
+      <div class="img-full">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/CJM.png" alt="CJM（AS-IS）" onclick="openLightbox(this.src, 'CJM（AS-IS）', true)" style="cursor:zoom-in">
+        <div class="img-cap">カスタマージャーニーマップ（AS-IS）— 観劇3ヶ月前〜次の観劇予約まで</div>
+      </div>
+    </div>
+
+    <!-- HMW -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>課題定義 — HMW</span></div>
+      <div class="ds-body">
+        <p>CJMとインタビューで確認したペインを「どうすれば〜できるか？」の問いかけに変換。3つのHMWを導出し、取り組むべき2軸を選定しました。</p>
+      </div>
+      <div class="img-full">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/HMW.png" alt="HMW" onclick="openLightbox(this.src, 'HMW', true)" style="cursor:zoom-in">
+        <div class="img-cap">HMW — ペインを問いかけに変換してアイデアを発散</div>
+      </div>
+      <div class="card-2" style="margin-top:20px">
+        <div class="mini-card" style="border-color:var(--react);background:var(--react-bg)">
+          <div class="mini-card-head" style="color:var(--react)">HMW 1</div>
+          <div class="mini-card-body">どうすれば、ペルソナは<strong>記録行為を集めたくなる楽しい体験</strong>にできる？</div>
+        </div>
+        <div class="mini-card" style="border-color:var(--react);background:var(--react-bg)">
+          <div class="mini-card-head" style="color:var(--react)">HMW 2</div>
+          <div class="mini-card-body">どうすれば<strong>観劇情報をひとまとまりの体験</strong>として思い出せるか？</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- アイデア発散 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>アイデア発散</span></div>
+      <div class="ds-body">
+        <p>2つのHMWに対し機能アイデアをスケッチ。「記録を楽しくする」軸ではコレクション体験・タスク達成感・アルバム化、「情報をまとめる」軸ではカレンダー・写真連携などのアイデアが出ました。ストーリーボードでは「観劇で感動 → 帰宅後アプリを開く → 記録 → 数日後に振り返って共有」という8コマのシナリオで体験を具体化しました。</p>
+      </div>
+      <div class="img-2up">
+        <div class="img-block">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/Idea02.png" alt="アイデアスケッチ" onclick="openLightbox(this.src, 'アイデアスケッチ', true)" style="cursor:zoom-in">
+          <div class="img-cap">アイデアスケッチ（HMW別）</div>
+        </div>
+        <div class="img-block">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/StoryBoard.png" alt="ストーリーボード" onclick="openLightbox(this.src, 'ストーリーボード', true)" style="cursor:zoom-in">
+          <div class="img-cap">ストーリーボード（8コマ）</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- USM -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>設計 — ユーザーストーリーマップ</span></div>
+      <div class="ds-body">
+        <p>アイデアを機能に落とし込むため、行動フローを5段階に分解。各段階に必要な機能を「必須 / 入れたい / MVPではない」で優先度を整理しました。</p>
+      </div>
+      <div class="img-full">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/USM.png" alt="ユーザーストーリーマップ" onclick="openLightbox(this.src, 'ユーザーストーリーマップ', true)" style="cursor:zoom-in">
+        <div class="img-cap">ユーザーストーリーマップ — 行動フロー5段階と機能優先度</div>
+      </div>
+      <div class="step-flow" style="margin-top:16px">
+        <div class="step-item"><div class="step-n">01</div><div class="step-t">観劇後に記録を始める</div></div>
+        <div class="step-item"><div class="step-n">02</div><div class="step-t">公演情報をまとめる</div></div>
+        <div class="step-item"><div class="step-n">03</div><div class="step-t">観劇情報を残す</div></div>
+        <div class="step-item"><div class="step-n">04</div><div class="step-t">思い出を保存する</div></div>
+        <div class="step-item"><div class="step-n">05</div><div class="step-t">後から見返す</div></div>
+      </div>
+    </div>
+
+    <!-- サービスビジョン -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>サービスビジョン・リーンキャンバス</span></div>
+      <div class="ds-body">
+        <p>「観劇体験をコレクションする記録アプリ」というハイレベルコンセプトのもと、3年後に実現したいサービスビジョンとリーンキャンバスを作成しました。写真フォルダやSNS・紙のチケット保管と異なり、公演情報と感情の記録を一つにまとめ、後から自然に思い出せる見返し体験に強みを持つプロダクトとして定義しています。</p>
+      </div>
+      <div class="img-full">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/ServiceVision_LeanCanvas.png" alt="サービスビジョン・リーンキャンバス" onclick="openLightbox(this.src, 'サービスビジョン・リーンキャンバス', true)" style="cursor:zoom-in">
+        <div class="img-cap">サービスビジョン・リーンキャンバス</div>
+      </div>
+    </div>
+
+    <!-- ワイヤーフレーム -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>ワイヤーフレーム — 一覧表示5パターンの探索</span></div>
+      <div class="ds-body">
+        <p>「記録を見返す体験」の設計にあたり、一覧画面の表示形式を5パターンで検討しました。チケットという物理メディアをどのようにデジタルに昇華させるか、情報優先度と視覚的な楽しさのバランスを意識しました。</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card-imgs">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/wireframe/AlbumPattern_01_TicketHolder.png" alt="Pattern 01" onclick="openLightbox(this.src, 'Pattern 01 チケットホルダー型')" style="cursor:zoom-in">
+          </div>
+          <div class="feature-card-body">
+            <div class="feature-card-title">01. チケットホルダー型</div>
+            <div class="feature-card-desc">左インデックス＋スタック表示。月別グループで日付を強調。</div>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-imgs">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/wireframe/AlbumPattern_02_TicketToguro.png" alt="Pattern 02" onclick="openLightbox(this.src, 'Pattern 02 チケット型')" style="cursor:zoom-in">
+          </div>
+          <div class="feature-card-body">
+            <div class="feature-card-title">02. チケット型</div>
+            <div class="feature-card-desc">ミシン目ありの本物チケット風。左右にスクロール。</div>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-imgs">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/wireframe/AlbumPattern_03_TicketOver.png" alt="Pattern 03" onclick="openLightbox(this.src, 'Pattern 03 重ね表示型')" style="cursor:zoom-in">
+          </div>
+          <div class="feature-card-body">
+            <div class="feature-card-title">03. 重ね表示型</div>
+            <div class="feature-card-desc">カードが奥行きをもって重なる。コレクション感を演出。</div>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-imgs">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/wireframe/AlbumPattern_04_Album.png" alt="Pattern 04" onclick="openLightbox(this.src, 'Pattern 04 アルバム型')" style="cursor:zoom-in">
+          </div>
+          <div class="feature-card-body">
+            <div class="feature-card-title">04. アルバム型</div>
+            <div class="feature-card-desc">写真をサムネ表示するリスト。視覚的な記憶を手がかりに。</div>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-imgs">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/wireframe/AlbumPattern_05_TicketGrid.png" alt="Pattern 05" onclick="openLightbox(this.src, 'Pattern 05 グリッド型')" style="cursor:zoom-in">
+          </div>
+          <div class="feature-card-body">
+            <div class="feature-card-title">05. グリッド型</div>
+            <div class="feature-card-desc">情報量を抑えたコンパクト一覧。全体俯瞰に適している。</div>
+          </div>
+        </div>
+      </div>
+      <div class="callout react" style="margin-top:8px">
+        <div class="callout-title">採用パターンとその理由</div>
+        <p>最終的に日付スタブ＋月別グループのリスト型（01案ベース）を採用。観劇記録において「いつ観たか」は「何を観たか」と同等に重要な検索キーになるという判断から、日付を視覚的に強調する左スタブ構造を軸にしました。</p>
+      </div>
+      <div class="img-2up" style="margin-top:20px">
+        <div class="img-block">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/wireframe/ticketRegist.png" alt="登録画面ワイヤー" onclick="openLightbox(this.src, '登録画面ワイヤー')" style="cursor:zoom-in">
+          <div class="img-cap">登録画面ワイヤー</div>
+        </div>
+        <div class="img-block">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/wireframe/ticketDetail.png" alt="詳細画面ワイヤー" onclick="openLightbox(this.src, '詳細画面ワイヤー')" style="cursor:zoom-in">
+          <div class="img-cap">詳細画面ワイヤー</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 思考の軌跡 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>思考の軌跡 — デザイン判断の記録</span></div>
+      <div class="ds-body">
+        <p>ビジュアルデザインは「ワインレッド×半券構造」という方向性から始まり、複数案の探索・統合・転換を経て現在の形に至りました。単に「良いデザイン」を目指すのではなく、ユーザーシナリオに立ち返ることで判断の軸を維持した過程を記録しています。</p>
+      </div>
+      <div class="insight-box" style="margin-bottom:20px">
+        <div class="insight-box-title">Critical Turn ★ — 最も重要な転換点</div>
+        <div class="insight-box-body">Figmaで実装された画面を見た時点で「ペルソナから離れていないか、高級感を持たせたい気持ちが先行している」という違和感が生まれました。自問したのは「帰りの電車でふと息をついた頃に開く、このデザインは自然に開けるか？」——答えはNoでした。高級感を「捨てる」のではなく「<strong style="color:rgba(255,255,255,0.9)">主役をコンテンツに戻す</strong>」という整理でリセット。デザインの「入口の重さ」は記録継続率に直結するという教訓を得ました。</div>
+      </div>
+      <div class="decision-grid">
+        <div class="decision-item">
+          <div class="decision-label">Phase 1-3 — 探索と収束</div>
+          <div class="decision-body">A案（ワインレッド×半券）・B案（ネオン）・C案（活版×深緑）の3案でトーン探索。B案を早期除外し、C案の質感＋A案の構造を統合した案Fとして詳細設計へ進む。</div>
+        </div>
+        <div class="decision-item">
+          <div class="decision-label">Phase 4 — 転換</div>
+          <div class="decision-body">「重たい」という気づきから方向転換。高級感よりコンテンツを主役に戻す整理でベースをリセット。</div>
+        </div>
+        <div class="decision-item">
+          <div class="decision-label">Phase 5 — 再考</div>
+          <div class="decision-body">「ワインレッドは私の好みかもしれない」という問いを立て、グレー・ブルー・テラコッタ・グリーンの4色案で検証。カードの構造が共通していればアクセントカラーは交換可能と確認。</div>
+        </div>
+        <div class="decision-item">
+          <div class="decision-label">Phase 6 — 現在地</div>
+          <div class="decision-body">完成度は上がったが未解決の問いも残る。月グルーパーの存在感・開きやすさとの両立・様々なジャンルの公演との共存が次の検証課題。</div>
+        </div>
+      </div>
+      <div style="margin-top:20px">
+        <a class="figma-btn" href="react_thinking_journal.html" target="_blank" rel="noopener" style="background:var(--react)">思考の軌跡を全文で読む →</a>
+      </div>
+    </div>
+
+    <!-- 学びと今後 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>学びと今後</span></div>
+      <div class="ds-body">
+        <p>今回のプロセスを通じて繰り返し問われたのは、「デザインの見た目の良さ」と「使われるシーンとの合致」は別軸であるということでした。記録系アプリにとって「入口の重さ」は継続率に直結し、感情が冷める前に記録するというコアバリューを守るためには、開きやすさを格調よりも優先する判断が必要でした。</p>
+      </div>
+      <div class="next-step">
+        <div class="next-step-title">今後のステップ</div>
+        <ul>
+          <li>実際の観劇ファンユーザーへのユーザビリティテストを実施し、「余韻ごと振り返れる体験」が設計意図通りに伝わっているか検証する</li>
+          <li>ワインレッドをアプリカラーとして固定した場合に、様々なジャンルの公演記録が並ぶ画面での違和感がないか実コンテンツで確認する</li>
+          <li>月グルーパーの視認性・開きやすさとブランド感の両立について、A/Bテストで検証する</li>
         </ul>
       </div>
     </div>
