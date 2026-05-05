@@ -1017,26 +1017,37 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
   </div>
   <div class="detail-body">
 
+    <!-- 制作プロセス -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>制作プロセス</span></div>
+      <div class="img-full">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/slides/react_process.png" alt="制作プロセス" onclick="openLightbox(this.src, '制作プロセス', true)" style="cursor:zoom-in">
+      </div>
+    </div>
+
     <!-- 完成プロトタイプ -->
     <div class="ds fade-up">
       <div class="ds-label"><span>完成プロトタイプ</span></div>
-      <div class="ds-body"><p>公演情報・写真・感想を1つの体験として記録・保存する観劇記録アプリ。記録一覧・チケット詳細・新規登録の3画面で構成しています。</p></div>
+      <div class="ds-body">
+        <p>公演情報・写真・感想を1つの体験として記録・保存する観劇記録アプリ。</p>
+        <p>記録一覧・チケット詳細・新規登録（空・記入済）の3画面構成で、登録から見返しまでの一連の流れを設計しています。</p>
+      </div>
       <div class="mockup-row">
         <div class="mockup-item zoomable">
           <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_TicketAll.png" alt="記録一覧" onclick="openLightbox(this.src, '記録一覧')">
-          <div class="mockup-label">記録一覧</div>
+          <div class="mockup-label" style="color:var(--ink2);font-size:12px;font-weight:500">記録一覧</div>
         </div>
         <div class="mockup-item zoomable">
           <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_TicketDetail.png" alt="チケット詳細" onclick="openLightbox(this.src, 'チケット詳細')">
-          <div class="mockup-label">チケット詳細</div>
+          <div class="mockup-label" style="color:var(--ink2);font-size:12px;font-weight:500">チケット詳細</div>
         </div>
         <div class="mockup-item zoomable">
           <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_TixketRegist.png" alt="新規登録" onclick="openLightbox(this.src, '新規登録')">
-          <div class="mockup-label">新規登録</div>
+          <div class="mockup-label" style="color:var(--ink2);font-size:12px;font-weight:500">新規登録</div>
         </div>
         <div class="mockup-item zoomable">
           <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_TicketRegistEdited.png" alt="新規登録（記入済）" onclick="openLightbox(this.src, '新規登録（記入済）')">
-          <div class="mockup-label">新規登録（記入済）</div>
+          <div class="mockup-label" style="color:var(--ink2);font-size:12px;font-weight:500">新規登録（記入済）</div>
         </div>
       </div>
       <a class="figma-btn" href="https://www.figma.com/proto/veUIAYpLvFxePCGim6m0zB/%E7%84%A1%E9%A1%8C?node-id=593-388&t=paC81TXkbr7R1sWz-1" target="_blank" rel="noopener">▶ Figmaでプロトタイプを見る</a>
@@ -1046,10 +1057,12 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
     <div class="ds fade-up">
       <div class="ds-label"><span>テーマ</span></div>
       <div class="pull-quote react">
-        <div class="pull-quote-text">"観劇後は感動の余韻があるのに、<br>情報が分散して後から振り返りにくい。"</div>
+        <div class="pull-quote-text">"せっかく観た舞台の記憶や感動が、<br>いつの間にか分散して消えていく。"</div>
       </div>
       <div class="ds-body">
-        <p>写真・SNS・チケット・メモが別々の場所に存在し、1つの体験としてまとまって残らない——これが出発点でした。観劇記録のアプリや手帳は存在するものの、「後から自然に思い出す体験」を設計しているプロダクトは少ない。感情が冷める前に記録でき、後から余韻ごと振り返れる体験を設計することを目指しました。</p>
+        <p>写真・SNS・チケット・メモが別々の場所に存在し、1つの体験としてまとまって残らない——これが出発点でした。</p>
+        <p>観劇記録のアプリや手帳は存在するものの、「後から自然に思い出す体験」を設計しているプロダクトは少ない。</p>
+        <p>感情が冷める前に記録でき、後から余韻ごと振り返れる体験を設計することを目指しました。</p>
       </div>
       <div class="card-2" style="margin-top:20px">
         <div class="mini-card">
@@ -1066,9 +1079,14 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
     <!-- 調査 -->
     <div class="ds fade-up">
       <div class="ds-label"><span>調査 — ユーザーインタビュー</span></div>
+      <div class="step-flow" style="margin-bottom:20px">
+        <div class="step-item"><div class="step-n">実施人数</div><div class="step-t">3名</div></div>
+        <div class="step-item"><div class="step-n">形式</div><div class="step-t">対面インタビュー</div></div>
+        <div class="step-item"><div class="step-n">対象</div><div class="step-t">観劇・ライブ体験のある方</div></div>
+        <div class="step-item"><div class="step-n">主な設問軸</div><div class="step-t">記録方法・残せていないもの</div></div>
+      </div>
       <div class="ds-body">
-        <p>観劇・ライブ体験のある3名にインタビューを実施。「今どのように記録しているか」「何が残せていないか」を軸に、行動と感情の実態を探りました。</p>
-        <p style="font-family:var(--mono);font-size:11px;color:var(--muted)">実施人数：3名　形式：対面インタビュー</p>
+        <p>「今どのように記録しているか」「何が残せていないか」を軸に、行動と感情の実態を探りました。</p>
       </div>
       <div class="img-full fade-up">
         <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/Interview.png" alt="インタビュー結果" onclick="openLightbox(this.src, 'インタビュー結果', true)" style="cursor:zoom-in">
@@ -1096,6 +1114,30 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
       </div>
     </div>
 
+    <!-- ペルソナ -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>分析 — ペルソナ設定</span></div>
+      <div class="ds-body">
+        <p>インタビュー結果をもとに、ターゲットユーザーを整理しました。</p>
+        <p>「最近舞台にハマったアラサー女性」という案も検討しましたが、「そういう人は観劇を記録したくなりますか？　元々、自分のペインが起点だからずれてきた気がする」という問い直しが起きました。</p>
+        <p>「見た目に合う人」ではなく「本当に記録したくなる人」に戻すことを決め、最終的に自分に近い観劇好きをペルソナとして設定しました。</p>
+      </div>
+      <div class="card-3" style="margin-top:4px">
+        <div class="mini-card" style="border-color:var(--react);background:var(--react-bg)">
+          <div class="mini-card-head" style="color:var(--react)">同じ作品を複数回観る</div>
+          <div class="mini-card-body">お気に入りの演目は繰り返し観劇する。回ごとの違いや気づきを残したい。</div>
+        </div>
+        <div class="mini-card" style="border-color:var(--react);background:var(--react-bg)">
+          <div class="mini-card-head" style="color:var(--react)">過去の観劇履歴を見返したい</div>
+          <div class="mini-card-body">「あの公演いつだっけ」を後から確認したい。時系列でまとまっていてほしい。</div>
+        </div>
+        <div class="mini-card" style="border-color:var(--react);background:var(--react-bg)">
+          <div class="mini-card-head" style="color:var(--react)">チケット・写真・感想を残したい</div>
+          <div class="mini-card-body">観劇を構成する要素を一箇所にまとめて、体験として保存しておきたい。</div>
+        </div>
+      </div>
+    </div>
+
     <!-- CJM -->
     <div class="ds fade-up">
       <div class="ds-label"><span>分析 — カスタマージャーニーマップ（AS-IS）</span></div>
@@ -1112,20 +1154,37 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
     <div class="ds fade-up">
       <div class="ds-label"><span>課題定義 — HMW</span></div>
       <div class="ds-body">
-        <p>CJMとインタビューで確認したペインを「どうすれば〜できるか？」の問いかけに変換。3つのHMWを導出し、取り組むべき2軸を選定しました。</p>
+        <p>インタビューとCJMで確認した主なペインは以下の3点でした。</p>
+      </div>
+      <div class="card-3" style="margin-bottom:28px">
+        <div class="mini-card">
+          <div class="mini-card-head">チケットが手元に残らない</div>
+          <div class="mini-card-body">デジタル化でチケットを保管する機会が減り、観劇の記録が手元に残りにくくなった。</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-head">情報がバラバラに存在する</div>
+          <div class="mini-card-body">写真・メモ・SNS投稿が分散し、後から「あの時の観劇」として一括で振り返れない。</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-head">記録する気力がなくなる</div>
+          <div class="mini-card-body">観劇後は疲れていて記録が面倒になり、感情が冷めると記録する動機自体が失われる。</div>
+        </div>
+      </div>
+      <div class="ds-body">
+        <p>このペインを「どうすれば〜できるか？」の問いかけに変換し、取り組むべき2軸のHMWを選定しました。</p>
       </div>
       <div class="img-full">
         <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/HMW.png" alt="HMW" onclick="openLightbox(this.src, 'HMW', true)" style="cursor:zoom-in">
         <div class="img-cap">HMW — ペインを問いかけに変換してアイデアを発散</div>
       </div>
-      <div class="card-2" style="margin-top:20px">
-        <div class="mini-card" style="border-color:var(--react);background:var(--react-bg)">
-          <div class="mini-card-head" style="color:var(--react)">HMW 1</div>
-          <div class="mini-card-body">どうすれば、ペルソナは<strong>記録行為を集めたくなる楽しい体験</strong>にできる？</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px">
+        <div style="padding:24px 22px;background:var(--react);border-radius:var(--r)">
+          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-bottom:10px">HMW 1</div>
+          <div style="font-family:var(--serif);font-size:18px;font-weight:500;color:#fff;line-height:1.55">どうすれば、ペルソナは<br>記録行為を<br>集めたくなる楽しい体験<br>にできる？</div>
         </div>
-        <div class="mini-card" style="border-color:var(--react);background:var(--react-bg)">
-          <div class="mini-card-head" style="color:var(--react)">HMW 2</div>
-          <div class="mini-card-body">どうすれば<strong>観劇情報をひとまとまりの体験</strong>として思い出せるか？</div>
+        <div style="padding:24px 22px;background:var(--react);border-radius:var(--r)">
+          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-bottom:10px">HMW 2</div>
+          <div style="font-family:var(--serif);font-size:18px;font-weight:500;color:#fff;line-height:1.55">どうすれば観劇情報を<br>ひとまとまりの体験<br>として思い出せるか？</div>
         </div>
       </div>
     </div>
@@ -1134,17 +1193,43 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
     <div class="ds fade-up">
       <div class="ds-label"><span>アイデア発散</span></div>
       <div class="ds-body">
-        <p>2つのHMWに対し機能アイデアをスケッチ。「記録を楽しくする」軸ではコレクション体験・タスク達成感・アルバム化、「情報をまとめる」軸ではカレンダー・写真連携などのアイデアが出ました。ストーリーボードでは「観劇で感動 → 帰宅後アプリを開く → 記録 → 数日後に振り返って共有」という8コマのシナリオで体験を具体化しました。</p>
+        <p>2つのHMWに対し、それぞれ独立したスケッチでアイデアを発散しました。</p>
       </div>
-      <div class="img-2up">
-        <div class="img-block">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/Idea02.png" alt="アイデアスケッチ" onclick="openLightbox(this.src, 'アイデアスケッチ', true)" style="cursor:zoom-in">
-          <div class="img-cap">アイデアスケッチ（HMW別）</div>
+
+      <div style="margin-bottom:32px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <span style="background:var(--react);color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:0.08em;padding:4px 12px;border-radius:3px">HMW 1</span>
+          <span style="font-size:14px;font-weight:600;color:var(--ink)">「記録行為を集めたくなる楽しい体験にする」軸</span>
         </div>
-        <div class="img-block">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/StoryBoard.png" alt="ストーリーボード" onclick="openLightbox(this.src, 'ストーリーボード', true)" style="cursor:zoom-in">
-          <div class="img-cap">ストーリーボード（8コマ）</div>
+        <div class="ds-body" style="margin-bottom:12px">
+          <p>コレクション体験・タスク達成感・アルバム化など、記録すること自体を楽しくするアイデアを探りました。</p>
         </div>
+        <div class="img-full">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/HowMigithWe_01.png" alt="HMW1 アイデアスケッチ" onclick="openLightbox(this.src, 'HMW1 アイデアスケッチ', true)" style="cursor:zoom-in">
+          <div class="img-cap">HMW 1 — 記録を楽しくするアイデアスケッチ</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:32px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <span style="background:var(--react);color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:0.08em;padding:4px 12px;border-radius:3px">HMW 2</span>
+          <span style="font-size:14px;font-weight:600;color:var(--ink)">「観劇情報をひとまとまりに保存する」軸</span>
+        </div>
+        <div class="ds-body" style="margin-bottom:12px">
+          <p>カレンダー・アルバム・写真連携など、情報を1箇所に統合するアイデアを探りました。</p>
+        </div>
+        <div class="img-full">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/HowMightWe__02.png" alt="HMW2 アイデアスケッチ" onclick="openLightbox(this.src, 'HMW2 アイデアスケッチ', true)" style="cursor:zoom-in">
+          <div class="img-cap">HMW 2 — 観劇情報をまとめるアイデアスケッチ</div>
+        </div>
+      </div>
+
+      <div class="ds-body">
+        <p>ストーリーボードでは「観劇で感動 → 帰宅後アプリを開く → 記録 → 数日後に振り返って共有」という8コマのシナリオで体験を具体化しました。</p>
+      </div>
+      <div class="img-full">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/StoryBoard.png" alt="ストーリーボード" onclick="openLightbox(this.src, 'ストーリーボード', true)" style="cursor:zoom-in">
+        <div class="img-cap">ストーリーボード（8コマ）</div>
       </div>
     </div>
 
@@ -1234,16 +1319,19 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
       </div>
       <div class="callout react" style="margin-top:8px">
         <div class="callout-title">採用パターンとその理由</div>
-        <p>最終的に日付スタブ＋月別グループのリスト型（01案ベース）を採用。観劇記録において「いつ観たか」は「何を観たか」と同等に重要な検索キーになるという判断から、日付を視覚的に強調する左スタブ構造を軸にしました。</p>
+        <p>最終的にアルバム型（Pattern 04）をベースに、日付スタブ＋月別グループの構造を加えたリスト型を採用しました。「いつ観たか」という日付情報を最優先にしつつ、写真サムネで記憶を手がかりに振り返れる点が、見返し体験の設計意図に最も合致していました。</p>
       </div>
-      <div class="img-2up" style="margin-top:20px">
+      <div class="ds-body" style="margin-top:24px">
+        <p>一覧表示の検討と並行して、登録〜詳細閲覧の画面構成もワイヤーで整理しました。</p>
+      </div>
+      <div class="img-2up" style="margin-top:12px">
         <div class="img-block">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/wireframe/ticketRegist.png" alt="登録画面ワイヤー" onclick="openLightbox(this.src, '登録画面ワイヤー')" style="cursor:zoom-in">
-          <div class="img-cap">登録画面ワイヤー</div>
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/wireframe/ticketRegist.png" alt="チケット登録ワイヤー" onclick="openLightbox(this.src, 'チケット登録ワイヤー')" style="cursor:zoom-in">
+          <div class="img-cap">チケット登録画面 — 公演名・日時・会場・写真・座席・感想</div>
         </div>
         <div class="img-block">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/wireframe/ticketDetail.png" alt="詳細画面ワイヤー" onclick="openLightbox(this.src, '詳細画面ワイヤー')" style="cursor:zoom-in">
-          <div class="img-cap">詳細画面ワイヤー</div>
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/wireframe/ticketDetail.png" alt="チケット詳細ワイヤー" onclick="openLightbox(this.src, 'チケット詳細ワイヤー')" style="cursor:zoom-in">
+          <div class="img-cap">チケット詳細画面 — 登録情報の確認・編集起点</div>
         </div>
       </div>
     </div>
