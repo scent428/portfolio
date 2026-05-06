@@ -1030,7 +1030,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
       <div class="ds-label"><span>完成プロトタイプ</span></div>
       <div class="ds-body">
         <p>公演情報・写真・感想を1つの体験として記録・保存する観劇記録アプリ。</p>
-        <p>記録一覧・チケット詳細・新規登録（空・記入済）の3画面構成で、登録から見返しまでの一連の流れを設計しています。</p>
+        <p>記録一覧・チケット詳細・新規登録の3画面構成で、登録から見返しまでの一連の流れを設計しています。</p>
       </div>
       <div class="mockup-row">
         <div class="mockup-item zoomable">
@@ -1044,10 +1044,6 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <div class="mockup-item zoomable">
           <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_TixketRegist.png" alt="新規登録" onclick="openLightbox(this.src, '新規登録')">
           <div class="mockup-label" style="color:var(--ink2);font-size:12px;font-weight:500">新規登録</div>
-        </div>
-        <div class="mockup-item zoomable">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_TicketRegistEdited.png" alt="新規登録（記入済）" onclick="openLightbox(this.src, '新規登録（記入済）')">
-          <div class="mockup-label" style="color:var(--ink2);font-size:12px;font-weight:500">新規登録（記入済）</div>
         </div>
       </div>
       <a class="figma-btn" href="https://www.figma.com/proto/veUIAYpLvFxePCGim6m0zB/%E7%84%A1%E9%A1%8C?node-id=593-388&t=paC81TXkbr7R1sWz-1" target="_blank" rel="noopener">▶ Figmaでプロトタイプを見る</a>
@@ -1122,7 +1118,11 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <p>「最近舞台にハマったアラサー女性」という案も検討しましたが、「そういう人は観劇を記録したくなりますか？　元々、自分のペインが起点だからずれてきた気がする」という問い直しが起きました。</p>
         <p>「見た目に合う人」ではなく「本当に記録したくなる人」に戻すことを決め、最終的に自分に近い観劇好きをペルソナとして設定しました。</p>
       </div>
-      <div class="card-3" style="margin-top:4px">
+      <div class="img-full">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/slides/persona.png" alt="ペルソナ" onclick="openLightbox(this.src, 'ペルソナ（初期）', true)" style="cursor:zoom-in">
+        <div class="img-cap">ペルソナ — 大原由紀（26歳・会社員）</div>
+      </div>
+      <div class="card-3" style="margin-top:20px">
         <div class="mini-card" style="border-color:var(--react);background:var(--react-bg)">
           <div class="mini-card-head" style="color:var(--react)">同じ作品を複数回観る</div>
           <div class="mini-card-body">お気に入りの演目は繰り返し観劇する。回ごとの違いや気づきを残したい。</div>
@@ -1178,13 +1178,13 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <div class="img-cap">HMW — ペインを問いかけに変換してアイデアを発散</div>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px">
-        <div style="padding:24px 22px;background:var(--react);border-radius:var(--r)">
-          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-bottom:10px">HMW 1</div>
-          <div style="font-family:var(--serif);font-size:18px;font-weight:500;color:#fff;line-height:1.55">どうすれば、ペルソナは<br>記録行為を<br>集めたくなる楽しい体験<br>にできる？</div>
+        <div style="padding:24px 22px;border:2px solid var(--react);border-radius:var(--r);background:var(--react-bg)">
+          <div style="font-family:var(--mono);font-size:12px;letter-spacing:0.1em;color:var(--react);font-weight:600;margin-bottom:12px">HMW 1</div>
+          <div style="font-family:var(--serif);font-size:17px;font-weight:500;color:var(--ink);line-height:1.65">どうすれば、ペルソナは<br><strong style="color:var(--react)">記録行為を集めたくなる<br>楽しい体験</strong>にできる？</div>
         </div>
-        <div style="padding:24px 22px;background:var(--react);border-radius:var(--r)">
-          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-bottom:10px">HMW 2</div>
-          <div style="font-family:var(--serif);font-size:18px;font-weight:500;color:#fff;line-height:1.55">どうすれば観劇情報を<br>ひとまとまりの体験<br>として思い出せるか？</div>
+        <div style="padding:24px 22px;border:2px solid var(--react);border-radius:var(--r);background:var(--react-bg)">
+          <div style="font-family:var(--mono);font-size:12px;letter-spacing:0.1em;color:var(--react);font-weight:600;margin-bottom:12px">HMW 2</div>
+          <div style="font-family:var(--serif);font-size:17px;font-weight:500;color:var(--ink);line-height:1.65">どうすれば観劇情報を<br><strong style="color:var(--react)">ひとまとまりの体験</strong><br>として思い出せるか？</div>
         </div>
       </div>
     </div>
@@ -1219,7 +1219,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
           <p>カレンダー・アルバム・写真連携など、情報を1箇所に統合するアイデアを探りました。</p>
         </div>
         <div class="img-full">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/HowMightWe__02.png" alt="HMW2 アイデアスケッチ" onclick="openLightbox(this.src, 'HMW2 アイデアスケッチ', true)" style="cursor:zoom-in">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/HowMightWe_02.png" alt="HMW2 アイデアスケッチ" onclick="openLightbox(this.src, 'HMW2 アイデアスケッチ', true)" style="cursor:zoom-in">
           <div class="img-cap">HMW 2 — 観劇情報をまとめるアイデアスケッチ</div>
         </div>
       </div>
@@ -1255,8 +1255,14 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
     <!-- サービスビジョン -->
     <div class="ds fade-up">
       <div class="ds-label"><span>サービスビジョン・リーンキャンバス</span></div>
-      <div class="ds-body">
-        <p>「観劇体験をコレクションする記録アプリ」というハイレベルコンセプトのもと、3年後に実現したいサービスビジョンとリーンキャンバスを作成しました。写真フォルダやSNS・紙のチケット保管と異なり、公演情報と感情の記録を一つにまとめ、後から自然に思い出せる見返し体験に強みを持つプロダクトとして定義しています。</p>
+      <div style="margin-bottom:24px">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px">3年後、このサービスでどういう未来を実現したいか？</div>
+        <div style="font-family:var(--serif);font-size:20px;font-weight:500;color:var(--react);margin-bottom:16px;letter-spacing:0.02em">＜ サービスビジョン ＞</div>
+        <div class="ds-body">
+          <p>観劇体験を後から振り返りたいのに、情報や感情を残しきれていない観劇ファンに向けて、「Re:ACT」は、観劇の思い出をひとまとまりの体験として記録・保存できる「観劇体験記録アプリ」です。</p>
+          <p>写真フォルダやSNS、紙のチケット保管と異なり、公演情報と感情の記録を一つにまとめ、後から自然に思い出せる見返し体験に強みがあります。</p>
+          <p>このサービスを利用することで、顧客は観劇の思い出を整理して残すことができ、生活は"好きな体験をきちんと振り返られる"ものへと変わります。このような人々が増えることで、文化体験を大切に蓄積できる社会を実現します。</p>
+        </div>
       </div>
       <div class="img-full">
         <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/ServiceVision_LeanCanvas.png" alt="サービスビジョン・リーンキャンバス" onclick="openLightbox(this.src, 'サービスビジョン・リーンキャンバス', true)" style="cursor:zoom-in">
@@ -1366,6 +1372,65 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
       </div>
       <div style="margin-top:20px">
         <a class="figma-btn" href="react_thinking_journal.html" target="_blank" rel="noopener" style="background:var(--react)">思考の軌跡を全文で読む →</a>
+      </div>
+    </div>
+
+    <!-- ビジュアルデザイン -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>ビジュアルデザイン</span></div>
+      <div class="ds-body">
+        <p>「観劇の余韻を持ち帰れる場所」というコンセプトに合わせ、ブランドのトーン・カラー・ロゴを設計しました。</p>
+      </div>
+
+      <!-- ロゴ・アイコン -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px">
+        <div>
+          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:var(--muted);margin-bottom:10px;text-transform:uppercase">App Icon</div>
+          <div style="background:var(--off);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;align-items:center;justify-content:center">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/slides/raect_icon.png" alt="Re:ACT アイコン" style="width:80px;height:80px;object-fit:contain;border-radius:16px">
+          </div>
+          <div class="img-cap">アプリアイコン</div>
+        </div>
+        <div>
+          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:var(--muted);margin-bottom:10px;text-transform:uppercase">Logotype</div>
+          <div style="background:#1a1a18;border-radius:var(--r);padding:24px;display:flex;align-items:center;justify-content:center;min-height:128px">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/slides/react_logo.png" alt="Re:ACT ロゴ" style="max-width:160px;object-fit:contain">
+          </div>
+          <div class="img-cap">ロゴタイプ（白文字のため黒背景で表示）</div>
+        </div>
+      </div>
+
+      <!-- メインカラー -->
+      <div style="margin-bottom:8px">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:var(--muted);margin-bottom:10px;text-transform:uppercase">Brand Color</div>
+        <div style="background:var(--off);border:1px solid var(--line);border-radius:var(--r);padding:20px">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/slides/react_maincolor.png" alt="メインカラー" onclick="openLightbox(this.src, 'ブランドカラー', true)" style="width:100%;object-fit:contain;cursor:zoom-in">
+        </div>
+        <div class="img-cap">メインカラー — ダークレッド（#6B1E2E）＋ブラック（#1A1A18）</div>
+      </div>
+
+      <div class="callout react" style="margin-top:16px">
+        <div class="callout-title">カラー選定の意図</div>
+        <p>「劇場の緞帳・深みのある赤」を基調としたダークレッドを採用。高級感と温度感を両立し、どんなジャンルの公演記録とも喧嘩しない落ち着いた存在感を意識しています。ロゴはワインレッドのセリフ体で、"Re;" の記号がブランドの核となるモチーフです。</p>
+      </div>
+    </div>
+
+    <!-- 最終UI -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>最終デザイン</span></div>
+      <div class="mockup-row">
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_TicketAll.png" alt="記録一覧" onclick="openLightbox(this.src, '記録一覧')">
+          <div class="mockup-label" style="color:var(--ink2);font-size:12px;font-weight:500">記録一覧</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_TicketDetail.png" alt="チケット詳細" onclick="openLightbox(this.src, 'チケット詳細')">
+          <div class="mockup-label" style="color:var(--ink2);font-size:12px;font-weight:500">チケット詳細</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_TixketRegist.png" alt="新規登録" onclick="openLightbox(this.src, '新規登録')">
+          <div class="mockup-label" style="color:var(--ink2);font-size:12px;font-weight:500">新規登録</div>
+        </div>
       </div>
     </div>
 
