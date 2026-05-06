@@ -295,27 +295,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
           <div class="proj-card-cta"><span class="cta-label">ケーススタディを読む</span><span class="cta-arrow">→</span></div>
         </div>
       </div>
-      <div class="proj-card fade-up" style="transition-delay:0.08s" onclick="openProject('wheelmark')">
-        <div class="proj-card-thumb">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/cover/cover_wheelmark.png" alt="wheelmark">
-        </div>
-        <div class="proj-card-body">
-          <div class="proj-tag-row">
-            <div class="proj-dot" style="background:#652634"></div>
-            <span class="proj-tag-text">バリアフリーナビ</span>
-          </div>
-          <div class="proj-card-title">wheelmark</div>
-          <div class="proj-card-desc">車椅子ユーザーの「行けるかどうか」を判断するアプリ。インタビューから課題を再定義したUXリサーチ中心のケーススタディ。</div>
-          <div class="proj-card-focus">フォーカス：<span>リサーチ / 課題定義 / UXデザイン</span></div>
-          <div class="proj-card-meta">
-            <span class="proj-meta-item">UXリサーチ</span>
-            <span class="proj-meta-item">情報設計</span>
-            <span class="proj-meta-item">個人制作</span>
-          </div>
-          <div class="proj-card-cta"><span class="cta-label">ケーススタディを読む</span><span class="cta-arrow">→</span></div>
-        </div>
-      </div>
-      <div class="proj-card fade-up" style="transition-delay:0.16s" onclick="openProject('react')">
+      <div class="proj-card fade-up" style="transition-delay:0.08s" onclick="openProject('react')">
         <div class="proj-card-thumb">
           <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/cover/react_cover.png" alt="Re:ACT">
         </div>
@@ -330,6 +310,26 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
           <div class="proj-card-meta">
             <span class="proj-meta-item">UXリサーチ</span>
             <span class="proj-meta-item">UIデザイン</span>
+            <span class="proj-meta-item">個人制作</span>
+          </div>
+          <div class="proj-card-cta"><span class="cta-label">ケーススタディを読む</span><span class="cta-arrow">→</span></div>
+        </div>
+      </div>
+      <div class="proj-card fade-up" style="transition-delay:0.16s" onclick="openProject('wheelmark')">
+        <div class="proj-card-thumb">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/cover/cover_wheelmark.png" alt="wheelmark">
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-tag-row">
+            <div class="proj-dot" style="background:#652634"></div>
+            <span class="proj-tag-text">バリアフリーナビ</span>
+          </div>
+          <div class="proj-card-title">wheelmark</div>
+          <div class="proj-card-desc">車椅子ユーザーの「行けるかどうか」を判断するアプリ。インタビューから課題を再定義したUXリサーチ中心のケーススタディ。</div>
+          <div class="proj-card-focus">フォーカス：<span>リサーチ / 課題定義 / UXデザイン</span></div>
+          <div class="proj-card-meta">
+            <span class="proj-meta-item">UXリサーチ</span>
+            <span class="proj-meta-item">情報設計</span>
             <span class="proj-meta-item">個人制作</span>
           </div>
           <div class="proj-card-cta"><span class="cta-label">ケーススタディを読む</span><span class="cta-arrow">→</span></div>
@@ -1021,7 +1021,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
     <div class="ds fade-up">
       <div class="ds-label"><span>制作プロセス</span></div>
       <div class="img-full">
-        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/slides/react_process.png" alt="制作プロセス" onclick="openLightbox(this.src, '制作プロセス', true)" style="cursor:zoom-in">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/react_process.png" alt="制作プロセス" onclick="openLightbox(this.src, '制作プロセス', true)" style="cursor:zoom-in">
       </div>
     </div>
 
@@ -1224,8 +1224,26 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         </div>
       </div>
 
-      <div class="ds-body">
-        <p>ストーリーボードでは「観劇で感動 → 帰宅後アプリを開く → 記録 → 数日後に振り返って共有」という8コマのシナリオで体験を具体化しました。</p>
+      <div class="ds-body" style="margin-bottom:20px">
+        <p>「<strong>ユーザーが何が嬉しいのか</strong>」具体的な場面をイメージする、という視点でストーリーボードを作成しました。</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px">
+        <div style="padding:16px 18px;background:var(--off);border-radius:var(--r);border-left:3px solid var(--react)">
+          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(--react);margin-bottom:6px">①</div>
+          <div style="font-size:13px;color:var(--ink);line-height:1.7">ユーザーが問題に直面したシーンを把握する。</div>
+        </div>
+        <div style="padding:16px 18px;background:var(--off);border-radius:var(--r);border-left:3px solid var(--react)">
+          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(--react);margin-bottom:6px">②</div>
+          <div style="font-size:13px;color:var(--ink);line-height:1.7">出たアイディアとユーザーのタッチポイントを明確にする。</div>
+        </div>
+        <div style="padding:16px 18px;background:var(--off);border-radius:var(--r);border-left:3px solid var(--react)">
+          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(--react);margin-bottom:6px">③</div>
+          <div style="font-size:13px;color:var(--ink);line-height:1.7">アイディアの効果によってユーザーが何を得ることができるか。</div>
+        </div>
+        <div style="padding:16px 18px;background:var(--off);border-radius:var(--r);border-left:3px solid var(--react)">
+          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(--react);margin-bottom:6px">④</div>
+          <div style="font-size:13px;color:var(--ink);line-height:1.7">ユーザーがアイディアによってもたらされた効果で、何を結果として思ったか。</div>
+        </div>
       </div>
       <div class="img-full">
         <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/StoryBoard.png" alt="ストーリーボード" onclick="openLightbox(this.src, 'ストーリーボード', true)" style="cursor:zoom-in">
@@ -1243,13 +1261,6 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/USM.png" alt="ユーザーストーリーマップ" onclick="openLightbox(this.src, 'ユーザーストーリーマップ', true)" style="cursor:zoom-in">
         <div class="img-cap">ユーザーストーリーマップ — 行動フロー5段階と機能優先度</div>
       </div>
-      <div class="step-flow" style="margin-top:16px">
-        <div class="step-item"><div class="step-n">01</div><div class="step-t">観劇後に記録を始める</div></div>
-        <div class="step-item"><div class="step-n">02</div><div class="step-t">公演情報をまとめる</div></div>
-        <div class="step-item"><div class="step-n">03</div><div class="step-t">観劇情報を残す</div></div>
-        <div class="step-item"><div class="step-n">04</div><div class="step-t">思い出を保存する</div></div>
-        <div class="step-item"><div class="step-n">05</div><div class="step-t">後から見返す</div></div>
-      </div>
     </div>
 
     <!-- サービスビジョン -->
@@ -1265,7 +1276,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         </div>
       </div>
       <div class="img-full">
-        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/ServiceVision_LeanCanvas.png" alt="サービスビジョン・リーンキャンバス" onclick="openLightbox(this.src, 'サービスビジョン・リーンキャンバス', true)" style="cursor:zoom-in">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/LeanCanvas.png" alt="サービスビジョン・リーンキャンバス" onclick="openLightbox(this.src, 'サービスビジョン・リーンキャンバス', true)" style="cursor:zoom-in">
         <div class="img-cap">サービスビジョン・リーンキャンバス</div>
       </div>
     </div>
@@ -1381,37 +1392,25 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
       <div class="ds-body">
         <p>「観劇の余韻を持ち帰れる場所」というコンセプトに合わせ、ブランドのトーン・カラー・ロゴを設計しました。</p>
       </div>
-
-      <!-- ロゴ・アイコン -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px">
-        <div>
-          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:var(--muted);margin-bottom:10px;text-transform:uppercase">App Icon</div>
-          <div style="background:var(--off);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;align-items:center;justify-content:center">
-            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/slides/raect_icon.png" alt="Re:ACT アイコン" style="width:80px;height:80px;object-fit:contain;border-radius:16px">
-          </div>
-          <div class="img-cap">アプリアイコン</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0;padding:28px 24px;background:var(--off);border-radius:var(--r)">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/react_maincolor.png" alt="メインカラー" style="height:48px;width:auto;display:block">
+          <span style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em">メインカラー</span>
         </div>
-        <div>
-          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:var(--muted);margin-bottom:10px;text-transform:uppercase">Logotype</div>
-          <div style="background:#1a1a18;border-radius:var(--r);padding:24px;display:flex;align-items:center;justify-content:center;min-height:128px">
-            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/slides/react_logo.png" alt="Re:ACT ロゴ" style="max-width:160px;object-fit:contain">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+          <div style="background:#1a1a18;border-radius:6px;padding:8px 16px;display:flex;align-items:center;justify-content:center;height:48px">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/react_logo.png" alt="ロゴ" style="height:32px;width:auto;display:block">
           </div>
-          <div class="img-cap">ロゴタイプ（白文字のため黒背景で表示）</div>
+          <span style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em">ロゴ</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/raect_icon.png" alt="アイコン" style="height:48px;width:auto;display:block;border-radius:10px">
+          <span style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em">アイコン</span>
         </div>
       </div>
-
-      <!-- メインカラー -->
-      <div style="margin-bottom:8px">
-        <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:var(--muted);margin-bottom:10px;text-transform:uppercase">Brand Color</div>
-        <div style="background:var(--off);border:1px solid var(--line);border-radius:var(--r);padding:20px">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/slides/react_maincolor.png" alt="メインカラー" onclick="openLightbox(this.src, 'ブランドカラー', true)" style="width:100%;object-fit:contain;cursor:zoom-in">
-        </div>
-        <div class="img-cap">メインカラー — ダークレッド（#6B1E2E）＋ブラック（#1A1A18）</div>
-      </div>
-
-      <div class="callout react" style="margin-top:16px">
+      <div class="callout react">
         <div class="callout-title">カラー選定の意図</div>
-        <p>「劇場の緞帳・深みのある赤」を基調としたダークレッドを採用。高級感と温度感を両立し、どんなジャンルの公演記録とも喧嘩しない落ち着いた存在感を意識しています。ロゴはワインレッドのセリフ体で、"Re;" の記号がブランドの核となるモチーフです。</p>
+        <p>「劇場の緞帳・深みのある赤」を基調としたダークレッド（#6B1E2E）を採用。高級感と温度感を両立し、どんなジャンルの公演記録とも喧嘩しない落ち着いた存在感を意識しています。ロゴはワインレッドのセリフ体で、"Re;" の記号がブランドの核となるモチーフです。</p>
       </div>
     </div>
 
