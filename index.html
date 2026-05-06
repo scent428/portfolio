@@ -271,9 +271,6 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
 <!-- ════ WORKS ════ -->
 <div class="panel active" id="tab-works">
   <div class="works-panel">
-    <div class="works-intro fade-up">
-      <p>リサーチから課題定義、UI設計まで一貫して取り組んだプロジェクトを掲載しています。3案件を通じて、社会課題解決・アクセシビリティ・エンタメ体験設計という異なるテーマへのアプローチを整理しました。</p>
-    </div>
     <div class="works-grid">
       <div class="proj-card fade-up" onclick="openProject('ampy')">
         <div class="proj-card-thumb">
@@ -376,6 +373,16 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
           <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/figma/No.1_weather-01.png" alt="天気 トレース" onclick="openLightbox(this.src, '天気 トレース', true)" style="cursor:zoom-in">
         </div>
       </div>
+      <div style="margin-top:20px;padding:16px 20px;background:var(--off);border-radius:var(--r);border:1px solid var(--line)">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">学んだこと</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>背景が現在の天気を視覚的に表現している設計が印象的。情報でなく「状態」を見せることで直感的に伝わる。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>晴れ・雨など天気の状態を色とアイコンで区別し、一目で判断できるようにしている。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>スクロールで時間帯別の詳細情報を取得できる階層的な情報開示になっている。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>雨の場合は降水確率も表示するなど、状況に応じた情報の出し分けがある。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>空港や都市名で任意の場所に切り替えられる機能があることを初めて知った。</li>
+        </ul>
+      </div>
     </div>
 
     <!-- No.2 カレンダー -->
@@ -394,6 +401,16 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
           <div class="study-figma-label">Figmaトレース</div>
           <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/figma/No.2_Calender-01.png" alt="カレンダー トレース" onclick="openLightbox(this.src, 'カレンダー トレース', true)" style="cursor:zoom-in">
         </div>
+      </div>
+      <div style="margin-top:20px;padding:16px 20px;background:var(--off);border-radius:var(--r);border:1px solid var(--line)">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">学んだこと</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>詳細ページで重要なのは「日付」ではなく「場所・時間」。ここをメインに据えている設計判断が明確。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>場所が赤字表示 → タップするとマップに遷移。ユーザーの期待通りの導線になっている。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>前後の時間帯も同一画面で見られるタイムライン表示で、前後の予定との比較がしやすい。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>カレンダーに色分けを持たせることで、誰の予定かを一目で判断できる。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>ON/OFF・プルダウン（矢印）など、入力UIのパターンが1画面に複数共存している。</li>
+        </ul>
       </div>
     </div>
 
@@ -414,12 +431,21 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
           <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/figma/No.3_picture-01.png" alt="写真 トレース" onclick="openLightbox(this.src, '写真 トレース', true)" style="cursor:zoom-in">
         </div>
       </div>
+      <div style="margin-top:20px;padding:16px 20px;background:var(--off);border-radius:var(--r);border:1px solid var(--line)">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">学んだこと</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>写真が主役の設計。テキスト情報は日付のみに絞り、コンテンツを邪魔しない。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>ピンチアウト/インでグリッドの密度を変えられる。操作できることを前提にした設計。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>アクションはポップアップメニューにまとめ、写真単体の操作を整理している。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>グリッドの連続性が「次も見よう」という自然な回遊を促している。隣が見えることで興味が連鎖する。</li>
+        </ul>
+      </div>
     </div>
 
-    <!-- No.5 ミュージック -->
+    <!-- No.4 ミュージック -->
     <div class="study-app fade-up">
       <div class="study-app-header">
-        <div class="study-app-num">No. 05</div>
+        <div class="study-app-num">No. 04</div>
         <div class="study-app-name">ミュージック</div>
         <div class="study-app-tag">iOSデフォルトアプリ</div>
       </div>
@@ -432,6 +458,15 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
           <div class="study-figma-label">Figmaトレース</div>
           <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/figma/No.5_music-01.png" alt="ミュージック トレース" onclick="openLightbox(this.src, 'ミュージック トレース', true)" style="cursor:zoom-in">
         </div>
+      </div>
+      <div style="margin-top:20px;padding:16px 20px;background:var(--off);border-radius:var(--r);border:1px solid var(--line)">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">学んだこと</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>アルバムアートの色をブラーで背景に反映させ、音楽の世界観に没入できる演出になっている。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>シークバーは音楽再生UIの共通認識。説明なしで操作できる「共有された知識」として機能している。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>検索プレースホルダーに「アーティスト、曲、歌詞、その他」とラベルを入れることで、何を入力できるかを示している。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>アイコンと日本語ラベルがセットで並ぶナビゲーション。iOSデフォルトとしての認識しやすさを優先している。</li>
+        </ul>
       </div>
     </div>
 
@@ -963,19 +998,31 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
 
     <div class="ds fade-up">
       <div class="ds-label"><span>ワイヤーフレーム</span></div>
-      <div class="ds-body"><p>判断プロセスに沿った3画面構成として設計しました。ここからUIデザインに落とし込んでいます。</p></div>
+      <div class="ds-body">
+        <p>上記のHMW結果から、「ユーザーが自分で行けるかどうかを判断できる状態」を今回のゴールとすることにしました。</p>
+        <p>これを実現するために判断に必要な情報を段階的に取得・確認できる構造としてMVPを設計しました。</p>
+      </div>
       <div class="card-3">
-        <div class="img-block" style="margin:0">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/wireframe/search.png" alt="検索画面">
-          <div class="img-cap">検索画面</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:12px;color:var(--ink2);line-height:1.6">①目的地までのルートを検索する画面</div>
+          <div class="img-block" style="margin:0">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/wireframe/search.png" alt="検索画面">
+            <div class="img-cap">検索画面</div>
+          </div>
         </div>
-        <div class="img-block" style="margin:0">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/wireframe/searchDetail.png" alt="経路結果一覧">
-          <div class="img-cap">経路結果一覧</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:12px;color:var(--ink2);line-height:1.6">②過去の通過実績やユーザーの声</div>
+          <div class="img-block" style="margin:0">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/wireframe/searchDetail.png" alt="経路結果一覧">
+            <div class="img-cap">経路結果一覧</div>
+          </div>
         </div>
-        <div class="img-block" style="margin:0">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/wireframe/routeInformation.png" alt="経路詳細">
-          <div class="img-cap">経路詳細</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:12px;color:var(--ink2);line-height:1.6">③各ルートの実績情報、公的情報</div>
+          <div class="img-block" style="margin:0">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/wireframe/routeInformation.png" alt="経路詳細">
+            <div class="img-cap">経路詳細</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1013,7 +1060,6 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
 
     <div class="ds fade-up">
       <div class="ds-label"><span>主要な設計判断 — UI・プロトタイプ</span></div>
-      <div class="ds-body"><p>プロトタイプの各機能は、ユーザーの判断コストを下げるための選択の積み重ねです。</p></div>
 
       <!-- 1. 検索 -->
       <div style="display:grid;grid-template-columns:1fr 2fr;gap:32px;align-items:start;margin:28px 0;padding-bottom:28px;border-bottom:1px solid var(--line)">
