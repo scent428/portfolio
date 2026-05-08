@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Re:ACT — 思考の軌跡</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: #F5F0E8;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #1A160E;
+  padding: 60px 40px 100px;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.9;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 28px;
+  letter-spacing: 4px;
+  color: #1A160E;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #9A7A30;
+  text-transform: uppercase;
+  margin-bottom: 48px;
+}
+
+/* フェーズブロック */
+.phase {
+  margin-bottom: 56px;
+  position: relative;
+  padding-left: 24px;
+  border-left: 2px solid rgba(107,30,46,0.15);
+}
+
+.phase-num {
+  position: absolute;
+  left: -14px;
+  top: 0;
+  width: 26px; height: 26px;
+  background: #6B1E2E;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  color: #F5EFE4;
+  letter-spacing: 0;
+}
+
+.phase-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #9A7A30;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.phase-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #1A160E;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.phase-body {
+  font-size: 13px;
+  color: #3A3020;
+  line-height: 2.1;
+}
+
+/* 迷いボックス */
+.dilemma {
+  background: rgba(107,30,46,0.05);
+  border-left: 3px solid rgba(107,30,46,0.3);
+  padding: 14px 18px;
+  margin: 16px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.dilemma-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #6B1E2E;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.dilemma-text {
+  font-size: 13px;
+  color: #3A3020;
+  line-height: 1.9;
+}
+
+/* 判断ボックス */
+.decision {
+  background: rgba(154,122,48,0.07);
+  border-left: 3px solid rgba(154,122,48,0.4);
+  padding: 14px 18px;
+  margin: 16px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.decision-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #9A7A30;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.decision-text {
+  font-size: 13px;
+  color: #3A3020;
+  line-height: 1.9;
+}
+
+/* インサイトタグ */
+.insight {
+  display: inline-block;
+  background: #6B1E2E;
+  color: #F5EFE4;
+  font-size: 10px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  letter-spacing: 1px;
+  padding: 2px 10px;
+  border-radius: 2px;
+  margin: 4px 4px 4px 0;
+}
+
+/* 区切り線 */
+.rule {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(107,30,46,0.2), transparent);
+  margin: 48px 0;
+}
+
+/* まとめ */
+.summary {
+  background: #FAF6EF;
+  border: 1px solid rgba(107,30,46,0.12);
+  border-radius: 6px;
+  padding: 28px 32px;
+  margin-top: 48px;
+}
+
+.summary-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  color: #1A160E;
+}
+
+.summary-item {
+  font-size: 13px;
+  color: #3A3020;
+  line-height: 2.1;
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.summary-item::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: #9A7A30;
+}
+
+footer {
+  margin-top: 64px;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: rgba(107,30,46,0.3);
+  text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+
+<h1>Re:Act</h1>
+<div class="subtitle">Design Thinking Journal — 思考の軌跡</div>
+
+<!-- ══ PHASE 1 ══ -->
+<div class="phase">
+  <div class="phase-num">1</div>
+  <div class="phase-label">Starting Point</div>
+  <div class="phase-title">リサーチ資産から「何を作るか」を読み解く</div>
+  <div class="phase-body">
+    最初に渡されたのはCJM・HMW・USM・ストーリーボード・インタビュー結果・リーンキャンバスの6点。これらから「何を作るか」を自分なりに再解釈するところから始まった。
+    <br><br>
+    CJMで特に重要だと判断したのは、<strong>「観劇当日の見た日の寝る前」フェーズ</strong>。感想をSNSに書きたい・自分が言ったことを記録に残しておきたい、という欲求が発生するのがこのタイミングで、アプリの主要ユースケースがここだと読んだ。
+    <br><br>
+    HMWで採用されたのは「記録行為を集めたくなる楽しい体験にできるか」と「観劇情報をひとまとまりの体験として思い出せるか」の2軸。この2軸が後のデザイン判断の基準になった。
+  </div>
+  <div class="dilemma">
+    <div class="dilemma-label">迷い</div>
+    <div class="dilemma-text">「記録体験の再現」と「記録のしやすさ」、どちらを主価値にするか。プロンプトでは「再現は主価値ではなく演出」と明記されていたが、デザインに落とすとき両者は混在しやすい。</div>
+  </div>
+</div>
+
+<!-- ══ PHASE 2 ══ -->
+<div class="phase">
+  <div class="phase-num">2</div>
+  <div class="phase-label">First Design</div>
+  <div class="phase-title">世界観の方向性を複数案で探る（A・B・C案）</div>
+  <div class="phase-body">
+    最初の3案はトーン探索として設計した。
+    <br><br>
+    <strong>案A（ワインレッド×半券）</strong>は指定トーンへの直球回答。チケットの物理的な質感をデジタルで再現する方向。<br>
+    <strong>案B（ネオン）</strong>は舞台だけでなくライブ・フェスにも使えるか試みた振り切り案。<br>
+    <strong>案C（活版印刷×深緑）</strong>はリサーチの「静かにしまっておける」という言葉に最も正直に応えようとした私案。
+  </div>
+  <div class="decision">
+    <div class="decision-label">判断</div>
+    <div class="decision-text">
+      案Bはエネルギーが高すぎてユースケース（疲れて帰宅後に開く）と合わないと判断し早期に除外。<br>
+      案Cが最もペルソナに合うと考えたが、「深緑が文芸すぎる」という懸念が残った。案Aの半券構造（左スタブ＋ミシン目）は情報設計として優れていたため、Cの質感にAの構造を組み合わせる方向を提案した。
+    </div>
+  </div>
+  <br>
+  <span class="insight">UX的判断</span>
+  <div class="phase-body">
+    カードの左スタブ構造は「日付を一番目立たせる」という情報優先度の選択でもあった。観劇記録において「いつ観たか」は「どの作品か」と同等かそれ以上に検索キーになる。</div>
+</div>
+
+<!-- ══ PHASE 3 ══ -->
+<div class="phase">
+  <div class="phase-num">3</div>
+  <div class="phase-label">Convergence</div>
+  <div class="phase-title">案Fの確定——3案の良い部分を統合する</div>
+  <div class="phase-body">
+    案C（活版印刷質感）＋案A（半券スタブ構造）＋ワインレッドというハイブリッドとして案Fを設計した。
+    <br><br>
+    ゴールド2案（D・E）も試みた。案Eについては「高級感があり上品」と評価が高かったが、最終的にワインレッド案Fを軸に進めることになった。これは<strong>「温かみ」と「個性」のバランス</strong>で、ゴールドは少し冷たく普遍的すぎると判断した。
+  </div>
+  <div class="decision">
+    <div class="decision-label">判断</div>
+    <div class="decision-text">
+      案Fをベースに詳細設計へ進む。タブバー・アイコン・カラートークン・バリアブル定義まで一気に詰めた。この段階では「高級感を出したい」という意識が前に出ていた。
+    </div>
+  </div>
+</div>
+
+<!-- ══ PHASE 4 ══ -->
+<div class="phase">
+  <div class="phase-num">4</div>
+  <div class="phase-label">Critical Turn ★</div>
+  <div class="phase-title">最も重要な転換点——「重たい」という気づき</div>
+  <div class="phase-body">
+    Figmaで実装された画面を見た時点で「微妙な気がする、ペルソナから離れていないか、高級感を持たせたい気持ちが先行している気がする」という言葉が出た。これがこのプロジェクト最大の転換点だった。
+  </div>
+  <div class="dilemma">
+    <div class="dilemma-label">核心の問い</div>
+    <div class="dilemma-text">
+      「帰りの電車でふと息をついた頃に開く」シーンで、このデザインは自然に開けるか？<br><br>
+      答えはNoだった。ワインレッドのナビ・ゴールドスタブ・飾り帯◆・ミシン目……これらは「ドレスアップして劇場に向かうときの気分」のデザインだった。疲れて帰ってきたとき、そのドアをノックする気にはなれない。
+    </div>
+  </div>
+  <div class="decision">
+    <div class="decision-label">判断</div>
+    <div class="decision-text">
+      高級感を「捨てる」のではなく「主役をコンテンツに戻す」という整理をした。ワインとゴールドはアクセントとして残し、ベースを紙とインクだけで成立させる方向にリセット。ロゴも含めて軽くしていいという合意を得た。
+    </div>
+  </div>
+  <br>
+  <span class="insight">UX的教訓</span>
+  <div class="phase-body">
+    デザインの「入口の重さ」はそのまま「記録継続率」に直結する。観劇記録アプリは毎回のハードルが低くなければ、感情が冷める前に記録するというコアバリューが損なわれる。見た目の格調と、開きやすさは別の軸で設計する必要がある。
+  </div>
+</div>
+
+<!-- ══ PHASE 5 ══ -->
+<div class="phase">
+  <div class="phase-num">5</div>
+  <div class="phase-label">Reframing</div>
+  <div class="phase-title">カラーの再考——「ワインレッドは私の好み」という問い</div>
+  <div class="phase-body">
+    軽量化の方向が決まった後、「ワインレッドが多いと作品の風潮が偏って見えるかも」という新たな問いが立ち上がった。これは重要な視点だった。
+    <br><br>
+    観劇記録アプリのカラーは、<strong>記録される作品の色を食わない</strong>必要がある。ワインレッドは「クラシック・シェイクスピア系」の印象が強く、ハミルトンやゴースト＆レディなどポップな作品の記録に使うと世界観がずれる可能性がある。
+  </div>
+  <div class="dilemma">
+    <div class="dilemma-label">迷い</div>
+    <div class="dilemma-text">
+      カラーをアプリのアイデンティティとして強く出すか、コンテンツの引き立て役として中立に抑えるか。前者は個性になるが後者はどんな作品にも馴染む。
+    </div>
+  </div>
+  <div class="decision">
+    <div class="decision-label">4案での検証</div>
+    <div class="decision-text">
+      グレー・ブルー・テラコッタ・グリーンの4案を並べることで、色味が変わっても「Re:Actらしさ」が成立するかを確認した。カードの構造・フォント・余白感が共通していれば、アクセントカラーはある程度交換可能だとわかった。
+    </div>
+  </div>
+</div>
+
+<!-- ══ PHASE 6 ══ -->
+<div class="phase">
+  <div class="phase-num">6</div>
+  <div class="phase-label">Current State</div>
+  <div class="phase-title">現在地——完成度は上がったが、意図を持つべき問いが残る</div>
+  <div class="phase-body">
+    Figmaで実装された最新の3画面は、全体のまとまりとしてかなり完成度が高い。ワインレッドのナビがアイデンティティとして機能し、カード構造は情報設計として正しい。
+    <br><br>
+    残っている問いは以下の3つ。
+  </div>
+  <div class="dilemma">
+    <div class="dilemma-label">未解決の問い ①</div>
+    <div class="dilemma-text">月グルーパー（2024年12月）が目立たない。時系列の「見返し体験」を重視するなら、もっと存在感が必要ではないか。</div>
+  </div>
+  <div class="dilemma">
+    <div class="dilemma-label">未解決の問い ②</div>
+    <div class="dilemma-text">「開くのに少し気合がいる重さ」が残っている。これを意図的な選択とするか、もう一段軽くするか。ペルソナが「超ライト層ではない観劇好き」であることを考えると、ある程度の重さは許容されるかもしれない。</div>
+  </div>
+  <div class="dilemma">
+    <div class="dilemma-label">未解決の問い ③</div>
+    <div class="dilemma-text">ワインレッドを採用し続けるなら、ハミルトンやポップな演目の記録が並んだときに画面として成立するか。実際のコンテンツで検証が必要。</div>
+  </div>
+</div>
+
+<div class="rule"></div>
+
+<!-- ══ SUMMARY ══ -->
+<div class="summary">
+  <div class="summary-title">この過程を通じて繰り返し問われたこと</div>
+  <div class="summary-item">デザインの「見た目の良さ」と「使われるシーンとの合致」は別軸で考える必要がある</div>
+  <div class="summary-item">「入口の重さ」はそのまま継続率に直結する——記録系アプリにとってこれは致命的になりうる</div>
+  <div class="summary-item">アプリのカラーはコンテンツ（作品）を食わない中立性も重要な要件になる</div>
+  <div class="summary-item">高級感と日常使いは両立できるが、優先順位の軸を明確にしないと中途半端になる</div>
+  <div class="summary-item">「ペルソナに戻る」という作業を、デザインが進むほど繰り返しやる必要がある</div>
+  <div class="summary-item">ワイヤーの構造的な正しさ（左スタブ＝日付優先）と視覚的な世界観は分けて評価する</div>
+</div>
+
+<footer>Re:Act — Design Thinking Journal</footer>
+
+</body>
+</html>
