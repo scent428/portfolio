@@ -21,14 +21,17 @@ html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--white);color:var(--ink);font-size:14px;line-height:1.75;-webkit-font-smoothing:antialiased}
 
 /* HEADER */
-header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:0 40px;display:grid;grid-template-columns:1fr auto;align-items:center;height:64px;gap:24px}
+header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:0 40px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:64px;gap:24px}
 .header-left{display:flex;flex-direction:column;gap:2px}
 .header-name{font-family:var(--serif);font-size:16px;font-weight:500;letter-spacing:0.04em}
 .header-bio{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tabs{display:flex}
+.header-center{text-align:center;font-family:var(--serif);font-size:17px;font-weight:500;letter-spacing:0.08em;color:var(--ink);white-space:nowrap}
+.tabs{display:flex;justify-content:flex-end}
 .tab-btn{height:64px;padding:0 18px;background:none;border:none;font-family:var(--sans);font-size:13px;color:var(--muted);cursor:pointer;position:relative;transition:color 0.15s;white-space:nowrap}
 .tab-btn::after{content:"";position:absolute;bottom:0;left:18px;right:18px;height:2px;background:var(--ink);transform:scaleX(0);transition:transform 0.2s}
 .tab-btn.active{color:var(--ink);font-weight:500}.tab-btn.active::after{transform:scaleX(1)}.tab-btn:hover{color:var(--ink)}
+/* detail-panelが開いているときはタブを非表示 */
+body.detail-open .tabs{visibility:hidden}
 
 /* PANELS */
 .panel{display:none}.panel.active{display:block}
@@ -252,6 +255,13 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
   .card-2,.ba-grid{grid-template-columns:1fr}
   .mockup-item{width:150px}
 }
+footer{background:var(--off);border-top:1px solid var(--line);padding:20px 48px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.footer-nav{display:flex;gap:28px;align-items:center}
+.footer-tab{font-family:var(--sans);font-size:13px;color:var(--muted);cursor:pointer;background:none;border:none;transition:color 0.15s;padding:0}
+.footer-tab:hover{color:var(--ink)}
+.footer-tab.active{color:var(--ink)}
+.footer-copy{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.06em;white-space:nowrap}
+@media(max-width:700px){footer{padding:20px;flex-direction:column;align-items:flex-start;gap:12px}}
 </style>
 </head>
 <body>
@@ -261,6 +271,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
     <div class="header-name">木村 萌香</div>
     <div class="header-bio">UIUXデザイナー志望｜エンジニア出身</div>
   </div>
+  <div class="header-center">Portfolio</div>
   <nav class="tabs">
     <button class="tab-btn active" data-tab="works">作品集</button>
     <button class="tab-btn" data-tab="study">学習記録</button>
@@ -274,7 +285,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
     <div class="works-grid">
       <div class="proj-card fade-up" onclick="openProject('ampy')">
         <div class="proj-card-thumb">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/cover/cover_ampy.png" alt="ampy">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/cover/cover_ampy.png" alt="ampy" onclick="openLightbox(this.src, 'ampy')" style="cursor:zoom-in">
         </div>
         <div class="proj-card-body">
           <div class="proj-tag-row">
@@ -294,7 +305,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
       </div>
       <div class="proj-card fade-up" style="transition-delay:0.08s" onclick="openProject('react')">
         <div class="proj-card-thumb">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/cover/react_cover.png" alt="Re:ACT">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/cover/react_cover.png" alt="Re:ACT" onclick="openLightbox(this.src, 'Re:ACT')" style="cursor:zoom-in">
         </div>
         <div class="proj-card-body">
           <div class="proj-tag-row">
@@ -314,7 +325,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
       </div>
       <div class="proj-card fade-up" style="transition-delay:0.16s" onclick="openProject('wheelmark')">
         <div class="proj-card-thumb">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/cover/cover_wheelmark.png" alt="wheelmark">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/cover/cover_wheelmark.png" alt="wheelmark" onclick="openLightbox(this.src, 'wheelmark')" style="cursor:zoom-in">
         </div>
         <div class="proj-card-body">
           <div class="proj-tag-row">
@@ -500,8 +511,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <span class="skill-tag">情報設計（IA）</span>
         <span class="skill-tag">Figmaプロトタイピング</span>
         <span class="skill-tag">ユーザビリティテスト</span>
-        <span class="skill-tag">アクセシビリティ</span>
-        <span class="skill-tag">バックエンド開発</span>
+                <span class="skill-tag">バックエンド開発</span>
       </div>
     </div>
     <div class="about-section fade-up">
@@ -510,7 +520,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <div class="profile-row"><span class="profile-key">現職</span><span>バックエンドエンジニア（転身準備中）</span></div>
         <div class="profile-row"><span class="profile-key">経歴</span><span>システム開発 5年（クレジットカードトークナイゼーション）</span></div>
         <div class="profile-row"><span class="profile-key">学歴</span><span>東京デザインプレックス研究所 UI/UX総合コース修了（2025.11）</span></div>
-        <div class="profile-row"><span class="profile-key">得意領域</span><span>モバイルアプリ / 社会課題解決 / アクセシビリティ</span></div>
+        <div class="profile-row"><span class="profile-key">得意領域</span><span>モバイルアプリ / 社会課題解決</span></div>
         <div class="profile-row"><span class="profile-key">ツール</span><span>Figma / FigJam / Miro</span></div>
       </div>
     </div>
@@ -546,7 +556,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
 
     <!-- カバー画像 -->
     <div class="img-full fade-up" style="margin-bottom:48px">
-      <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/cover/cover_ampy.png" alt="ampy cover">
+      <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/cover/cover_ampy.png" alt="ampy cover" onclick="openLightbox(this.src, 'ampy cover')" style="cursor:zoom-in">
     </div>
 
     <!-- サービス概要 -->
@@ -613,7 +623,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
     <div class="ds fade-up">
       <div class="ds-label"><span>制作プロセス</span></div>
       <div class="img-full">
-        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/slides/ampy_process.png" alt="制作プロセス">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/slides/ampy_process.png" alt="制作プロセス" onclick="openLightbox(this.src, '制作プロセス')" style="cursor:zoom-in">
       </div>
     </div>
 
@@ -628,7 +638,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <p>調査では、災害時の備えとして約60%が「家族との連絡手段」を重要視するものの、実際に対策できている世帯は約15%という乖離を確認。このギャップに着目しました。</p>
       </div>
       <div style="margin:20px 0">
-        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/slides/PublicOpinion.png" alt="防災に関する世論調査" style="width:100%;display:block;border-radius:6px">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/slides/PublicOpinion.png" alt="防災に関する世論調査" style="width:100%;display:block;border-radius:6px" onclick="openLightbox(this.src, '防災に関する世論調査')" style="cursor:zoom-in">
         <div style="padding:9px 0;font-size:11px;color:var(--muted);font-family:var(--mono)">出典：総務省「防災に関する世論調査（令和4年9月）」</div>
       </div>
     </div>
@@ -642,7 +652,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <p><strong>目的：</strong>災害発生時における安否確認の行動パターンと、その際に生じる心理的ハードルの特定。「なぜ？」と問いかけ続けることで、ユーザーの本質的な価値観を獲得することを意図しました。</p>
       </div>
       <div class="img-full">
-        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/process/interviewInsight.jpg" alt="インタビュー結果・共通パターン">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/process/interviewInsight.jpg" alt="インタビュー結果・共通パターン" onclick="openLightbox(this.src, 'インタビュー結果・共通パターン')" style="cursor:zoom-in">
       </div>
       <div class="ds-body" style="margin-top:16px">
         <p>インタビュー結果をアフィニティダイアグラムで整理し、共通パターンを抽出。複数のインタビュイーの発言を行動・感情・思考の軸でグルーピングすることで、以下の3つのペインが浮かび上がりました。</p>
@@ -677,14 +687,14 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <p>今回のペルソナ「木村絵里（48歳）」は、家族と離れて暮らしており、いざというときの連絡手段に不安を抱えています。防災意識は高いが、家族全員での対策が取れていないというギャップを体現しています。</p>
       </div>
       <div class="img-block">
-        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/process/Persona.jpg" alt="ペルソナ：木村絵里">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/process/Persona.jpg" alt="ペルソナ：木村絵里" onclick="openLightbox(this.src, 'ペルソナ：木村絵里')" style="cursor:zoom-in">
         <div class="img-cap">ペルソナ：木村絵里（48歳・家族思いママ）</div>
       </div>
       <div class="ds-body" style="margin-top:16px">
         <p>TOBEペルソナでは、サービス利用後に「家族全員が同じ安心を持てる状態」を実現した姿を描きました。利用前と利用後の心理的変化を2つのシナリオで表現しています。</p>
       </div>
       <div class="img-block">
-        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/process/ToBePersona.jpg" alt="TOBEペルソナ">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/process/ToBePersona.jpg" alt="TOBEペルソナ" onclick="openLightbox(this.src, 'TOBEペルソナ')" style="cursor:zoom-in">
         <div class="img-cap">TOBEペルソナ：サービス利用後の理想の状態とシナリオ</div>
       </div>
     </div>
@@ -693,7 +703,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
     <div class="ds fade-up">
       <div class="ds-label"><span>分析 — カスタマージャーニー & コアバリュー</span></div>
       <div class="img-full">
-        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/process/CJM.jpg" alt="カスタマージャーニーマップ">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/process/CJM.jpg" alt="カスタマージャーニーマップ" onclick="openLightbox(this.src, 'カスタマージャーニーマップ')" style="cursor:zoom-in">
       </div>
       <div class="ds-body" style="margin-top:20px">
         <p>インタビューから見えた「3つのペイン」をもとに、どのような体験価値を生み出せるか検討。調査を通して、ユーザーの最大のストレスは「相手の状況が一切見えないことによる極限の不安」であると仮定し、本サービスのコアバリューを決定しました。</p>
@@ -718,11 +728,11 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <p>コアバリューをもとにチームでソリューションを具体化。ユーザーストーリーマップで機能の優先順位を決定しました。</p>
       </div>
       <div class="img-block">
-        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/process/Solution.jpg" alt="ソリューション協議">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/process/Solution.jpg" alt="ソリューション協議" onclick="openLightbox(this.src, 'ソリューション協議')" style="cursor:zoom-in">
         <div class="img-cap">ソリューション協議：スケッチによる機能アイデア出し</div>
       </div>
       <div class="img-full" style="margin-top:12px">
-        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/process/UserStoryMap.jpg" alt="ユーザーストーリーマップ">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/process/UserStoryMap.jpg" alt="ユーザーストーリーマップ" onclick="openLightbox(this.src, 'ユーザーストーリーマップ')" style="cursor:zoom-in">
       </div>
     </div>
 
@@ -733,7 +743,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
       <div class="feature-grid">
         <div class="feature-card">
           <div class="feature-card-imgs">
-            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/wireframe/status/status.png" alt="ステータス">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/wireframe/status/status.png" alt="ステータス" onclick="openLightbox(this.src, 'ステータス')" style="cursor:zoom-in">
           </div>
           <div class="feature-card-body">
             <div class="feature-card-title">ユーザーの危険度の更新</div>
@@ -742,7 +752,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         </div>
         <div class="feature-card">
           <div class="feature-card-imgs">
-            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/wireframe/groupInformation/groupInformation-01.png" alt="グループ情報">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/wireframe/groupInformation/groupInformation-01.png" alt="グループ情報" onclick="openLightbox(this.src, 'グループ情報')" style="cursor:zoom-in">
           </div>
           <div class="feature-card-body">
             <div class="feature-card-title">グループで情報の確認</div>
@@ -751,7 +761,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         </div>
         <div class="feature-card">
           <div class="feature-card-imgs">
-            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/wireframe/mypage/default.png" alt="マイページ">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/wireframe/mypage/default.png" alt="マイページ" onclick="openLightbox(this.src, 'マイページ')" style="cursor:zoom-in">
           </div>
           <div class="feature-card-body">
             <div class="feature-card-title">マイページで情報の確認</div>
@@ -769,15 +779,15 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
       </div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0;padding:28px 24px;background:var(--off);border-radius:var(--r)">
         <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/slides/ampy_maincolor.png" alt="メインカラー" style="height:48px;width:auto;display:block">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/slides/ampy_maincolor.png" alt="メインカラー" style="height:48px;width:auto;display:block" onclick="openLightbox(this.src, 'メインカラー')" style="cursor:zoom-in">
           <span style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em">メインカラー</span>
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/slides/ampy_logo.png" alt="ロゴ" style="height:48px;width:auto;display:block">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/slides/ampy_logo.png" alt="ロゴ" style="height:48px;width:auto;display:block" onclick="openLightbox(this.src, 'ロゴ')" style="cursor:zoom-in">
           <span style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em">ロゴ</span>
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/slides/ampy_icon.png" alt="アイコン" style="height:48px;width:auto;display:block">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/slides/ampy_icon.png" alt="アイコン" style="height:48px;width:auto;display:block" onclick="openLightbox(this.src, 'アイコン')" style="cursor:zoom-in">
           <span style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em">アイコン</span>
         </div>
       </div>
@@ -787,15 +797,15 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <div style="font-size:13px;font-weight:600;color:var(--ampy);margin-bottom:16px">① 家族が被災し、状況を確認するとき</div>
         <div class="mockup-row" style="justify-content:flex-start">
           <div class="mockup-item zoomable">
-            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/groupInformation.png" alt="グループ一覧">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/groupInformation.png" alt="グループ一覧" onclick="openLightbox(this.src, 'グループ一覧')" style="cursor:zoom-in">
             <div class="mockup-label">グループ一覧</div>
           </div>
           <div class="mockup-item zoomable">
-            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/groupSituation.png" alt="グループ詳細">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/groupSituation.png" alt="グループ詳細" onclick="openLightbox(this.src, 'グループ詳細')" style="cursor:zoom-in">
             <div class="mockup-label">グループ詳細</div>
           </div>
           <div class="mockup-item zoomable">
-            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/mySituation.png" alt="自分の状況">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/mySituation.png" alt="自分の状況" onclick="openLightbox(this.src, '自分の状況')" style="cursor:zoom-in">
             <div class="mockup-label">自分の状況</div>
           </div>
         </div>
@@ -806,7 +816,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <div style="font-size:13px;font-weight:600;color:var(--ampy);margin-bottom:16px">② 自分が被災し、状況を登録するとき</div>
         <div class="mockup-row" style="justify-content:flex-start">
           <div class="mockup-item zoomable">
-            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/answerSituation.png" alt="ステータス更新">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/answerSituation.png" alt="ステータス更新" onclick="openLightbox(this.src, 'ステータス更新')" style="cursor:zoom-in">
             <div class="mockup-label">ステータス更新</div>
           </div>
         </div>
@@ -866,6 +876,30 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
       </div>
     </div>
 
+    <!-- 最終デザイン再掲 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>最終デザイン</span></div>
+      <div class="mockup-row">
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/groupInformation.png" alt="グループ一覧" onclick="openLightbox(this.src, 'グループ一覧')">
+          <div class="mockup-label">グループ一覧</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/groupSituation.png" alt="グループ詳細" onclick="openLightbox(this.src, 'グループ詳細')">
+          <div class="mockup-label">グループ詳細</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/mySituation.png" alt="自分の状況" onclick="openLightbox(this.src, '自分の状況')">
+          <div class="mockup-label">自分の状況</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/answerSituation.png" alt="ステータス更新" onclick="openLightbox(this.src, 'ステータス更新')">
+          <div class="mockup-label">ステータス更新</div>
+        </div>
+      </div>
+      <a href="https://www.figma.com/proto/GoekmbiLss9r6bI0L1MfVG/" target="_blank" class="figma-btn">▶ Figmaでプロトタイプを見る</a>
+    </div>
+
   </div>
 </div>
 
@@ -893,7 +927,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
 
     <!-- カバー画像 -->
     <div class="img-full fade-up" style="margin-bottom:48px">
-      <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/cover/cover_wheelmark.png" alt="wheelmark cover">
+      <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/cover/cover_wheelmark.png" alt="wheelmark cover" onclick="openLightbox(this.src, 'wheelmark cover')" style="cursor:zoom-in">
     </div>
 
     <!-- サービス概要 -->
@@ -1006,21 +1040,21 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
         <div style="display:flex;flex-direction:column;gap:8px">
           <div style="font-size:12px;color:var(--ink2);line-height:1.6">①目的地までのルートを検索する画面</div>
           <div class="img-block" style="margin:0">
-            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/wireframe/search.png" alt="検索画面">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/wireframe/search.png" alt="検索画面" onclick="openLightbox(this.src, '検索画面')" style="cursor:zoom-in">
             <div class="img-cap">検索画面</div>
           </div>
         </div>
         <div style="display:flex;flex-direction:column;gap:8px">
           <div style="font-size:12px;color:var(--ink2);line-height:1.6">②過去の通過実績やユーザーの声</div>
           <div class="img-block" style="margin:0">
-            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/wireframe/searchDetail.png" alt="経路結果一覧">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/wireframe/searchDetail.png" alt="経路結果一覧" onclick="openLightbox(this.src, '経路結果一覧')" style="cursor:zoom-in">
             <div class="img-cap">経路結果一覧</div>
           </div>
         </div>
         <div style="display:flex;flex-direction:column;gap:8px">
           <div style="font-size:12px;color:var(--ink2);line-height:1.6">③各ルートの実績情報、公的情報</div>
           <div class="img-block" style="margin:0">
-            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/wireframe/routeInformation.png" alt="経路詳細">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/wireframe/routeInformation.png" alt="経路詳細" onclick="openLightbox(this.src, '経路詳細')" style="cursor:zoom-in">
             <div class="img-cap">経路詳細</div>
           </div>
         </div>
@@ -1139,7 +1173,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
             <div class="mockup-label">ルート記録</div>
           </div>
           <div class="mockup-item zoomable">
-            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Record-02.png" alt="ルート記録（入力中）">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Record-02.png" alt="ルート記録（入力中）" onclick="openLightbox(this.src, 'ルート記録（入力中）')" style="cursor:zoom-in">
             <div class="mockup-label">記録（入力中）</div>
           </div>
         </div>
@@ -1161,6 +1195,30 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
           <li>視覚障害・高齢者など他のアクセシビリティニーズへの応用可能性を検討する</li>
         </ul>
       </div>
+    </div>
+
+    <!-- 最終デザイン再掲 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>最終デザイン</span></div>
+      <div class="mockup-row">
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Search-01.png" alt="検索画面" onclick="openLightbox(this.src, '検索画面')">
+          <div class="mockup-label">検索</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/SearchResult-01.png" alt="検索結果" onclick="openLightbox(this.src, '検索結果')">
+          <div class="mockup-label">経路一覧</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/RouteInformation-01.png" alt="経路詳細" onclick="openLightbox(this.src, '経路詳細')">
+          <div class="mockup-label">経路詳細</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Record-01.png" alt="ルート記録" onclick="openLightbox(this.src, 'ルート記録')">
+          <div class="mockup-label">ルート記録</div>
+        </div>
+      </div>
+      <a href="https://www.figma.com/proto/CGSdnBXpeO5TmVpepigQaj/" target="_blank" class="figma-btn" style="background:var(--wheel)">▶ Figmaでプロトタイプを見る</a>
     </div>
 
   </div>
@@ -1191,7 +1249,7 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
 
     <!-- カバー画像 -->
     <div class="img-full fade-up" style="margin-bottom:48px">
-      <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/cover/react_cover.png" alt="Re:ACT cover">
+      <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/cover/react_cover.png" alt="Re:ACT cover" onclick="openLightbox(this.src, 'Re:ACT cover')" style="cursor:zoom-in">
     </div>
 
     <!-- サービス概要 -->
@@ -1599,17 +1657,17 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
       </div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0;padding:28px 24px;background:var(--off);border-radius:var(--r)">
         <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/react_maincolor.png" alt="メインカラー" style="height:48px;width:auto;display:block">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/react_maincolor.png" alt="メインカラー" style="height:48px;width:auto;display:block" onclick="openLightbox(this.src, 'メインカラー')" style="cursor:zoom-in">
           <span style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em">メインカラー</span>
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
           <div style="background:#1a1a18;border-radius:6px;padding:8px 16px;display:flex;align-items:center;justify-content:center;height:48px">
-            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/react_logo.png" alt="ロゴ" style="height:32px;width:auto;display:block">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/react_logo.png" alt="ロゴ" style="height:32px;width:auto;display:block" onclick="openLightbox(this.src, 'ロゴ')" style="cursor:zoom-in">
           </div>
           <span style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em">ロゴ</span>
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/raect_icon.png" alt="アイコン" style="height:48px;width:auto;display:block;border-radius:10px">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/raect_icon.png" alt="アイコン" style="height:48px;width:auto;display:block;border-radius:10px" onclick="openLightbox(this.src, 'アイコン')" style="cursor:zoom-in">
           <span style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em">アイコン</span>
         </div>
       </div>
@@ -1655,8 +1713,37 @@ header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backd
       </div>
     </div>
 
+    <!-- 最終デザイン再掲 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>最終デザイン</span></div>
+      <div class="mockup-row">
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_TicketAll.png" alt="チケット一覧" onclick="openLightbox(this.src, 'チケット一覧')">
+          <div class="mockup-label">記録一覧</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_TicketDetail.png" alt="チケット詳細" onclick="openLightbox(this.src, 'チケット詳細')">
+          <div class="mockup-label">チケット詳細</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_TicketRegist.png" alt="新規登録" onclick="openLightbox(this.src, '新規登録')">
+          <div class="mockup-label">新規登録</div>
+        </div>
+      </div>
+      <a class="figma-btn" href="https://www.figma.com/proto/veUIAYpLvFxePCGim6m0zB/%E7%84%A1%E9%A1%8C?node-id=826-2803&viewport=-2583%2C718%2C0.19&t=HcHnzzyJnhSrDH7K-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=826%3A2803&show-proto-sidebar=1&page-id=0%3A1" target="_blank" rel="noopener" style="background:var(--react)">▶ Figmaでプロトタイプを見る</a>
+    </div>
+
   </div>
 </div>
+
+<footer>
+  <nav class="footer-nav">
+    <button class="footer-tab active" data-tab="works" onclick="switchTab('works')">作品集</button>
+    <button class="footer-tab" data-tab="study" onclick="switchTab('study')">学習記録</button>
+    <button class="footer-tab" data-tab="about" onclick="switchTab('about')">プロフィール</button>
+  </nav>
+  <div class="footer-copy">© 2025 木村萌香　掲載されているデザイン・画像の無断転載を禁じます。</div>
+</footer>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
   <div class="lightbox-inner" id="lightbox-inner">
@@ -1683,24 +1770,30 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') { document.ge
 document.querySelectorAll(".tab-btn").forEach(btn=>{
   btn.addEventListener("click",()=>{
     const tab=btn.dataset.tab;
-    document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
-    document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));
-    btn.classList.add("active");
-    document.getElementById("tab-"+tab).classList.add("active");
-    document.querySelectorAll(".detail-panel").forEach(p=>p.classList.remove("active"));
-    window.scrollTo(0,0);triggerFadeUps();
+    switchTab(tab);
   });
 });
+function switchTab(tab){
+  document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+  document.querySelectorAll(".footer-tab").forEach(b=>b.classList.remove("active"));
+  document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));
+  document.querySelectorAll("[data-tab="+tab+"]").forEach(b=>b.classList.add("active"));
+  document.getElementById("tab-"+tab).classList.add("active");
+  document.querySelectorAll(".detail-panel").forEach(p=>p.classList.remove("active"));
+  window.scrollTo(0,0);triggerFadeUps();
+}
 function openProject(id){
   document.querySelectorAll(".panel,.detail-panel").forEach(p=>p.classList.remove("active"));
   document.getElementById("proj-"+id).classList.add("active");
+  document.body.classList.add("detail-open");
   window.scrollTo(0,0);triggerFadeUps();
 }
 function closeProject(){
   document.querySelectorAll(".detail-panel,.panel").forEach(p=>p.classList.remove("active"));
-  document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
-  document.querySelector("[data-tab=works]").classList.add("active");
+  document.querySelectorAll(".tab-btn,.footer-tab").forEach(b=>b.classList.remove("active"));
+  document.querySelectorAll("[data-tab=works]").forEach(b=>b.classList.add("active"));
   document.getElementById("tab-works").classList.add("active");
+  document.body.classList.remove("detail-open");
   window.scrollTo(0,0);
 }
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("in");});},{threshold:0.05});
