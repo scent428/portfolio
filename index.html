@@ -94,9 +94,9 @@ body.detail-open .tabs{visibility:hidden}
 
 /* SECTION LABEL */
 .ds{margin-bottom:72px}
-.ds-label{display:flex;align-items:center;margin-bottom:24px}
-.ds-label span{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--white);background:var(--ink);padding:5px 14px;border-radius:3px;white-space:nowrap}
-.ds-label::after{content:"";flex:1;height:1px;background:var(--line2);margin-left:12px}
+.ds-label{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+.ds-label span{font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0.06em;color:var(--ink);white-space:nowrap}
+.ds-label::after{content:"";flex:1;height:1px;background:var(--line);}
 .ds-body{color:var(--ink2);line-height:1.9}.ds-body p{margin-bottom:14px}
 
 /* MOCKUPS */
@@ -615,7 +615,8 @@ footer{background:var(--off);border-top:1px solid var(--line);padding:20px 48px;
       <div class="ds-label"><span>担当範囲</span></div>
       <div class="callout neutral">
         <div class="callout-title">チーム制作における私の役割</div>
-        <p>インタビュー設計・実施・分析、カスタマージャーニーマップの作成、コアバリューの定義、UIビジュアルデザインを主担当。ワイヤーフレーム・プロトタイプ・ユーザビリティテストはチーム全体で実施。</p>
+        <p>調査、分析、設計・作成までを主導。</p>
+        <p>メインビジュアルUIは他メンバーにて主導。</p>      
       </div>
     </div>
 
@@ -655,25 +656,25 @@ footer{background:var(--off);border-top:1px solid var(--line);padding:20px 48px;
         <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/process/interviewInsight.jpg" alt="インタビュー結果・共通パターン" onclick="openLightbox(this.src, 'インタビュー結果・共通パターン')" style="cursor:zoom-in">
       </div>
       <div class="ds-body" style="margin-top:16px">
-        <p>インタビュー結果をアフィニティダイアグラムで整理し、共通パターンを抽出。複数のインタビュイーの発言を行動・感情・思考の軸でグルーピングすることで、以下の3つのペインが浮かび上がりました。</p>
+        <p>インタビュー結果を整理し、エピソード毎に分類。そこから行動・感情・思考の軸でグルーピングすることで、以下の3つのペインが浮かび上がりました。</p>
       </div>
       <div class="pain-grid">
         <div class="pain-card">
           <div class="pain-num">Pain 01</div>
           <div class="pain-title">災害時に家族と連絡が取れないと不安を感じる</div>
-          <div class="pain-reason">「家族の安否を確認したい」という声が最も多く、複数のグループで共通して現れた。</div>
-          <div class="pain-why">→ 家族の生存確認は最も重要な確認事項と捉えているから。生存確認は誰にとっても大切という普遍的なニーズ。</div>
+          <div class="pain-reason">「家族の安否を確認したい」という声が最も多かった。</div>
+          <div class="pain-why">→ 家族の生存確認は最も重要な確認事項と捉えているから。生存確認は誰にとっても大切という普遍的なペイン。</div>
         </div>
         <div class="pain-card">
           <div class="pain-num">Pain 02</div>
           <div class="pain-title">スピーディーな問題解決を望んでいる</div>
-          <div class="pain-reason">「とにかく早く知りたい」「待っている間が一番つらい」という発言が複数のインタビュイーから出た。</div>
-          <div class="pain-why">→ 生死に関わることだから、どんなことよりも早く情報が欲しい。時間的な切迫感が強いペイン。</div>
+          <div class="pain-reason">「とにかく早く知りたい」「待っている間が一番つらい」</div>
+          <div class="pain-why">→ 生死に関わることだから、どんなことよりも早く情報が欲しい。ユーザーの切実ペイン。</div>
         </div>
         <div class="pain-card">
           <div class="pain-num">Pain 03</div>
           <div class="pain-title">災害時に自分の災害準備に不安を感じる</div>
-          <div class="pain-reason">「準備はしているつもりだけど足りているか不安」という発言が、インタビュー後半で共通して現れた。</div>
+          <div class="pain-reason">「準備はしているつもりだけど足りているか不安」</div>
           <div class="pain-why">→ 自分の物資準備・確認が不足していると自覚しているから。潜在的な不安として広く存在するペイン。</div>
         </div>
       </div>
@@ -683,8 +684,8 @@ footer{background:var(--off);border-top:1px solid var(--line);padding:20px 48px;
     <div class="ds fade-up">
       <div class="ds-label"><span>ペルソナ</span></div>
       <div class="ds-body">
-        <p>インタビューから得たインサイトをもとに、主要ユーザー像を定義しました。ペルソナは単なる属性の整理ではなく、「なぜこのサービスを必要とするか」の文脈を明確にするために作成しています。</p>
-        <p>今回のペルソナ「木村絵里（48歳）」は、家族と離れて暮らしており、いざというときの連絡手段に不安を抱えています。防災意識は高いが、家族全員での対策が取れていないというギャップを体現しています。</p>
+        <p>インタビューから得たインサイトをもとに、ペルソナを定義しました。</p>
+        <p>今回のペルソナ「木村絵里（48歳）」は、家族と離れて暮らしており、いざというときの連絡手段に不安を抱えています。防災意識は高いが、家族全員での対策が取れていないというギャップを抱えています。</p>
       </div>
       <div class="img-block">
         <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/process/Persona.jpg" alt="ペルソナ：木村絵里" onclick="openLightbox(this.src, 'ペルソナ：木村絵里')" style="cursor:zoom-in">
@@ -706,7 +707,7 @@ footer{background:var(--off);border-top:1px solid var(--line);padding:20px 48px;
         <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/process/CJM.jpg" alt="カスタマージャーニーマップ" onclick="openLightbox(this.src, 'カスタマージャーニーマップ')" style="cursor:zoom-in">
       </div>
       <div class="ds-body" style="margin-top:20px">
-        <p>インタビューから見えた「3つのペイン」をもとに、どのような体験価値を生み出せるか検討。調査を通して、ユーザーの最大のストレスは「相手の状況が一切見えないことによる極限の不安」であると仮定し、本サービスのコアバリューを決定しました。</p>
+        <p>インタビューから見えた「3つのペイン」をもとに、どのような体験価値を生み出せるかを検討しました。調査を通して、ユーザーの最大のストレスは「相手の状況が一切見えないことによる極限の不安」であると仮定し、本サービスのコアバリューを決定しました。</p>
         <p>コアバリューは「相手の状況が一切見えないことによる極限の不安」を取り除くために、どうしたら「安全だよ」と伝えられるかを考え、以下をコアバリューとすることにしました。</p>
       </div>
       <div class="card-2" style="margin-top:16px">
@@ -775,7 +776,8 @@ footer{background:var(--off);border-top:1px solid var(--line);padding:20px 48px;
     <div class="ds fade-up">
       <div class="ds-label"><span>ユーザーテスト前プロトタイプ</span></div>
       <div class="ds-body">
-        <p>「安心感」を伝えるため、あたたかみのある赤（#FE8081）とハートモチーフをビジュアルの軸に据えました。被災時に想定される2つのシナリオに沿って画面を設計しています。</p>
+        <p>「安心感」を伝えるため、あたたかみのある赤（#FE8081）とハートモチーフをビジュアルの軸に据えました。</p>
+        <p>また、被災時に想定される2つのシナリオに沿った機能設計、画面設計を行いました。</p>
       </div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0;padding:28px 24px;background:var(--off);border-radius:var(--r)">
         <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
@@ -986,7 +988,7 @@ footer{background:var(--off);border-top:1px solid var(--line);padding:20px 48px;
         <div class="pull-quote-text">「地図で通れそう」でも、不安は残る。</div>
       </div>
       <div class="ds-body">
-        <p>ベビーカーユーザーへのインタビューで繰り返し聞いた言葉が出発点です。地図アプリに車椅子ルートがあっても「行ってみないと自分が行けるか分からない」という根本的な不安が解消されていない実態を確認しました。</p>
+        <p>地図アプリに車椅子ルートがあっても「行ってみないと自分が行けるか分からない」という根本的な不安が解消されていない実態をインタビューで確認しました。</p>
       </div>
       <div class="callout dark">
         <div class="callout-title">調査設計上の判断について</div>
