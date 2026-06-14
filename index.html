@@ -157,7 +157,7 @@ body.detail-open .tabs{visibility:hidden}
 .feature-card-desc{font-size:12px;color:var(--ink2);line-height:1.6}
 
 /* BEFORE AFTER */
-.ba-section{margin:28px 0}
+.ba-section{margin:28px 0;max-width:640px}
 .ba-title{font-size:13px;font-weight:600;margin-bottom:16px;color:var(--ink)}
 .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .ba-item{}
@@ -1335,7 +1335,7 @@ footer{background:var(--off);border-top:1px solid var(--line);padding:20px 48px;
           <div class="mockup-label" style="color:var(--ink2);font-size:12px;font-weight:500">新規登録</div>
         </div>
       </div>
-      <a class="figma-btn" href="https://www.figma.com/proto/veUIAYpLvFxePCGim6m0zB/%E7%84%A1%E9%A1%8C?node-id=826-2803&viewport=-2583%2C718%2C0.19&t=HcHnzzyJnhSrDH7K-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=826%3A2803&show-proto-sidebar=1&page-id=0%3A1" target="_blank" rel="noopener">▶ Figmaでプロトタイプを見る</a>
+      <a class="figma-btn" href="https://www.figma.com/proto/veUIAYpLvFxePCGim6m0zB/%E7%84%A1%E9%A1%8C?node-id=1105-1695&t=xfXYU8f9233hquGt-1" target="_blank" rel="noopener">▶ Figmaでプロトタイプを見る</a>
     </div>
 
     <!-- テーマ -->
@@ -1728,14 +1728,78 @@ footer{background:var(--off);border-top:1px solid var(--line);padding:20px 48px;
     <div class="ds fade-up">
       <div class="ds-label"><span>現在地と今後</span></div>
       <div class="ds-body">
-        <p>現在、ユーザビリティテストを実施中です。</p>
+        <p>ユーザビリティテストを2名実施し、結果をもとにUIを改善しました。</p>
       </div>
-      <div class="next-step">
+
+      <!-- インタビュー結果 -->
+      <div class="card-2" style="margin-bottom:32px">
+        <div class="mini-card" style="border-color:var(--react);background:var(--react-bg)">
+          <div class="mini-card-head" style="color:var(--react)">松原さん　56歳 / 年3〜5回</div>
+          <div class="mini-card-body">
+            <p>残したかった情報：キャスト写真・劇場へのアクセス・カフェのURL</p>
+            <p>チケットが白くて印象が薄い。写真があると思い出しやすい。</p>
+            <p>劇場名をタップしたら地図に飛べると思っていた。</p>
+          </div>
+        </div>
+        <div class="mini-card" style="border-color:var(--react);background:var(--react-bg)">
+          <div class="mini-card-head" style="color:var(--react)">原さん　26歳 / 年10回以上</div>
+          <div class="mini-card-body">
+            <p>入力は特に迷いなくできた。</p>
+            <p>残したかった情報：劇場までのアクセス・チケットの金額</p>
+            <p>座席の見え方を他の人とシェアできるようにしたい。検索で調べられるようにしたい。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Before/After -->
+      <div class="ds-label"><span>改善 — Before / After</span></div>
+
+      <div class="ba-section">
+        <div class="ba-title">チケット一覧に写真を追加 — パッと見て思い出せるように</div>
+        <div class="ba-grid">
+          <div class="ba-item">
+            <div class="ba-header">
+              <div class="ba-label before">BEFORE</div>
+              <div class="ba-note">課題：テキストだけでは記憶と結びつきにくい</div>
+            </div>
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_TicketAll.png" alt="Before チケット一覧" onclick="openLightbox(this.src, 'Before チケット一覧')">
+          </div>
+          <div class="ba-item">
+            <div class="ba-header">
+              <div class="ba-label" style="background:var(--react);color:white">AFTER</div>
+              <div class="ba-note">改善：サムネイル写真を追加し、一覧で記憶を手繰り寄せやすく</div>
+            </div>
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_No2_TicketAll.png" alt="After チケット一覧" onclick="openLightbox(this.src, 'After チケット一覧')">
+          </div>
+        </div>
+      </div>
+
+      <div class="ba-section" style="margin-top:32px">
+        <div class="ba-title">登録画面のプレースホルダーを改善 — 劇場アクセスもここに書けると伝える</div>
+        <div class="ba-grid">
+          <div class="ba-item">
+            <div class="ba-header">
+              <div class="ba-label before">BEFORE</div>
+              <div class="ba-note">課題：メモ欄に何を書くか伝わっていなかった</div>
+            </div>
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_TicketRegist.png" alt="Before 登録" onclick="openLightbox(this.src, 'Before 登録')">
+          </div>
+          <div class="ba-item">
+            <div class="ba-header">
+              <div class="ba-label" style="background:var(--react);color:white">AFTER</div>
+              <div class="ba-note">改善：プレースホルダーにアクセス例を追加</div>
+            </div>
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_No2_TicketRegist.png" alt="After 登録" onclick="openLightbox(this.src, 'After 登録')">
+          </div>
+        </div>
+      </div>
+
+      <div class="next-step" style="margin-top:32px">
         <div class="next-step-title">進捗</div>
         <ul>
           <li><strong>完了</strong>　ユーザビリティテスト計画の作成</li>
-          <li><strong>完了</strong>　被験者の募集 — 5月8日時点で1名実施済み</li>
-          <li><strong>予定</strong>　あと2〜3名実施し、結果をもとに画面改善フェーズへ移行</li>
+          <li><strong>完了</strong>　2名実施（松原さん・原さん）、結果をもとにUI改善</li>
+          <li><strong>予定</strong>　あと1名実施し、改善の妥当性を確認</li>
           <li><strong>予定</strong>　改善後、ローンチフェーズへ</li>
         </ul>
       </div>
@@ -1743,22 +1807,22 @@ footer{background:var(--off);border-top:1px solid var(--line);padding:20px 48px;
 
     <!-- 最終デザイン再掲 -->
     <div class="ds fade-up">
-      <div class="ds-label"><span>最終デザイン</span></div>
+      <div class="ds-label"><span>最終デザイン（改善後）</span></div>
       <div class="mockup-row">
         <div class="mockup-item zoomable">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_TicketAll.png" alt="チケット一覧" onclick="openLightbox(this.src, 'チケット一覧')">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_No2_TicketAll.png" alt="チケット一覧" onclick="openLightbox(this.src, 'チケット一覧')">
           <div class="mockup-label">記録一覧</div>
         </div>
         <div class="mockup-item zoomable">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_TicketDetail.png" alt="チケット詳細" onclick="openLightbox(this.src, 'チケット詳細')">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_No2_TicketDetail.png" alt="チケット詳細" onclick="openLightbox(this.src, 'チケット詳細')">
           <div class="mockup-label">チケット詳細</div>
         </div>
         <div class="mockup-item zoomable">
-          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_TicketRegist.png" alt="新規登録" onclick="openLightbox(this.src, '新規登録')">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_No2_TicketRegist.png" alt="新規登録" onclick="openLightbox(this.src, '新規登録')">
           <div class="mockup-label">新規登録</div>
         </div>
       </div>
-      <a class="figma-btn" href="https://www.figma.com/proto/veUIAYpLvFxePCGim6m0zB/%E7%84%A1%E9%A1%8C?node-id=826-2803&viewport=-2583%2C718%2C0.19&t=HcHnzzyJnhSrDH7K-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=826%3A2803&show-proto-sidebar=1&page-id=0%3A1" target="_blank" rel="noopener" style="background:var(--react)">▶ Figmaでプロトタイプを見る</a>
+      <a class="figma-btn" href="https://www.figma.com/proto/veUIAYpLvFxePCGim6m0zB/%E7%84%A1%E9%A1%8C?node-id=1105-1695&t=xfXYU8f9233hquGt-1" target="_blank" rel="noopener" style="background:var(--react)">▶ Figmaでプロトタイプを見る</a>
     </div>
 
   </div>
