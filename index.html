@@ -18,7 +18,9 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--white);color:var(--ink);font-size:14px;line-height:1.75;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);background:var(--white);color:var(--ink);font-size:14px;line-height:1.75;-webkit-font-smoothing:antialiased;position:relative;}
+body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;background-image:url("https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/proifile/paint-background.jpg");background-size:cover;background-position:center;opacity:0.25;z-index:0;pointer-events:none;}
+body > *{position:relative;z-index:1;}
 
 /* HEADER */
 header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:0 40px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:64px;gap:24px}
@@ -243,7 +245,12 @@ body.detail-open .tabs{visibility:hidden}
 }
 
 @media(max-width:700px){
-  header{padding:0 20px}.header-bio{display:none}
+  header{padding:10px 16px;grid-template-columns:1fr auto;height:auto;min-height:56px;gap:8px}
+  .header-center{display:none}
+  .header-bio{display:none}
+  .header-name{font-size:14px}
+  .tabs{gap:0}
+  .tab-btn{padding:0 10px;font-size:12px;height:56px}
   .works-panel,.about-panel{padding:32px 20px}
   .works-grid{grid-template-columns:1fr}
   .detail-hero{padding:36px 20px 28px}
@@ -496,9 +503,9 @@ footer{background:var(--off);border-top:1px solid var(--line);padding:20px 48px;
         </div>
       </div>
       <div class="about-body">
-        <p>エンジニアとして5年間、金融系システムの開発に従事し、データ構造や制約を踏まえながら設計に携わってきました。制約の多い環境の中で、システムとして成立するかを考えながら動いてきた経験が自分のベースにあります。</p>
-        <p>UXデザインに関心を持ったきっかけは、業務の中というより、日常生活でサービスを使う中で感じた違和感でした。情報は揃っているのに分かりづらい、選択肢はあるのに次にどうすればいいか迷う。そうした体験を通じて、ユーザーが自然に理解し、納得して行動を選べる体験を設計したいと考えるようになりました。</p>
-        <p>現在は、ユーザーインタビューやジャーニーマップなどのリサーチと、Figmaでのプロトタイピングを組み合わせながら、仮説検証を前提とした設計に取り組んでいます。単に見た目を整えるのではなく、情報の伝わり方や判断のしやすさまで含めて、ユーザーが迷わず行動できる体験を設計することを大切にしています。</p>
+        <p>金融系システムの開発に5年間携わり、要件やデータ構造、システムの制約を踏まえた設計・開発を経験してきました。</p>
+        <p>仕事を続ける中で、次第に「このシステムの先で使っているエンドユーザーは、どのような体験をしているのだろう」と考えるようになりました。システムを正しく動かすだけでなく、ユーザーがどのように情報を理解し、どのような気持ちでサービスを利用するのかまで考えながら設計したいと思うようになり、UXデザインを志しました。</p>
+        <p>現在は、ユーザーインタビューやジャーニーマップを用いた課題分析と、Figmaでのプロトタイピングを通じて、仮説検証を重ねながら設計に取り組んでいます。見た目だけでなく、情報の伝わり方や意思決定のしやすさまで含めて、ユーザーが迷わず行動できる体験を設計することを大切にしています。</p>
       </div>
     </div>
     <div class="about-section fade-up">
