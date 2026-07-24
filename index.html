@@ -1899,7 +1899,8 @@ function toggleMenu(){
 function closeMenuAndGo(dest){
   document.body.classList.remove('menu-open');
   if(dest==='home'){
-    document.querySelector('.hero').scrollIntoView({behavior:'smooth'});
+    switchTab('works');
+    document.getElementById('main-content').scrollIntoView({behavior:'smooth'});
     return;
   }
   if(dest==='works') switchTab('works');
