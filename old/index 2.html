@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>木村 萌香 — UXデザイナー</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#fff;--off:#f7f7f5;--ink:#111110;--ink2:#2a2a27;
+  --muted:#666660;--line:#d8d8d0;--line2:#b0b0a8;
+  --ampy:#d94f47;--ampy-bg:#fdf1f0;
+  --wheel:#652634;--wheel-bg:#f5edef;
+  --react:#6B1E2E;--react-bg:#f5ebec;
+  --serif:"Noto Sans JP",sans-serif;--sans:"Noto Sans JP",sans-serif;
+  --mono:"DM Mono",monospace;--r:6px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--white);color:var(--ink);font-size:14px;line-height:1.75;-webkit-font-smoothing:antialiased;position:relative;}
+body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;background-image:url("https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/proifile/paint-background.jpg");background-size:cover;background-position:center;opacity:0.25;z-index:0;pointer-events:none;}
+body > *{position:relative;z-index:1;}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:0 40px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:64px;gap:24px}
+.header-left{display:flex;flex-direction:column;gap:2px}
+.header-name{font-family:var(--serif);font-size:16px;font-weight:500;letter-spacing:0.04em}
+.header-bio{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.header-center{text-align:center;font-family:var(--serif);font-size:17px;font-weight:500;letter-spacing:0.08em;color:var(--ink);white-space:nowrap}
+.tabs{display:flex;justify-content:flex-end}
+.tab-btn{height:64px;padding:0 18px;background:none;border:none;font-family:var(--sans);font-size:13px;color:var(--muted);cursor:pointer;position:relative;transition:color 0.15s;white-space:nowrap}
+.tab-btn::after{content:"";position:absolute;bottom:0;left:18px;right:18px;height:2px;background:var(--ink);transform:scaleX(0);transition:transform 0.2s}
+.tab-btn.active{color:var(--ink);font-weight:500}.tab-btn.active::after{transform:scaleX(1)}.tab-btn:hover{color:var(--ink)}
+/* detail-panelが開いているときはタブを非表示 */
+body.detail-open .tabs{visibility:hidden}
+
+/* PANELS */
+.panel{display:none}.panel.active{display:block}
+.detail-panel{display:none}.detail-panel.active{display:block}
+
+/* WORKS */
+.works-panel{padding:52px 40px;max-width:1100px;margin:0 auto}
+.works-intro{margin-bottom:40px}
+.works-intro p{color:var(--ink2);font-size:14px;line-height:1.8;max-width:600px}
+.works-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.proj-card{border:1px solid var(--line);border-radius:10px;overflow:hidden;cursor:pointer;transition:border-color 0.2s,box-shadow 0.25s,transform 0.2s;background:var(--white)}
+.proj-card:hover{border-color:var(--line2);box-shadow:0 8px 40px rgba(0,0,0,0.08);transform:translateY(-3px)}
+.proj-card-thumb{width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--off)}
+.proj-card-thumb img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s}
+.proj-card:hover .proj-card-thumb img{transform:scale(1.04)}
+.proj-card-body{padding:22px 26px 26px}
+.proj-tag-row{display:flex;align-items:center;gap:7px;margin-bottom:12px}
+.proj-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.proj-tag-text{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+.proj-card-title{font-family:var(--serif);font-size:28px;font-weight:500;line-height:1.15;margin-bottom:7px;color:var(--ink)}
+.proj-card-desc{font-size:13px;color:var(--ink2);margin-bottom:10px;line-height:1.6}
+.proj-card-focus{font-size:12px;color:var(--muted);margin-bottom:18px;font-family:var(--mono);letter-spacing:0.03em}
+.proj-card-focus span{color:var(--ink2);font-weight:500}
+.proj-card-meta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.proj-meta-item{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.05em}
+.proj-card-cta{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid var(--line)}
+.cta-label{font-size:12px;color:var(--muted)}.cta-arrow{font-size:14px;color:var(--ink)}
+
+/* ABOUT */
+.about-panel{max-width:680px;margin:0 auto;padding:64px 40px}
+.about-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+.about-hero{display:grid;grid-template-columns:160px 1fr;gap:36px;align-items:start;margin-bottom:36px}
+.about-photo{width:160px;height:160px;border-radius:50%;object-fit:cover;object-position:top;border:1px solid var(--line);display:block}
+.about-hero-text{display:flex;flex-direction:column}
+.about-heading{font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:500;line-height:1.25;margin-bottom:28px}
+@media(max-width:700px){.about-hero{grid-template-columns:1fr;gap:20px}.about-photo{width:120px;height:120px}}
+.about-body{color:var(--ink2);line-height:1.95}.about-body p{margin-bottom:16px}
+.about-section{margin-bottom:52px}
+.about-section-title{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.skill-list{display:flex;flex-wrap:wrap;gap:8px}
+.skill-tag{padding:5px 13px;border:1px solid var(--line2);border-radius:100px;font-size:12px;color:var(--ink2)}
+.profile-row{display:grid;grid-template-columns:148px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:13px}
+.profile-row:first-child{border-top:1px solid var(--line)}
+.profile-key{color:var(--muted)}
+
+/* DETAIL */
+.detail-header{border-bottom:1px solid var(--line);padding:14px 40px;display:flex;align-items:center;gap:16px;background:var(--white);position:sticky;top:64px;z-index:100}
+.back-btn{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);background:none;border:none;cursor:pointer;padding:0;transition:color 0.15s}
+.back-btn:hover{color:var(--ink)}
+.detail-breadcrumb{font-size:12px;color:var(--muted);font-family:var(--mono)}
+.detail-breadcrumb span{color:var(--ink);font-weight:500}
+.detail-hero{padding:60px 40px 44px;max-width:920px;margin:0 auto}
+.detail-eyebrow{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.detail-title{font-family:var(--serif);font-size:clamp(38px,6vw,68px);font-weight:500;line-height:1.08;margin-bottom:14px}
+.detail-subtitle{font-size:16px;color:var(--ink2);margin-bottom:36px}
+.detail-meta-bar{display:flex;gap:36px;flex-wrap:wrap;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:60px}
+.dmeta-key{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.dmeta-val{font-size:13px;font-weight:500}
+.detail-body{max-width:920px;margin:0 auto;padding:0 40px 100px}
+
+/* SECTION LABEL */
+.ds{margin-bottom:72px}
+.ds-label{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+.ds-label span{font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0.06em;color:var(--ink);white-space:nowrap}
+.ds-label::after{content:"";flex:1;height:1px;background:var(--line);}
+.ds-body{color:var(--ink2);line-height:1.9}.ds-body p{margin-bottom:14px}
+
+/* MOCKUPS */
+.mockup-row{display:flex;gap:20px;justify-content:center;margin:28px 0;align-items:flex-start;flex-wrap:wrap}
+.mockup-item{flex:0 0 auto;width:180px}
+.mockup-item img{width:100%;border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,0.1);display:block}
+.mockup-label{text-align:center;font-size:11px;color:var(--muted);margin-top:8px;font-family:var(--mono)}
+
+/* IMAGES */
+.img-block{margin:20px 0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.img-block img{width:100%;display:block}
+.img-cap{padding:9px 16px;background:var(--off);font-size:11px;color:var(--ink2);border-top:1px solid var(--line);font-family:var(--mono)}
+.img-2up{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.img-2up .img-block{margin:0}
+.img-full{margin:20px 0;border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
+.img-full img{width:100%;display:block}
+
+/* CALLOUT */
+.callout{padding:18px 22px;border-radius:var(--r);margin:18px 0;border-left:3px solid}
+.callout.red{border-color:var(--ampy);background:var(--ampy-bg)}
+.callout.dark{border-color:var(--wheel);background:var(--wheel-bg)}
+.callout.react{border-color:var(--react);background:var(--react-bg)}
+.callout.neutral{border-color:var(--line2);background:var(--off)}
+.callout-title{font-size:12px;font-weight:600;margin-bottom:6px}
+.callout p{font-size:13px;color:var(--ink2);margin-bottom:4px;line-height:1.7}
+
+/* PULL QUOTE */
+.pull-quote{margin:28px 0;padding:0 0 0 22px;border-left:2px solid}
+.pull-quote.red{border-color:var(--ampy)}.pull-quote.dark{border-color:var(--wheel)}.pull-quote.react{border-color:var(--react)}
+.pull-quote-text{font-family:var(--serif);font-size:22px;font-weight:500;line-height:1.55}
+
+/* PAIN CARDS */
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
+.pain-card{padding:24px 20px;border:2px solid var(--ampy);border-radius:var(--r);background:var(--ampy-bg)}
+.pain-card.wheel{border-color:var(--wheel);background:var(--wheel-bg)}
+.pain-card.react{border-color:var(--react);background:var(--react-bg)}
+.pain-num{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.pain-title{font-size:16px;font-weight:700;color:var(--ampy);margin-bottom:10px;line-height:1.4}
+.pain-title.wheel{color:var(--wheel)}
+.pain-title.react{color:var(--react)}
+.pain-reason{font-size:12px;color:var(--muted);margin-bottom:10px;line-height:1.6}
+.pain-why{font-size:12px;color:var(--ink2);padding-top:10px;border-top:1px solid rgba(0,0,0,0.08);line-height:1.6}
+
+/* CARDS */
+.card-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+.card-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:18px 0}
+.mini-card{padding:16px 18px;border:1px solid var(--line);border-radius:var(--r);background:var(--white)}
+.mini-card-head{font-size:12px;font-weight:600;margin-bottom:6px}
+.mini-card-body{font-size:12px;color:var(--ink2);line-height:1.65}
+
+/* FEATURE CARDS */
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:24px 0}
+.feature-card{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--white)}
+.feature-card-imgs{display:grid;gap:4px;padding:12px;background:var(--off)}
+.feature-card-imgs img{width:100%;border-radius:4px;display:block}
+.feature-card-body{padding:14px 16px}
+.feature-card-title{font-size:13px;font-weight:600;margin-bottom:6px}
+.feature-card-desc{font-size:12px;color:var(--ink2);line-height:1.6}
+
+/* BEFORE AFTER */
+.ba-section{margin:28px 0;max-width:640px}
+.ba-title{font-size:13px;font-weight:600;margin-bottom:16px;color:var(--ink)}
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ba-item{}
+.ba-header{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+.ba-label{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.06em;padding:4px 12px;display:inline-block;border-radius:3px;flex-shrink:0}
+.ba-label.before{background:var(--ink);color:white}
+.ba-label.after{background:var(--ampy);color:white}
+.ba-note{font-size:12px;color:var(--ink2);line-height:1.5}
+.ba-item img{width:100%;border-radius:var(--r);border:1px solid var(--line);display:block}
+
+/* DECISION */
+.decision-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
+.decision-item{padding:18px 20px;border:1px solid var(--line);border-radius:var(--r);background:var(--off)}
+.decision-label{font-size:12px;font-weight:600;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.decision-body{font-size:13px;color:var(--ink2);line-height:1.7}
+
+/* STEP FLOW */
+.step-flow{display:flex;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin:18px 0}
+.step-item{flex:1;padding:14px 13px;border-right:1px solid var(--line);background:var(--white)}
+.step-item:last-child{border-right:none}
+.step-n{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px}
+.step-t{font-size:12px;font-weight:500;line-height:1.4}
+
+/* INSIGHT */
+.insight-box{background:var(--ink);color:white;border-radius:var(--r);padding:22px 26px;margin:18px 0}
+.insight-box-title{font-size:10px;font-family:var(--mono);letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:10px}
+.insight-box-body{font-size:15px;line-height:1.75}
+
+/* NEXT STEP */
+.next-step{background:var(--off);border:1px solid var(--line);border-radius:var(--r);padding:22px 26px;margin:18px 0}
+.next-step-title{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.next-step li{font-size:13px;color:var(--ink2);padding:5px 0;display:flex;gap:8px;list-style:none;line-height:1.6}
+.next-step li::before{content:"→";color:var(--muted);flex-shrink:0;margin-top:2px}
+
+/* FIGMA BTN */
+.figma-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;background:var(--ink);color:white;text-decoration:none;border-radius:6px;font-size:13px;font-family:var(--mono);letter-spacing:0.04em;margin-top:16px;transition:opacity 0.15s}
+.figma-btn:hover{opacity:0.75}
+
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;padding:24px}
+.lightbox.open{display:flex}
+.lightbox-inner{position:relative;max-width:360px;width:100%}
+.lightbox-inner.wide{max-width:800px}
+.lightbox-img{width:100%;border-radius:12px;display:block}
+.lightbox-inner:not(.wide) .lightbox-img{border-radius:24px}
+.lightbox-label{text-align:center;font-size:12px;color:rgba(255,255,255,0.6);margin-top:12px;font-family:var(--mono)}
+.lightbox-close{position:absolute;top:-14px;right:-14px;width:32px;height:32px;border-radius:50%;background:var(--ink);color:white;border:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;line-height:1}
+.mockup-item.zoomable{position:relative;cursor:zoom-in}
+.mockup-item.zoomable::after{content:"🔍";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:16px;background:rgba(0,0,0,0.55);color:white;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s;pointer-events:none;line-height:40px;text-align:center}
+.mockup-item.zoomable:hover::after{opacity:1}
+.mockup-item.zoomable img{transition:opacity 0.2s}
+.mockup-item.zoomable:hover img{opacity:0.75}
+.study-sketch.zoomable,.study-figma.zoomable{position:relative;cursor:zoom-in}
+.study-sketch.zoomable::after,.study-figma.zoomable::after{content:"🔍";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:16px;background:rgba(0,0,0,0.55);color:white;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s;pointer-events:none;line-height:40px;text-align:center}
+.study-sketch.zoomable:hover::after,.study-figma.zoomable:hover::after{opacity:1}
+.study-sketch img,.study-figma img{transition:opacity 0.2s}
+.study-sketch.zoomable:hover img,.study-figma.zoomable:hover img{opacity:0.75}
+.fade-up{opacity:0;transform:translateY(14px);transition:opacity 0.5s ease,transform 0.5s ease}
+.fade-up.in{opacity:1;transform:translateY(0)}
+
+/* STUDY */
+.study-panel{padding:52px 40px;max-width:1100px;margin:0 auto}
+.study-intro{margin-bottom:52px}
+.study-intro-heading{font-family:var(--serif);font-size:clamp(28px,4vw,42px);font-weight:500;line-height:1.2;margin-bottom:16px}
+.study-intro p{color:var(--ink2);font-size:14px;line-height:1.85;max-width:640px}
+.study-stats{display:flex;gap:32px;margin-top:24px;padding-top:24px;border-top:1px solid var(--line)}
+.study-stat-num{font-family:var(--serif);font-size:36px;font-weight:500;line-height:1;color:var(--ink)}
+.study-stat-label{font-size:12px;color:var(--muted);margin-top:4px;font-family:var(--mono)}
+.study-app{margin-bottom:80px}
+.study-app-header{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.study-app-num{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--muted)}
+.study-app-name{font-family:var(--serif);font-size:24px;font-weight:500}
+.study-app-tag{font-size:11px;color:var(--muted);font-family:var(--mono);margin-left:auto}
+.study-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.study-sketch,.study-figma{display:flex;flex-direction:column}
+.study-sketch-label,.study-figma-label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;height:18px;display:flex;align-items:center}
+.study-sketch img{width:100%;aspect-ratio:8/5;object-fit:cover;object-position:top left;border-radius:var(--r);border:1px solid var(--line);display:block}
+.study-figma img{width:100%;aspect-ratio:8/5;object-fit:cover;object-position:top left;border-radius:var(--r);border:1px solid var(--line);display:block}
+@media(max-width:700px){
+  .study-panel{padding:32px 20px}
+  .study-grid{grid-template-columns:1fr}
+  .study-stats{gap:20px}
+}
+
+@media(max-width:700px){
+  header{padding:10px 16px;grid-template-columns:1fr auto;height:auto;min-height:56px;gap:8px}
+  .header-center{display:none}
+  .header-bio{display:none}
+  .header-name{font-size:14px}
+  .tabs{gap:0}
+  .tab-btn{padding:0 10px;font-size:12px;height:56px}
+  .works-panel,.about-panel{padding:32px 20px}
+  .works-grid{grid-template-columns:1fr}
+  .detail-hero{padding:36px 20px 28px}
+  .detail-body{padding:0 20px 80px}
+  .detail-header{padding:14px 20px}
+  .pain-grid,.card-3,.img-2up,.decision-grid,.feature-grid{grid-template-columns:1fr}
+  .step-flow{flex-direction:column}
+  .step-item{border-right:none;border-bottom:1px solid var(--line)}
+  .card-2,.ba-grid{grid-template-columns:1fr}
+  .mockup-item{width:150px}
+}
+footer{background:var(--off);border-top:1px solid var(--line);padding:20px 48px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.footer-nav{display:flex;gap:28px;align-items:center}
+.footer-tab{font-family:var(--sans);font-size:13px;color:var(--muted);cursor:pointer;background:none;border:none;transition:color 0.15s;padding:0}
+.footer-tab:hover{color:var(--ink)}
+.footer-tab.active{color:var(--ink)}
+.footer-copy{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.06em;white-space:nowrap}
+@media(max-width:700px){footer{padding:20px;flex-direction:column;align-items:flex-start;gap:12px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <div class="header-name">木村 萌香</div>
+    <div class="header-bio">UIUXデザイナー志望｜エンジニア出身</div>
+  </div>
+  <div class="header-center">Portfolio</div>
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="works">作品集</button>
+    <button class="tab-btn" data-tab="study">学習記録</button>
+    <button class="tab-btn" data-tab="about">プロフィール</button>
+  </nav>
+</header>
+
+<!-- ════ WORKS ════ -->
+<div class="panel active" id="tab-works">
+  <div class="works-panel">
+    <div class="works-grid">
+      <div class="proj-card fade-up" onclick="openProject('ampy')">
+        <div class="proj-card-thumb">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/cover/cover_ampy.png" alt="ampy" onclick="openLightbox(this.src, 'ampy')" style="cursor:zoom-in">
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-tag-row">
+            <div class="proj-dot" style="background:#d94f47"></div>
+            <span class="proj-tag-text">防災安否アプリ</span>
+          </div>
+          <div class="proj-card-title">ampy</div>
+          <div class="proj-card-desc">災害時でも、大切な人と無事をシェア。コンセプト設計からUIビジュアルまで一貫して担当したアプリデザイン。</div>
+          <div class="proj-card-focus">フォーカス：<span>コンセプト設計 / UIデザイン / ユーザビリティテスト</span></div>
+          <div class="proj-card-meta">
+            <span class="proj-meta-item">UXリサーチ</span>
+            <span class="proj-meta-item">UIデザイン</span>
+            <span class="proj-meta-item">チーム制作</span>
+          </div>
+          <div class="proj-card-cta"><span class="cta-label">ケーススタディを読む</span><span class="cta-arrow">→</span></div>
+        </div>
+      </div>
+      <div class="proj-card fade-up" style="transition-delay:0.08s" onclick="openProject('react')">
+        <div class="proj-card-thumb">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/cover/react_cover.png" alt="Re:ACT" onclick="openLightbox(this.src, 'Re:ACT')" style="cursor:zoom-in">
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-tag-row">
+            <div class="proj-dot" style="background:#6B1E2E"></div>
+            <span class="proj-tag-text">観劇体験記録アプリ</span>
+          </div>
+          <div class="proj-card-title">Re:ACT</div>
+          <div class="proj-card-desc">幕が降りても終わらない、あなたの観劇録。インタビューと複数のHMWから設計した観劇体験記録アプリ。</div>
+          <div class="proj-card-focus">フォーカス：<span>リサーチ / コンセプト設計 / UIデザイン</span></div>
+          <div class="proj-card-meta">
+            <span class="proj-meta-item">UXリサーチ</span>
+            <span class="proj-meta-item">UIデザイン</span>
+            <span class="proj-meta-item">個人制作</span>
+          </div>
+          <div class="proj-card-cta"><span class="cta-label">ケーススタディを読む</span><span class="cta-arrow">→</span></div>
+        </div>
+      </div>
+      <div class="proj-card fade-up" style="transition-delay:0.16s" onclick="openProject('wheelmark')">
+        <div class="proj-card-thumb">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/cover/cover_wheelmark.png" alt="wheelmark" onclick="openLightbox(this.src, 'wheelmark')" style="cursor:zoom-in">
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-tag-row">
+            <div class="proj-dot" style="background:#652634"></div>
+            <span class="proj-tag-text">バリアフリーナビ</span>
+          </div>
+          <div class="proj-card-title">wheelmark</div>
+          <div class="proj-card-desc">車椅子ユーザーの「行けるかどうか」を判断するアプリ。インタビューから課題を再定義したUXリサーチ中心のケーススタディ。</div>
+          <div class="proj-card-focus">フォーカス：<span>リサーチ / 課題定義 / UXデザイン</span></div>
+          <div class="proj-card-meta">
+            <span class="proj-meta-item">UXリサーチ</span>
+            <span class="proj-meta-item">情報設計</span>
+            <span class="proj-meta-item">個人制作</span>
+          </div>
+          <div class="proj-card-cta"><span class="cta-label">ケーススタディを読む</span><span class="cta-arrow">→</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ STUDY ════ -->
+<div class="panel" id="tab-study">
+  <div class="study-panel">
+
+    <div class="study-intro fade-up">
+      <div class="study-intro-heading">UIスタディ<br>— 100本ノック</div>
+      <p>スクール受講期間中、毎日1アプリを選んでスケッチ・観察・分析を実施。観察眼を鍛えることと、Figmaによる実装練習を同時に続けました。</p>
+      <p>手書きスケッチでUIの構造と意図を言語化し、Figmaでトレースすることで「見る力」と「作る力」を並行して習得しています。</p>
+      <div class="study-stats">
+        <div>
+          <div class="study-stat-num">50+</div>
+          <div class="study-stat-label">分析アプリ数</div>
+        </div>
+        <div>
+          <div class="study-stat-num">30+</div>
+          <div class="study-stat-label">Figma制作画面数</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- No.1 天気 -->
+    <div class="study-app fade-up">
+      <div class="study-app-header">
+        <div class="study-app-num">No. 01</div>
+        <div class="study-app-name">天気</div>
+        <div class="study-app-tag">iOSデフォルトアプリ</div>
+      </div>
+      <div class="study-grid">
+        <div class="study-sketch zoomable">
+          <div class="study-sketch-label">スケッチ & 分析</div>
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.1_weather 1.png" alt="天気 スケッチ" onclick="openLightbox(this.src, '天気 スケッチ', true)" style="cursor:zoom-in">
+        </div>
+        <div class="study-figma zoomable">
+          <div class="study-figma-label">Figmaトレース</div>
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/figma/No.1_weather-01.png" alt="天気 トレース" onclick="openLightbox(this.src, '天気 トレース', true)" style="cursor:zoom-in">
+        </div>
+      </div>
+      <div style="margin-top:20px;padding:16px 20px;background:var(--off);border-radius:var(--r);border:1px solid var(--line)">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">学んだこと</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>背景が現在の天気を視覚的に表現している設計が印象的。情報でなく「状態」を見せることで直感的に伝わる。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>晴れ・雨など天気の状態を色とアイコンで区別し、一目で判断できるようにしている。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>スクロールで時間帯別の詳細情報を取得できる階層的な情報開示になっている。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>雨の場合は降水確率も表示するなど、状況に応じた情報の出し分けがある。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>空港や都市名で任意の場所に切り替えられる機能があることを初めて知った。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- No.2 カレンダー -->
+    <div class="study-app fade-up">
+      <div class="study-app-header">
+        <div class="study-app-num">No. 02</div>
+        <div class="study-app-name">カレンダー</div>
+        <div class="study-app-tag">iOSデフォルトアプリ</div>
+      </div>
+      <div class="study-grid">
+        <div class="study-sketch zoomable">
+          <div class="study-sketch-label">スケッチ & 分析</div>
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.2_calender 1.png" alt="カレンダー スケッチ" onclick="openLightbox(this.src, 'カレンダー スケッチ', true)" style="cursor:zoom-in">
+        </div>
+        <div class="study-figma zoomable">
+          <div class="study-figma-label">Figmaトレース</div>
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/figma/No.2_Calender-01.png" alt="カレンダー トレース" onclick="openLightbox(this.src, 'カレンダー トレース', true)" style="cursor:zoom-in">
+        </div>
+      </div>
+      <div style="margin-top:20px;padding:16px 20px;background:var(--off);border-radius:var(--r);border:1px solid var(--line)">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">学んだこと</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>詳細ページで重要なのは「日付」ではなく「場所・時間」。ここをメインに据えている設計判断が明確。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>場所が赤字表示 → タップするとマップに遷移。ユーザーの期待通りの導線になっている。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>前後の時間帯も同一画面で見られるタイムライン表示で、前後の予定との比較がしやすい。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>カレンダーに色分けを持たせることで、誰の予定かを一目で判断できる。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>ON/OFF・プルダウン（矢印）など、入力UIのパターンが1画面に複数共存している。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- No.3 写真 -->
+    <div class="study-app fade-up">
+      <div class="study-app-header">
+        <div class="study-app-num">No. 03</div>
+        <div class="study-app-name">写真</div>
+        <div class="study-app-tag">iOSデフォルトアプリ</div>
+      </div>
+      <div class="study-grid">
+        <div class="study-sketch zoomable">
+          <div class="study-sketch-label">スケッチ & 分析</div>
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.3_photo 1.png" alt="写真 スケッチ" onclick="openLightbox(this.src, '写真 スケッチ', true)" style="cursor:zoom-in">
+        </div>
+        <div class="study-figma zoomable">
+          <div class="study-figma-label">Figmaトレース</div>
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/figma/No.3_picture-01.png" alt="写真 トレース" onclick="openLightbox(this.src, '写真 トレース', true)" style="cursor:zoom-in">
+        </div>
+      </div>
+      <div style="margin-top:20px;padding:16px 20px;background:var(--off);border-radius:var(--r);border:1px solid var(--line)">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">学んだこと</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>写真が主役の設計。テキスト情報は日付のみに絞り、コンテンツを邪魔しない。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>ピンチアウト/インでグリッドの密度を変えられる。操作できることを前提にした設計。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>アクションはポップアップメニューにまとめ、写真単体の操作を整理している。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>グリッドの連続性が「次も見よう」という自然な回遊を促している。隣が見えることで興味が連鎖する。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- No.4 ミュージック -->
+    <div class="study-app fade-up">
+      <div class="study-app-header">
+        <div class="study-app-num">No. 04</div>
+        <div class="study-app-name">ミュージック</div>
+        <div class="study-app-tag">iOSデフォルトアプリ</div>
+      </div>
+      <div class="study-grid">
+        <div class="study-sketch zoomable">
+          <div class="study-sketch-label">スケッチ & 分析</div>
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/sketches/No.5_music 1.png" alt="ミュージック スケッチ" onclick="openLightbox(this.src, 'ミュージック スケッチ', true)" style="cursor:zoom-in">
+        </div>
+        <div class="study-figma zoomable">
+          <div class="study-figma-label">Figmaトレース</div>
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/figma/No.5_music-01.png" alt="ミュージック トレース" onclick="openLightbox(this.src, 'ミュージック トレース', true)" style="cursor:zoom-in">
+        </div>
+      </div>
+      <div style="margin-top:20px;padding:16px 20px;background:var(--off);border-radius:var(--r);border:1px solid var(--line)">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">学んだこと</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>アルバムアートの色をブラーで背景に反映させ、音楽の世界観に没入できる演出になっている。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>シークバーは音楽再生UIの共通認識。説明なしで操作できる「共有された知識」として機能している。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>検索プレースホルダーに「アーティスト、曲、歌詞、その他」とラベルを入れることで、何を入力できるかを示している。</li>
+          <li style="font-size:12px;color:var(--ink2);line-height:1.65;display:flex;gap:8px"><span style="color:var(--line2);flex-shrink:0">—</span>アイコンと日本語ラベルがセットで並ぶナビゲーション。iOSデフォルトとしての認識しやすさを優先している。</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════ ABOUT ════ -->
+<div class="panel" id="tab-about">
+  <div class="about-panel">
+    <div class="about-section fade-up">
+      <div class="about-eyebrow">プロフィール</div>
+      <div class="about-hero">
+        <img class="about-photo" src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/proifile/profile-01.png" alt="木村 萌香">
+        <div class="about-hero-text">
+          <div class="about-heading">迷いの背景を読み解き、<br>次の行動を選びやすい<br>体験を設計する。</div>
+        </div>
+      </div>
+      <div class="about-body">
+        <p>金融系システムの開発に5年間携わり、要件やデータ構造、システムの制約を踏まえた設計・開発を経験してきました。</p>
+        <p>仕事を続ける中で、次第に「このシステムの先で使っているエンドユーザーは、どのような体験をしているのだろう」と考えるようになりました。システムを正しく動かすだけでなく、ユーザーがどのように情報を理解し、どのような気持ちでサービスを利用するのかまで考えながら設計したいと思うようになり、UXデザインを志しました。</p>
+        <p>現在は、ユーザーインタビューやジャーニーマップを用いた課題分析と、Figmaでのプロトタイピングを通じて、仮説検証を重ねながら設計に取り組んでいます。見た目だけでなく、情報の伝わり方や意思決定のしやすさまで含めて、ユーザーが迷わず行動できる体験を設計することを大切にしています。</p>
+      </div>
+    </div>
+    <div class="about-section fade-up">
+      <div class="about-section-title">スキル</div>
+      <div class="skill-list">
+        <span class="skill-tag">ユーザーインタビュー</span>
+        <span class="skill-tag">SNS・定性調査</span>
+        <span class="skill-tag">カスタマージャーニーマップ</span>
+        <span class="skill-tag">ペルソナ設計</span>
+        <span class="skill-tag">情報設計（IA）</span>
+        <span class="skill-tag">Figmaプロトタイピング</span>
+        <span class="skill-tag">ユーザビリティテスト</span>
+                <span class="skill-tag">バックエンド開発</span>
+      </div>
+    </div>
+    <div class="about-section fade-up">
+      <div class="about-section-title">プロフィール</div>
+      <div>
+        <div class="profile-row"><span class="profile-key">現職</span><span>バックエンドエンジニア（転身準備中）</span></div>
+        <div class="profile-row"><span class="profile-key">経歴</span><span>システム開発 5年（クレジットカードトークナイゼーション）</span></div>
+        <div class="profile-row"><span class="profile-key">学歴</span><span>東京デザインプレックス研究所 UI/UX総合コース修了（2025.11）</span></div>
+        <div class="profile-row"><span class="profile-key">得意領域</span><span>モバイルアプリ / 社会課題解決</span></div>
+        <div class="profile-row"><span class="profile-key">ツール</span><span>Figma / FigJam / Miro</span></div>
+      </div>
+    </div>
+    <div class="about-section fade-up">
+      <div class="about-section-title">連絡先</div>
+      <div>
+        <div class="profile-row"><span class="profile-key">名前</span><span>木村 萌香</span></div>
+        <div class="profile-row"><span class="profile-key">メール</span><span><a href="mailto:gleenpanda123@gmail.com" style="color:var(--ink);text-decoration:underline;text-underline-offset:3px">gleenpanda123@gmail.com</a></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="detail-panel" id="proj-ampy">
+  <div class="detail-header">
+    <button class="back-btn" onclick="closeProject()">← 戻る</button>
+    <span class="detail-breadcrumb">作品集 / <span>ampy</span></span>
+  </div>
+  <div class="detail-hero">
+    <div class="detail-eyebrow">
+      <div class="proj-dot" style="background:#d94f47;width:7px;height:7px;border-radius:50%"></div>
+      <span style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)">防災安否アプリ</span>
+    </div>
+    <div class="detail-title">ampy</div>
+    <div class="detail-subtitle">災害時でも、大切な人と無事をシェア。</div>
+    <div class="detail-meta-bar">
+      <div class="dmeta"><div class="dmeta-key">担当領域</div><div class="dmeta-val">インタビュー設計・分析・UIビジュアルデザイン</div></div>
+      <div class="dmeta"><div class="dmeta-key">形式</div><div class="dmeta-val">チーム制作（スクール課題）</div></div>
+      <div class="dmeta"><div class="dmeta-key">制作期間</div><div class="dmeta-val">3ヶ月</div></div>
+      <div class="dmeta"><div class="dmeta-key">ツール</div><div class="dmeta-val">Figma / FigJam / Miro</div></div>
+    </div>
+  </div>
+  <div class="detail-body">
+
+    <!-- カバー画像 -->
+    <div class="img-full fade-up" style="margin-bottom:48px">
+      <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/cover/cover_ampy.png" alt="ampy cover" onclick="openLightbox(this.src, 'ampy cover')" style="cursor:zoom-in">
+    </div>
+
+    <!-- サービス概要 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>サービス概要</span></div>
+      <div class="ds-body">
+        <p>災害や緊急時に家族や身近な人と安否を確認し合うためのサービス。</p>
+      </div>
+    </div>
+
+    <!-- 制作背景 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>制作背景</span></div>
+      <div class="ds-body">
+        <p>東日本大震災の際、宮城に住む祖父と1週間連絡が取れず、不安な時間を過ごした経験があります。</p>
+        <p>その体験から、緊急時でも大切な人の安否をすぐに確認できる仕組みが必要だと感じ、このサービスを企画しました。</p>
+      </div>
+    </div>
+
+    <!-- 設計上の課題 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>設計上の課題</span></div>
+      <div class="ds-body">
+        <p>安否確認は幅広い世代に関わる一方で、平常時には必要性が意識されにくいテーマです。</p>
+        <p>その為、潜在的な不安をどう捉えるか、また緊急時でも迷わず使える導線や情報設計をどう実現するかが大きな課題でした。</p>
+      </div>
+    </div>
+
+    <!-- 完成プロトタイプ -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>完成プロトタイプ</span></div>
+      <div class="ds-body"><p>グループ一覧・グループ詳細・自分の状況確認・ステータス更新の4画面で構成しています。</p></div>
+      <div class="mockup-row">
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/groupInformation.png" alt="グループ一覧" onclick="openLightbox(this.src, 'グループ一覧')">
+          <div class="mockup-label">グループ一覧</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/groupSituation.png" alt="グループ詳細" onclick="openLightbox(this.src, 'グループ詳細')">
+          <div class="mockup-label">グループ詳細</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/mySituation.png" alt="自分の状況" onclick="openLightbox(this.src, '自分の状況')">
+          <div class="mockup-label">自分の状況</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/answerSituation.png" alt="ステータス更新" onclick="openLightbox(this.src, 'ステータス更新')">
+          <div class="mockup-label">ステータス更新</div>
+        </div>
+      </div>
+      <a href="https://www.figma.com/proto/GoekmbiLss9r6bI0L1MfVG/" target="_blank" class="figma-btn">▶ Figmaでプロトタイプを見る</a>
+    </div>
+
+    <!-- 担当範囲 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>担当範囲</span></div>
+      <div class="callout neutral">
+        <div class="callout-title">チーム制作における私の役割</div>
+        <p>調査、分析、設計・作成までを主導。</p>
+        <p>メインビジュアルUIは他メンバーにて主導。</p>   
+      </div>
+    </div>
+
+    <!-- 制作プロセス -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>制作プロセス</span></div>
+      <div class="img-full">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/slides/ampy_process.png" alt="制作プロセス" onclick="openLightbox(this.src, '制作プロセス')" style="cursor:zoom-in">
+      </div>
+    </div>
+
+    <!-- テーマ設定 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>テーマ設定と現状</span></div>
+      <div class="pull-quote red">
+        <div class="pull-quote-text">「日常が揺らぐ瞬間に、一番欲しいのは『安心』だった」</div>
+      </div>
+      <div class="ds-body">
+        <p>身近な家族や友人との連絡が途絶えると不安を覚えるという原体験から着想。ユーザーの「心理的なケア（＝すぐに無事を知って安心する）」をテーマに設定しました。</p>
+        <p>調査では、災害時の備えとして約60%が「家族との連絡手段」を重要視するものの、実際に対策できている世帯は約15%という乖離を確認。このギャップに着目しました。</p>
+      </div>
+      <div style="margin:20px 0">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/slides/PublicOpinion.png" alt="防災に関する世論調査" style="width:100%;display:block;border-radius:6px" onclick="openLightbox(this.src, '防災に関する世論調査')" style="cursor:zoom-in">
+        <div style="padding:9px 0;font-size:11px;color:var(--muted);font-family:var(--mono)">出典：総務省「防災に関する世論調査（令和4年9月）」</div>
+      </div>
+    </div>
+
+    <!-- 調査 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>調査 — ユーザーインタビュー</span></div>
+      <div class="ds-body">
+        <p>7名に対面インタビューを実施。「なぜ？」を繰り返すことで表面的なニーズではなく本質的な価値観を探ることを意識しました。</p>
+        <p><strong>実施人数：</strong>7名　<strong>実施方式：</strong>対面インタビュー形式</p>
+        <p><strong>目的：</strong>災害発生時における安否確認の行動パターンと、その際に生じる心理的ハードルの特定。「なぜ？」と問いかけ続けることで、ユーザーの本質的な価値観を獲得することを意図しました。</p>
+      </div>
+      <div class="img-full">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/process/interviewInsight.jpg" alt="インタビュー結果・共通パターン" onclick="openLightbox(this.src, 'インタビュー結果・共通パターン')" style="cursor:zoom-in">
+      </div>
+      <div class="ds-body" style="margin-top:16px">
+        <p>インタビュー結果を整理し、エピソード毎に分類。そこから行動・感情・思考の軸でグルーピングすることで、以下の3つのペインが浮かび上がりました。</p>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="pain-num">Pain 01</div>
+          <div class="pain-title">災害時に家族と連絡が取れないと不安を感じる</div>
+          <div class="pain-reason">「家族の安否を確認したい」という声が最も多かった。</div>
+          <div class="pain-why">→ 家族の生存確認は最も重要な確認事項と捉えているから。生存確認は誰にとっても大切という普遍的なペイン。</div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-num">Pain 02</div>
+          <div class="pain-title">スピーディーな問題解決を望んでいる</div>
+          <div class="pain-reason">「とにかく早く知りたい」「待っている間が一番つらい」</div>
+          <div class="pain-why">→ 生死に関わることだから、どんなことよりも早く情報が欲しいというユーザーの切実なペイン。</div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-num">Pain 03</div>
+          <div class="pain-title">災害時に自分の災害準備に不安を感じる</div>
+          <div class="pain-reason">「準備はしているつもりだけど足りているか不安」</div>
+          <div class="pain-why">→ 自分の物資準備・確認が不足していると自覚しているから。潜在的な不安として広く存在するペイン。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ペルソナ -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>ペルソナ</span></div>
+      <div class="ds-body">
+        <p>インタビューから得たインサイトをもとに、ペルソナを定義しました。</p>
+        <p>今回のペルソナ「木村絵里（48歳）」は、家族と離れて暮らしており、いざというときの連絡手段に不安を抱えています。防災意識は高いが、家族全員での対策が取れていないというギャップを抱えています。</p>
+      </div>
+      <div class="img-block">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/process/Persona.jpg" alt="ペルソナ：木村絵里" onclick="openLightbox(this.src, 'ペルソナ：木村絵里')" style="cursor:zoom-in">
+        <div class="img-cap">ペルソナ：木村絵里（48歳・家族思いママ）</div>
+      </div>
+      <div class="ds-body" style="margin-top:16px">
+        <p>TOBEペルソナでは、サービス利用後に「家族全員が同じ安心を持てる状態」を実現した姿を描きました。利用前と利用後の心理的変化を2つのシナリオで表現しています。</p>
+      </div>
+      <div class="img-block">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/process/ToBePersona.jpg" alt="TOBEペルソナ" onclick="openLightbox(this.src, 'TOBEペルソナ')" style="cursor:zoom-in">
+        <div class="img-cap">TOBEペルソナ：サービス利用後の理想の状態とシナリオ</div>
+      </div>
+    </div>
+
+    <!-- 分析 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>分析 — カスタマージャーニー & コアバリュー</span></div>
+      <div class="img-full">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/process/CJM.jpg" alt="カスタマージャーニーマップ" onclick="openLightbox(this.src, 'カスタマージャーニーマップ')" style="cursor:zoom-in">
+      </div>
+      <div class="ds-body" style="margin-top:20px">
+        <p>インタビューから見えた「3つのペイン」をもとに、どのような体験価値を生み出せるか検討しました。調査を通して、ユーザーの最大のストレスは「相手の状況が一切見えないことによる極限の不安」であると仮定し、本サービスのコアバリューを決定しました。</p>
+        <p>コアバリューは「相手の状況が一切見えないことによる極限の不安」を取り除くために、どうしたら「安全だよ」と伝えられるかを考え、以下をコアバリューとすることにしました。</p>
+      </div>
+      <div class="card-2" style="margin-top:16px">
+        <div class="insight-box">
+          <div class="insight-box-title">コアバリュー 01</div>
+          <div class="insight-box-body">「迅速」に安全が伝わる<br><span style="font-size:13px;opacity:0.7">操作をしなくても、お互いの状況がリアルタイムに伝わり、孤独な不安を解消する。</span></div>
+        </div>
+        <div class="insight-box">
+          <div class="insight-box-title">コアバリュー 02</div>
+          <div class="insight-box-body">「直感的」に安全が分かる<br><span style="font-size:13px;opacity:0.7">絵文字などの直感的なUIにより、パニック時でも一瞬で状況を認識できる。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 設計 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>設計 — ソリューション協議 & USM</span></div>
+      <div class="ds-body">
+        <p>コアバリューをもとにチームでソリューションを具体化。ユーザーストーリーマップで機能の優先順位を決定しました。</p>
+      </div>
+      <div class="img-block">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/process/Solution.jpg" alt="ソリューション協議" onclick="openLightbox(this.src, 'ソリューション協議')" style="cursor:zoom-in">
+        <div class="img-cap">ソリューション協議：スケッチによる機能アイデア出し</div>
+      </div>
+      <div class="img-full" style="margin-top:12px">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/process/UserStoryMap.jpg" alt="ユーザーストーリーマップ" onclick="openLightbox(this.src, 'ユーザーストーリーマップ')" style="cursor:zoom-in">
+      </div>
+    </div>
+
+    <!-- 機能設計 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>機能設計</span></div>
+      <div class="ds-body"><p>コアバリューを体現する3つの機能を設計しました。</p></div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card-imgs">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/wireframe/status/status.png" alt="ステータス" onclick="openLightbox(this.src, 'ステータス')" style="cursor:zoom-in">
+          </div>
+          <div class="feature-card-body">
+            <div class="feature-card-title">ユーザーの危険度の更新</div>
+            <div class="feature-card-desc">ユーザーが被災した際に、簡単な質問に答えることで自分の危険度を登録できる。</div>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-imgs">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/wireframe/groupInformation/groupInformation-01.png" alt="グループ情報" onclick="openLightbox(this.src, 'グループ情報')" style="cursor:zoom-in">
+          </div>
+          <div class="feature-card-body">
+            <div class="feature-card-title">グループで情報の確認</div>
+            <div class="feature-card-desc">ユーザー同士でグループを組むことで、グループのメンバー同士で被災状況を確認できる。</div>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-imgs">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/wireframe/mypage/default.png" alt="マイページ" onclick="openLightbox(this.src, 'マイページ')" style="cursor:zoom-in">
+          </div>
+          <div class="feature-card-body">
+            <div class="feature-card-title">マイページで情報の確認</div>
+            <div class="feature-card-desc">マイページにて自分の住所等を登録可能。また、過去の被災状況も確認できる。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ユーザーテスト前プロトタイプ -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>ユーザーテスト前プロトタイプ</span></div>
+      <div class="ds-body">
+        <p>「安心感」を伝えるため、あたたかみのある赤（#FE8081）とハートモチーフをビジュアルの軸に据えました。</p>
+        <p>また、被災時に想定される2つのシナリオに沿った機能設計、画面設計を行いました。</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0;padding:28px 24px;background:var(--off);border-radius:var(--r)">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/slides/ampy_maincolor.png" alt="メインカラー" style="height:48px;width:auto;display:block" onclick="openLightbox(this.src, 'メインカラー')" style="cursor:zoom-in">
+          <span style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em">メインカラー</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/slides/ampy_logo.png" alt="ロゴ" style="height:48px;width:auto;display:block" onclick="openLightbox(this.src, 'ロゴ')" style="cursor:zoom-in">
+          <span style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em">ロゴ</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/slides/ampy_icon.png" alt="アイコン" style="height:48px;width:auto;display:block" onclick="openLightbox(this.src, 'アイコン')" style="cursor:zoom-in">
+          <span style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em">アイコン</span>
+        </div>
+      </div>
+
+      <!-- シナリオ① -->
+      <div style="margin:28px 0 0">
+        <div style="font-size:13px;font-weight:600;color:var(--ampy);margin-bottom:16px">① 家族が被災し、状況を確認するとき</div>
+        <div class="mockup-row" style="justify-content:flex-start">
+          <div class="mockup-item zoomable">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/groupInformation.png" alt="グループ一覧" onclick="openLightbox(this.src, 'グループ一覧')" style="cursor:zoom-in">
+            <div class="mockup-label">グループ一覧</div>
+          </div>
+          <div class="mockup-item zoomable">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/groupSituation.png" alt="グループ詳細" onclick="openLightbox(this.src, 'グループ詳細')" style="cursor:zoom-in">
+            <div class="mockup-label">グループ詳細</div>
+          </div>
+          <div class="mockup-item zoomable">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/mySituation.png" alt="自分の状況" onclick="openLightbox(this.src, '自分の状況')" style="cursor:zoom-in">
+            <div class="mockup-label">自分の状況</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- シナリオ② -->
+      <div style="margin:28px 0 0">
+        <div style="font-size:13px;font-weight:600;color:var(--ampy);margin-bottom:16px">② 自分が被災し、状況を登録するとき</div>
+        <div class="mockup-row" style="justify-content:flex-start">
+          <div class="mockup-item zoomable">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/answerSituation.png" alt="ステータス更新" onclick="openLightbox(this.src, 'ステータス更新')" style="cursor:zoom-in">
+            <div class="mockup-label">ステータス更新</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ユーザビリティテスト -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>評価・改善 — ユーザビリティテスト</span></div>
+      <div class="ds-body">
+        <p>家族が被災したシナリオ（01）と、自分が被災したシナリオ（02）の2シナリオでFigmaプロトタイプを用いたユーザビリティテストを実施しました。</p>
+      </div>
+
+      <div class="ba-section">
+        <div class="ba-title">シナリオ01 — 家族が被災し、状況を確認するとき</div>
+        <div class="ba-grid">
+          <div class="ba-item">
+            <div class="ba-header">
+              <div class="ba-label before">BEFORE</div>
+              <div class="ba-note">課題：危険度が数字だと認識しづらい</div>
+            </div>
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/groupSituation.png" alt="Before シナリオ01" onclick="openLightbox(this.src, 'Before シナリオ01')">
+          </div>
+          <div class="ba-item">
+            <div class="ba-header">
+              <div class="ba-label after">AFTER</div>
+              <div class="ba-note">改善：イラストで直感的に認識できるように変更</div>
+            </div>
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/groupSituation.png" alt="After シナリオ01" onclick="openLightbox(this.src, 'After シナリオ01')">
+          </div>
+        </div>
+      </div>
+
+      <div class="ba-section" style="margin-top:32px">
+        <div class="ba-title">シナリオ02 — 自分が被災し、状況を登録するとき</div>
+        <div class="ba-grid">
+          <div class="ba-item">
+            <div class="ba-header">
+              <div class="ba-label before">BEFORE</div>
+              <div class="ba-note">課題：行間が広く情報取得に時間がかかる / 質問が抽象的</div>
+            </div>
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/old_beforUerTest/answerSituation.png" alt="Before シナリオ02" onclick="openLightbox(this.src, 'Before シナリオ02')">
+          </div>
+          <div class="ba-item">
+            <div class="ba-header">
+              <div class="ba-label after">AFTER</div>
+              <div class="ba-note">改善：質問を状況例で具体化</div>
+            </div>
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/answerSituation.png" alt="After シナリオ02" onclick="openLightbox(this.src, 'After シナリオ02')">
+          </div>
+        </div>
+      </div>
+
+      <div class="callout neutral" style="margin-top:24px">
+        <div class="callout-title">改善後の反応</div>
+        <p>改善後のテストでは、「イラストになって一目でわかりやすい」「選択肢が具体的で迷わなかった」というフィードバックが得られました。文字情報だけでなく視覚的に状況を把握できる表現にしたことで、災害時のように判断負荷が高い場面でも、次の行動を選びやすくなったと考えています。一方で、被災状況や家族構成、通信環境などによって必要な行動は変わるため、今後はより多様な被災シナリオに対応できる設計が課題です。</p>
+      </div>
+    </div>
+
+    <!-- ビジネスモデル -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>今後の展開 — ビジネスモデル</span></div>
+      <div class="ds-body">
+        <p>サービス継続のため、利用プランを細分化しキャッシュフローを一元化するビジネスモデルを考えています。</p>
+        <ul style="list-style:none;padding:0;margin:12px 0;display:flex;flex-direction:column;gap:4px">
+          <li style="font-size:13px;color:var(--ink2);display:flex;gap:8px"><span style="color:var(--ampy)">—</span>個人向けプラン</li>
+          <li style="font-size:13px;color:var(--ink2);display:flex;gap:8px"><span style="color:var(--ampy)">—</span>法人向けプラン</li>
+        </ul>
+        <p>個人向けプランは基本機能を無料とし、MVP外の追加機能については有料カスタムを可能にします。</p>
+      </div>
+
+      <div style="margin-top:8px">
+        <div style="background:rgba(217,79,71,0.06);border:1px solid rgba(217,79,71,0.15);border-radius:6px;padding:20px 24px">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;color:var(--ampy);margin-bottom:12px">▶ 法人向けプランに注目</div>
+            <p style="font-size:13px;line-height:1.85;color:var(--ink2)">法人向けプランをパッケージ化し、サブスクリプションとして企業に提供します。</p>
+            <p style="font-size:13px;line-height:1.85;color:var(--ink2);margin-top:8px">ampyは全国どこにいても、グループ内でリアルタイムに情報を共有できます。そのため、従業員が一カ所に留まることが少ない企業に対して、安否確認手段として提供することを想定しています。</p>
+            <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px">
+              <div style="font-size:12px;color:var(--ink2);padding-left:12px;border-left:2px solid var(--ampy)"><strong>配送会社</strong>　全国に物資を届けるため運転中など即座に応答できない場合が多い</div>
+              <div style="font-size:12px;color:var(--ink2);padding-left:12px;border-left:2px solid var(--ampy)"><strong>商社</strong>　出張社員が多く、会社が一元的かつ即座に居場所を把握することが難しい</div>
+            </div>
+        </div>
+      </div>
+      <p style="font-size:13px;line-height:1.85;color:var(--ink2);margin-top:20px">ampyを活用することで、家族や身近な人のみならず、企業という大きな組織でも大切な従業員を守り、よりよい組織作りに役立てていただきたいと考えています。</p>
+    </div>
+
+    <!-- 最終デザイン再掲 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>最終デザイン</span></div>
+      <div class="mockup-row">
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/groupInformation.png" alt="グループ一覧" onclick="openLightbox(this.src, 'グループ一覧')">
+          <div class="mockup-label">グループ一覧</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/groupSituation.png" alt="グループ詳細" onclick="openLightbox(this.src, 'グループ詳細')">
+          <div class="mockup-label">グループ詳細</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/mySituation.png" alt="自分の状況" onclick="openLightbox(this.src, '自分の状況')">
+          <div class="mockup-label">自分の状況</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/ampy/UI/answerSituation.png" alt="ステータス更新" onclick="openLightbox(this.src, 'ステータス更新')">
+          <div class="mockup-label">ステータス更新</div>
+        </div>
+      </div>
+      <a href="https://www.figma.com/proto/GoekmbiLss9r6bI0L1MfVG/" target="_blank" class="figma-btn">▶ Figmaでプロトタイプを見る</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════ PROJECT: wheelmark ════ -->
+<div class="detail-panel" id="proj-wheelmark">
+  <div class="detail-header">
+    <button class="back-btn" onclick="closeProject()">← 戻る</button>
+    <span class="detail-breadcrumb">作品集 / <span>wheelmark</span></span>
+  </div>
+  <div class="detail-hero">
+    <div class="detail-eyebrow">
+      <div class="proj-dot" style="background:#652634;width:7px;height:7px;border-radius:50%"></div>
+      <span style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)">バリアフリーナビ</span>
+    </div>
+    <div class="detail-title">wheelmark</div>
+    <div class="detail-subtitle">車椅子ユーザーのための「行けるかどうか」を判断するアプリ</div>
+    <div class="detail-meta-bar">
+      <div class="dmeta"><div class="dmeta-key">担当領域</div><div class="dmeta-val">UXリサーチ・分析・コンセプト設計・UI設計</div></div>
+      <div class="dmeta"><div class="dmeta-key">形式</div><div class="dmeta-val">個人制作</div></div>
+      <div class="dmeta"><div class="dmeta-key">制作期間</div><div class="dmeta-val">1ヶ月</div></div>
+      <div class="dmeta"><div class="dmeta-key">ツール</div><div class="dmeta-val">Figma / FigJam / Miro</div></div>
+    </div>
+  </div>
+  <div class="detail-body">
+
+    <!-- カバー画像 -->
+    <div class="img-full fade-up" style="margin-bottom:48px">
+      <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/cover/cover_wheelmark.png" alt="wheelmark cover" onclick="openLightbox(this.src, 'wheelmark cover')" style="cursor:zoom-in">
+    </div>
+
+    <!-- サービス概要 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>サービス概要</span></div>
+      <div class="ds-body">
+        <p>車椅子ユーザーが安心して外出できるよう支援する経路検索サービス。</p>
+      </div>
+    </div>
+
+    <!-- 制作背景 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>制作背景</span></div>
+      <div class="ds-body">
+        <p>当初は、車椅子ユーザー向けのSOSアプリを想定していました。</p>
+        <p>しかし、リサーチを進める中で、緊急時の支援だけでなく、日常的な外出そのものに不安や負担があることに着目し、サービスの方向性を「外出支援」に見直しました。</p>
+      </div>
+    </div>
+
+    <!-- 設計上の課題 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>設計上の課題</span></div>
+      <div class="ds-body">
+        <p>車椅子ユーザーの声を直接収集することが難しかったため、競合アプリやSNSの投稿を分析し、実際の困りごとやニーズを整理しました。</p>
+        <p>限られた情報の中でも、ユーザーが外出時にどのような不安を感じ、どのような情報があれば安心して移動できるかを考えながら設計を進めました。</p>
+      </div>
+    </div>
+
+    <div class="ds fade-up">
+      <div class="ds-label"><span>完成プロトタイプ</span></div>
+      <div class="ds-body"><p>「判断のしやすさ」をコアバリューに、検索・結果一覧・経路詳細・ルート記録の4機能で構成しています。各画面の設計意図は後述の設計判断セクションで詳しく説明しています。</p></div>
+      <div class="mockup-row">
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Search-01.png" alt="検索" onclick="openLightbox(this.src, '検索')">
+          <div class="mockup-label">1. 検索</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/SearchResult-01.png" alt="結果一覧" onclick="openLightbox(this.src, '結果一覧')">
+          <div class="mockup-label">2. 結果一覧</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/RouteInformation-01.png" alt="経路詳細" onclick="openLightbox(this.src, '経路詳細')">
+          <div class="mockup-label">3. 経路詳細</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Record-01.png" alt="ルート記録" onclick="openLightbox(this.src, 'ルート記録')">
+          <div class="mockup-label">4. ルート記録</div>
+        </div>
+      </div>
+      <a href="https://www.figma.com/proto/CGSdnBXpeO5TmVpepigQaj/" target="_blank" class="figma-btn">▶ Figmaでプロトタイプを見る</a>
+    </div>
+
+    <div class="ds fade-up">
+      <div class="ds-label"><span>テーマ</span></div>
+      <div class="pull-quote dark">
+        <div class="pull-quote-text">「地図で通れそう」でも、不安は残る。</div>
+      </div>
+      <div class="ds-body">
+        <p>ベビーカーユーザーへのインタビューで繰り返し聞いた言葉が出発点です。地図アプリに車椅子ルートがあっても「行ってみないと自分が行けるか分からない」という根本的な不安が解消されていない実態を確認しました。</p>
+      </div>
+      <div class="callout dark">
+        <div class="callout-title">調査設計上の判断について</div>
+        <p>当初は車椅子ユーザーへの直接インタビューを計画しましたが、接触が困難でした。「移動時の制約」という共通のペインを持つベビーカーユーザーへ積極的に聞き込みを行いました。実際の開発フェーズでは車椅子ユーザー本人からのフィードバックを必ず取得することを前提としています。</p>
+      </div>
+    </div>
+
+    <div class="ds fade-up">
+      <div class="ds-label"><span>分析 — ジャーニーマップ & 問題定義</span></div>
+      <div class="img-full">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/process/CJM.png" alt="カスタマージャーニーマップ" onclick="openLightbox(this.src, 'カスタマージャーニーマップ', true)" style="cursor:zoom-in">
+      </div>
+      <div class="insight-box" style="margin-top:20px">
+        <div class="insight-box-title">問題定義</div>
+        <div class="insight-box-body">情報不足が問題なのではなく、複数の情報を自分の身体条件に照らして解釈しなければならないことが、移動前後の不安を生んでいた。</div>
+      </div>
+    </div>
+
+    <div class="ds fade-up">
+      <div class="ds-label"><span>課題定義 — メインペイン</span></div>
+      <div class="ds-body">
+        <p>ジャーニーマップから浮かび上がったペインを整理し、解決すべき中心課題を特定しました。</p>
+      </div>
+      <div class="img-full">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/process/MainPain.png" alt="メインペイン" onclick="openLightbox(this.src, 'メインペイン', true)" style="cursor:zoom-in">
+      </div>
+      <div class="callout dark" style="margin-top:20px">
+        <div class="callout-title">コアインサイト</div>
+        <p>「情報はある。でも、自分が行けるかは分からない」——既存サービスの多くは情報提供に注力しているが、"判断そのもの"を軽くする設計にはなっていない。</p>
+        <p>『何があるか』より『行けるかどうか』をシステムが補助し、認知負荷を最小化することが鍵。</p>
+      </div>
+    </div>
+
+    <div class="ds fade-up">
+      <div class="ds-label"><span>課題定義 — How Might We</span></div>
+      <div class="ds-body">
+        <p>メインペインをHMWの問いに変換し、設計の方向性を定めました。</p>
+      </div>
+      <div class="img-full">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/process/HMW.png" alt="How Might We" onclick="openLightbox(this.src, 'How Might We', true)" style="cursor:zoom-in">
+      </div>
+    </div>
+
+    <div class="ds fade-up">
+      <div class="ds-label"><span>ワイヤーフレーム</span></div>
+      <div class="ds-body">
+        <p>上記のHMW結果から、「ユーザーが自分で行けるかどうかを判断できる状態」を今回のゴールとすることにしました。</p>
+        <p>これを実現するために判断に必要な情報を段階的に取得・確認できる構造としてMVPを設計しました。</p>
+      </div>
+      <div class="card-3">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:12px;color:var(--ink2);line-height:1.6">①目的地までのルートを検索する画面</div>
+          <div class="img-block" style="margin:0">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/wireframe/search.png" alt="検索画面" onclick="openLightbox(this.src, '検索画面')" style="cursor:zoom-in">
+            <div class="img-cap">検索画面</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:12px;color:var(--ink2);line-height:1.6">②過去の通過実績やユーザーの声</div>
+          <div class="img-block" style="margin:0">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/wireframe/searchDetail.png" alt="経路結果一覧" onclick="openLightbox(this.src, '経路結果一覧')" style="cursor:zoom-in">
+            <div class="img-cap">経路結果一覧</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:12px;color:var(--ink2);line-height:1.6">③各ルートの実績情報、公的情報</div>
+          <div class="img-block" style="margin:0">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/wireframe/routeInformation.png" alt="経路詳細" onclick="openLightbox(this.src, '経路詳細')" style="cursor:zoom-in">
+            <div class="img-cap">経路詳細</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds fade-up">
+      <div class="ds-label"><span>ブランドパーソナリティ</span></div>
+      <div class="pull-quote dark">
+        <div class="pull-quote-text">静かなナビゲーター。判断を渡す、決断は奪わない。</div>
+      </div>
+      <div class="ds-body">
+        <p>wheelmarkは、ユーザーの移動判断を"補助"する立場です。</p>
+        <p>励ましたり断言したりするのではなく、事実と実績を淡々と提示し、不確実性を隠さず、ユーザー自身が判断できる状態を作ることをコアスタンスとしています。</p>
+      </div>
+      <div class="card-2" style="margin-top:20px">
+        <div class="mini-card" style="border-color:var(--wheel);background:var(--wheel-bg)">
+          <div class="mini-card-head" style="color:var(--wheel)">✓ 使う表現</div>
+          <div class="mini-card-body">
+            〜そうです / 〜の可能性があります<br>
+            〜と考えられます / 〜が確認されています<br>
+            〜の実績があります<br><br>
+            <span style="color:var(--ink2)">例：「このルートは、同条件の通過実績があります」「一部、未評価の区間があります」</span>
+          </div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-head" style="color:var(--muted)">✗ 使わない表現</div>
+          <div class="mini-card-body">
+            大丈夫です / 安心してください<br>
+            きっと〜 / 心配いりません<br>
+            簡単です / ぜひ〜しましょう<br><br>
+            <span style="color:var(--muted)">例：「安心して行けます！」「問題ありません」</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds fade-up">
+      <div class="ds-label"><span>主要な設計判断 — UI・プロトタイプ</span></div>
+
+      <!-- 1. 検索 -->
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:32px;align-items:start;margin:28px 0;padding-bottom:28px;border-bottom:1px solid var(--line)">
+        <div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;margin-bottom:8px">1. 検索</div>
+          <div style="font-size:18px;font-weight:700;color:var(--wheel);margin-bottom:12px">入力は必要最低限</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.75">外出前・外出中の使用を想定し、入力項目を出発地・目的地のみに絞りました。まず候補比較に到達できることを優先。</div>
+        </div>
+        <div class="mockup-row" style="margin:0;justify-content:flex-start">
+          <div class="mockup-item zoomable">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Search-01.png" alt="検索" onclick="openLightbox(this.src, '検索')">
+            <div class="mockup-label">検索</div>
+          </div>
+          <div class="mockup-item zoomable">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Search-scroll-01.png" alt="検索（スクロール）" onclick="openLightbox(this.src, '検索（スクロール）')">
+            <div class="mockup-label">検索（スクロール）</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. 結果一覧 -->
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:32px;align-items:start;margin:28px 0;padding-bottom:28px;border-bottom:1px solid var(--line)">
+        <div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;margin-bottom:8px">2. 結果一覧</div>
+          <div style="font-size:18px;font-weight:700;color:var(--wheel);margin-bottom:12px">比較は"3択まで"</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.75">通過実績の多い順に表示。😊/😐/😢 の3段階評価で、直感的に判断できる設計にしました。</div>
+        </div>
+        <div class="mockup-row" style="margin:0;justify-content:flex-start">
+          <div class="mockup-item zoomable">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/SearchResult-01.png" alt="結果一覧" onclick="openLightbox(this.src, '結果一覧')">
+            <div class="mockup-label">結果一覧</div>
+          </div>
+          <div class="mockup-item zoomable">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/SearchResult-scroll-01.png" alt="結果一覧（スクロール）" onclick="openLightbox(this.src, '結果一覧（スクロール）')">
+            <div class="mockup-label">マップ表示</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. 経路詳細 -->
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:32px;align-items:start;margin:28px 0;padding-bottom:28px;border-bottom:1px solid var(--line)">
+        <div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;margin-bottom:8px">3. 経路詳細</div>
+          <div style="font-size:18px;font-weight:700;color:var(--wheel);margin-bottom:12px">全体ではなく「区間」で</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.75">区間ごとに評価を表示。ルート全体ではなく、部分的なリスクも把握できます。ユーザー実績と公的データを切り替えて確認可能。</div>
+        </div>
+        <div class="mockup-row" style="margin:0;justify-content:flex-start">
+          <div class="mockup-item zoomable">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/RouteInformation-01.png" alt="詳細・ユーザー実績" onclick="openLightbox(this.src, '詳細・ユーザー実績')">
+            <div class="mockup-label">ユーザー実績</div>
+          </div>
+          <div class="mockup-item zoomable">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/RouteInformation-scroll-01.png" alt="詳細・スクロール" onclick="openLightbox(this.src, '詳細・スクロール')">
+            <div class="mockup-label">区間詳細</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. ルート記録 -->
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:32px;align-items:start;margin:28px 0">
+        <div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;margin-bottom:8px">4. ルート記録</div>
+          <div style="font-size:18px;font-weight:700;color:var(--wheel);margin-bottom:12px">気軽なフィードバック</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.75">ルートの質を上げるためユーザーからFBを募集。通知での3択回答でできるだけ簡素化し、回答ハードルを下げました。</div>
+        </div>
+        <div class="mockup-row" style="margin:0;justify-content:flex-start">
+          <div class="mockup-item zoomable">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Notification-01.png" alt="通知（ロック画面）" onclick="openLightbox(this.src, '通知（ロック画面）')">
+            <div class="mockup-label">通知（ロック画面）</div>
+          </div>
+          <div class="mockup-item zoomable">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Notification-02.png" alt="通知" onclick="openLightbox(this.src, '通知')">
+            <div class="mockup-label">通知</div>
+          </div>
+          <div class="mockup-item zoomable">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Record-01.png" alt="ルート記録" onclick="openLightbox(this.src, 'ルート記録')">
+            <div class="mockup-label">ルート記録</div>
+          </div>
+          <div class="mockup-item zoomable">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Record-02.png" alt="ルート記録（入力中）" onclick="openLightbox(this.src, 'ルート記録（入力中）')" style="cursor:zoom-in">
+            <div class="mockup-label">記録（入力中）</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="ds fade-up">
+      <div class="ds-label"><span>検証と今後の展望</span></div>
+      <div class="ds-body">
+        <p>今回はコンセプト設計とプロトタイピングまでを主眼に置いたため、本格的なユーザビリティテストは次フェーズの課題としています。</p>
+      </div>
+      <div class="next-step">
+        <div class="next-step-title">今後のステップ</div>
+        <ul>
+          <li>車椅子ユーザー本人へのインタビューを実施し、ペインの差異を検証する</li>
+          <li>「区間表示」vs「全体表示」のA/Bテストで判断コストの変化を測定する</li>
+          <li>通過実績データ蓄積後にユーザビリティテストを実施し「判断できた」体験を測定する</li>
+          <li>視覚障害・高齢者など他のアクセシビリティニーズへの応用可能性を検討する</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 最終デザイン再掲 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>最終デザイン</span></div>
+      <div class="mockup-row">
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Search-01.png" alt="検索画面" onclick="openLightbox(this.src, '検索画面')">
+          <div class="mockup-label">検索</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/SearchResult-01.png" alt="検索結果" onclick="openLightbox(this.src, '検索結果')">
+          <div class="mockup-label">経路一覧</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/RouteInformation-01.png" alt="経路詳細" onclick="openLightbox(this.src, '経路詳細')">
+          <div class="mockup-label">経路詳細</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/wheelmark/UI/Record-01.png" alt="ルート記録" onclick="openLightbox(this.src, 'ルート記録')">
+          <div class="mockup-label">ルート記録</div>
+        </div>
+      </div>
+      <a href="https://www.figma.com/proto/CGSdnBXpeO5TmVpepigQaj/" target="_blank" class="figma-btn" style="background:var(--wheel)">▶ Figmaでプロトタイプを見る</a>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════ PROJECT: react ════ -->
+<div class="detail-panel" id="proj-react">
+  <div class="detail-header">
+    <button class="back-btn" onclick="closeProject()">← 戻る</button>
+    <span class="detail-breadcrumb">作品集 / <span>Re:ACT</span></span>
+  </div>
+  <div class="detail-hero">
+    <div class="detail-eyebrow">
+      <div class="proj-dot" style="background:#6B1E2E;width:7px;height:7px;border-radius:50%"></div>
+      <span style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)">観劇体験記録アプリ</span>
+    </div>
+    <div class="detail-title">Re:ACT</div>
+    <div class="detail-subtitle">幕が降りても終わらない、あなたの観劇録。</div>
+    <div class="detail-meta-bar">
+      <div class="dmeta"><div class="dmeta-key">担当領域</div><div class="dmeta-val">UXリサーチ・インタビュー分析・コンセプト設計・UIデザイン</div></div>
+      <div class="dmeta"><div class="dmeta-key">形式</div><div class="dmeta-val">個人制作</div></div>
+      <div class="dmeta"><div class="dmeta-key">制作期間</div><div class="dmeta-val">1ヶ月</div></div>
+      <div class="dmeta"><div class="dmeta-key">ツール</div><div class="dmeta-val">Figma / FigJam / Miro</div></div>
+    </div>
+  </div>
+  <div class="detail-body">
+
+    <!-- カバー画像 -->
+    <div class="img-full fade-up" style="margin-bottom:48px">
+      <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/cover/react_cover.png" alt="Re:ACT cover" onclick="openLightbox(this.src, 'Re:ACT cover')" style="cursor:zoom-in">
+    </div>
+
+    <!-- サービス概要 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>サービス概要</span></div>
+      <div class="ds-body">
+        <p>舞台やミュージカルを観劇する人が、体験を記録し、あとから振り返れるようにするサービス。</p>
+      </div>
+    </div>
+
+    <!-- 制作背景 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>制作背景</span></div>
+      <div class="ds-body">
+        <p>観劇後の感想や印象は時間が経つと薄れてしまう一方で、次の予約時には「以前どの作品をどう感じたか」を振り返りたくなることがあります。</p>
+        <p>私自身の体験から、記録したい気持ちはあっても、入力の手間によって継続しづらいという課題に着目し、このサービスを企画しました。</p>
+      </div>
+    </div>
+
+    <!-- 設計上の課題 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>設計上の課題</span></div>
+      <div class="ds-body">
+        <p>このサービスは緊急性や必須性が高いものではないため、継続利用してもらうには、入力負荷を下げることが重要だと考えました。</p>
+        <p>そのため、記録のしやすさと振り返りやすさの両立を意識し、無理なく使い続けられる導線や情報設計を検討しました。</p>
+      </div>
+    </div>
+
+    <!-- 制作プロセス -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>制作プロセス</span></div>
+      <div class="img-full">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/react_process.png" alt="制作プロセス" onclick="openLightbox(this.src, '制作プロセス', true)" style="cursor:zoom-in">
+      </div>
+    </div>
+
+    <!-- 完成プロトタイプ -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>完成プロトタイプ</span></div>
+      <div class="ds-body">
+        <p>公演情報・写真・感想を1つの体験として記録・保存する観劇記録アプリ。</p>
+        <p>記録一覧・チケット詳細・新規登録の3画面構成で、登録から見返しまでの一連の流れを設計しています。</p>
+      </div>
+      <div class="mockup-row">
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_No1_TicketAll.png" alt="記録一覧" onclick="openLightbox(this.src, '記録一覧')">
+          <div class="mockup-label" style="color:var(--ink2);font-size:12px;font-weight:500">記録一覧</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_No1_TicketDetail.png" alt="チケット詳細" onclick="openLightbox(this.src, 'チケット詳細')">
+          <div class="mockup-label" style="color:var(--ink2);font-size:12px;font-weight:500">チケット詳細</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_No1_TicketRegist.png" alt="新規登録" onclick="openLightbox(this.src, '新規登録')">
+          <div class="mockup-label" style="color:var(--ink2);font-size:12px;font-weight:500">新規登録</div>
+        </div>
+      </div>
+      <a class="figma-btn" href="https://www.figma.com/proto/veUIAYpLvFxePCGim6m0zB/%E7%84%A1%E9%A1%8C?node-id=1105-1695&t=xfXYU8f9233hquGt-1" target="_blank" rel="noopener">▶ Figmaでプロトタイプを見る</a>
+    </div>
+
+    <!-- テーマ -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>テーマ</span></div>
+      <div class="pull-quote react">
+        <div class="pull-quote-text">"せっかく観た舞台の記憶や感動が、<br>いつの間にか分散して消えていく。"</div>
+      </div>
+      <div class="ds-body">
+        <p>写真・SNS・チケット・メモが別々の場所に存在し、1つの体験としてまとまって残らない——これが出発点でした。</p>
+        <p>観劇記録のアプリや手帳は存在するものの、「後から自然に思い出す体験」を設計しているプロダクトは少ない。</p>
+        <p>感情が冷める前に記録でき、後から余韻ごと振り返れる体験を設計することを目指しました。</p>
+      </div>
+      <div class="card-2" style="margin-top:20px">
+        <div class="mini-card">
+          <div class="mini-card-head" style="color:var(--muted)">AS-IS</div>
+          <div class="mini-card-body">観劇後は楽しかった気持ちがあるが、記録は面倒で後回しになる。写真やチケット、感想は別々の場所に残り、後から振り返りたくても情報やその時の感情を思い出しにくい。</div>
+        </div>
+        <div class="mini-card" style="border-color:var(--react);background:var(--react-bg)">
+          <div class="mini-card-head" style="color:var(--react)">TO-BE</div>
+          <div class="mini-card-body">観劇後、ユーザーは自然な流れで観劇体験を記録できる。公演情報・写真・感想が1つにまとまって保存され、後から見返した時に情報確認だけでなく、余韻まで自然に思い出せる体験設計。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 調査 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>調査 — ユーザーインタビュー</span></div>
+      <div class="step-flow" style="margin-bottom:20px">
+        <div class="step-item"><div class="step-n">実施人数</div><div class="step-t">3名</div></div>
+        <div class="step-item"><div class="step-n">形式</div><div class="step-t">対面インタビュー</div></div>
+        <div class="step-item"><div class="step-n">対象</div><div class="step-t">観劇・ライブ体験のある方</div></div>
+        <div class="step-item"><div class="step-n">主な設問軸</div><div class="step-t">記録方法・残せていないもの</div></div>
+      </div>
+      <div class="ds-body">
+        <p>「今どのように記録しているか」「何が残せていないか」を軸に、行動と感情の実態を探りました。</p>
+      </div>
+      <div class="img-full fade-up">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/Interview.png" alt="インタビュー結果" onclick="openLightbox(this.src, 'インタビュー結果', true)" style="cursor:zoom-in">
+        <div class="img-cap">インタビュー結果・インサイト整理</div>
+      </div>
+      <div class="pain-grid" style="margin-top:28px">
+        <div class="pain-card react">
+          <div class="pain-num">Finding 01</div>
+          <div class="pain-title react">チケット保管の価値観が変わっている</div>
+          <div class="pain-reason">「昔はチケットを貯めていたけど、今はデジタルチケットが増えて取っておく価値を感じない」。一方で「チケットを見返すのは楽しい」という声も。</div>
+          <div class="pain-why">保管手段が変わったことで体験が途切れている。</div>
+        </div>
+        <div class="pain-card react">
+          <div class="pain-num">Finding 02</div>
+          <div class="pain-title react">写真はあるが「ひとまとまり」がない</div>
+          <div class="pain-reason">「写真で残してあるからチケットは別にいらない」と言いながらも、「どこに何があるか分からなくなる」状況が各自に起きている。</div>
+          <div class="pain-why">情報は存在するが、体験として統合されていない。</div>
+        </div>
+        <div class="pain-card react">
+          <div class="pain-num">Finding 03</div>
+          <div class="pain-title react">細かいエピソードを残したい</div>
+          <div class="pain-reason">「細かいエピソードとかも残しておきたい。それも含めてライブの記憶だから」。SNSやメモでは拾いきれない記録の場所が求められている。</div>
+          <div class="pain-why">感情と情報を一緒に残せる場所がない。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ペルソナ -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>分析 — ペルソナ設定</span></div>
+      <div class="ds-body">
+        <p>インタビュー結果をもとに、ターゲットユーザーを整理しました。</p>
+        <p>「最近舞台にハマったアラサー女性」という案も検討しましたが、「そういう人は観劇を記録したくなりますか？　元々、自分のペインが起点だからずれてきた気がする」という問い直しが起きました。</p>
+        <p>「見た目に合う人」ではなく「本当に記録したくなる人」に戻すことを決め、最終的に自分に近い観劇好きをペルソナとして設定しました。</p>
+      </div>
+      <div class="img-full">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/slides/persona.png" alt="ペルソナ" onclick="openLightbox(this.src, 'ペルソナ（初期）', true)" style="cursor:zoom-in">
+        <div class="img-cap">ペルソナ — 大原由紀（26歳・会社員）</div>
+      </div>
+      <div class="card-3" style="margin-top:20px">
+        <div class="mini-card" style="border-color:var(--react);background:var(--react-bg)">
+          <div class="mini-card-head" style="color:var(--react)">同じ作品を複数回観る</div>
+          <div class="mini-card-body">お気に入りの演目は繰り返し観劇する。回ごとの違いや気づきを残したい。</div>
+        </div>
+        <div class="mini-card" style="border-color:var(--react);background:var(--react-bg)">
+          <div class="mini-card-head" style="color:var(--react)">過去の観劇履歴を見返したい</div>
+          <div class="mini-card-body">「あの公演いつだっけ」を後から確認したい。時系列でまとまっていてほしい。</div>
+        </div>
+        <div class="mini-card" style="border-color:var(--react);background:var(--react-bg)">
+          <div class="mini-card-head" style="color:var(--react)">チケット・写真・感想を残したい</div>
+          <div class="mini-card-body">観劇を構成する要素を一箇所にまとめて、体験として保存しておきたい。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CJM -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>分析 — カスタマージャーニーマップ（AS-IS）</span></div>
+      <div class="ds-body">
+        <p>インタビューをもとに、観劇3ヶ月前〜次の観劇予約までのAS-IS旅程を作成。「観劇当日の見た日の寝る前」フェーズで感想を記録・共有したい欲求が発生するが、余韻が冷めてしまう前にというタイミングを逃すことが多いことを確認しました。</p>
+      </div>
+      <div class="img-full">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/CJM.png" alt="CJM（AS-IS）" onclick="openLightbox(this.src, 'CJM（AS-IS）', true)" style="cursor:zoom-in">
+        <div class="img-cap">カスタマージャーニーマップ（AS-IS）— 観劇3ヶ月前〜次の観劇予約まで</div>
+      </div>
+    </div>
+
+    <!-- HMW -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>課題定義 — HMW</span></div>
+      <div class="ds-body">
+        <p>インタビューとCJMで確認した主なペインは以下の3点でした。</p>
+      </div>
+      <div class="card-3" style="margin-bottom:28px">
+        <div class="mini-card">
+          <div class="mini-card-head">チケットが手元に残らない</div>
+          <div class="mini-card-body">デジタル化でチケットを保管する機会が減り、観劇の記録が手元に残りにくくなった。</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-head">情報がバラバラに存在する</div>
+          <div class="mini-card-body">写真・メモ・SNS投稿が分散し、後から「あの時の観劇」として一括で振り返れない。</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-head">記録する気力がなくなる</div>
+          <div class="mini-card-body">観劇後は疲れていて記録が面倒になり、感情が冷めると記録する動機自体が失われる。</div>
+        </div>
+      </div>
+      <div class="ds-body">
+        <p>このペインを「どうすれば〜できるか？」の問いかけに変換し、取り組むべき2軸のHMWを選定しました。</p>
+      </div>
+      <div class="img-full">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/HMW.png" alt="HMW" onclick="openLightbox(this.src, 'HMW', true)" style="cursor:zoom-in">
+        <div class="img-cap">HMW — ペインを問いかけに変換してアイデアを発散</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px">
+        <div style="padding:24px 22px;border:2px solid var(--react);border-radius:var(--r);background:var(--react-bg)">
+          <div style="font-family:var(--mono);font-size:12px;letter-spacing:0.1em;color:var(--react);font-weight:600;margin-bottom:12px">HMW 1</div>
+          <div style="font-family:var(--serif);font-size:17px;font-weight:500;color:var(--ink);line-height:1.65">どうすれば、ペルソナは<br><strong style="color:var(--react)">記録行為を集めたくなる<br>楽しい体験</strong>にできる？</div>
+        </div>
+        <div style="padding:24px 22px;border:2px solid var(--react);border-radius:var(--r);background:var(--react-bg)">
+          <div style="font-family:var(--mono);font-size:12px;letter-spacing:0.1em;color:var(--react);font-weight:600;margin-bottom:12px">HMW 2</div>
+          <div style="font-family:var(--serif);font-size:17px;font-weight:500;color:var(--ink);line-height:1.65">どうすれば観劇情報を<br><strong style="color:var(--react)">ひとまとまりの体験</strong><br>として思い出せるか？</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- アイデア発散 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>アイデア発散</span></div>
+      <div class="ds-body">
+        <p>2つのHMWに対し、それぞれ独立したスケッチでアイデアを発散しました。</p>
+      </div>
+
+      <div style="margin-bottom:32px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <span style="background:var(--react);color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:0.08em;padding:4px 12px;border-radius:3px">HMW 1</span>
+          <span style="font-size:14px;font-weight:600;color:var(--ink)">「記録行為を集めたくなる楽しい体験にする」軸</span>
+        </div>
+        <div class="ds-body" style="margin-bottom:12px">
+          <p>コレクション体験・タスク達成感・アルバム化など、記録すること自体を楽しくするアイデアを探りました。</p>
+        </div>
+        <div class="img-full">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/HowMigithWe_01.png" alt="HMW1 アイデアスケッチ" onclick="openLightbox(this.src, 'HMW1 アイデアスケッチ', true)" style="cursor:zoom-in">
+          <div class="img-cap">HMW 1 — 記録を楽しくするアイデアスケッチ</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:32px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <span style="background:var(--react);color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:0.08em;padding:4px 12px;border-radius:3px">HMW 2</span>
+          <span style="font-size:14px;font-weight:600;color:var(--ink)">「観劇情報をひとまとまりに保存する」軸</span>
+        </div>
+        <div class="ds-body" style="margin-bottom:12px">
+          <p>カレンダー・アルバム・写真連携など、情報を1箇所に統合するアイデアを探りました。</p>
+        </div>
+        <div class="img-full">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/HowMightWe_02.png" alt="HMW2 アイデアスケッチ" onclick="openLightbox(this.src, 'HMW2 アイデアスケッチ', true)" style="cursor:zoom-in">
+          <div class="img-cap">HMW 2 — 観劇情報をまとめるアイデアスケッチ</div>
+        </div>
+      </div>
+
+      <div class="ds-body" style="margin-bottom:20px">
+        <p>「<strong>ユーザーが何が嬉しいのか</strong>」具体的な場面をイメージする、という視点でストーリーボードを作成しました。</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px">
+        <div style="padding:16px 18px;background:var(--off);border-radius:var(--r);border-left:3px solid var(--react)">
+          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(--react);margin-bottom:6px">①</div>
+          <div style="font-size:13px;color:var(--ink);line-height:1.7">ユーザーが問題に直面したシーンを把握する。</div>
+        </div>
+        <div style="padding:16px 18px;background:var(--off);border-radius:var(--r);border-left:3px solid var(--react)">
+          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(--react);margin-bottom:6px">②</div>
+          <div style="font-size:13px;color:var(--ink);line-height:1.7">出たアイディアとユーザーのタッチポイントを明確にする。</div>
+        </div>
+        <div style="padding:16px 18px;background:var(--off);border-radius:var(--r);border-left:3px solid var(--react)">
+          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(--react);margin-bottom:6px">③</div>
+          <div style="font-size:13px;color:var(--ink);line-height:1.7">アイディアの効果によってユーザーが何を得ることができるか。</div>
+        </div>
+        <div style="padding:16px 18px;background:var(--off);border-radius:var(--r);border-left:3px solid var(--react)">
+          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(--react);margin-bottom:6px">④</div>
+          <div style="font-size:13px;color:var(--ink);line-height:1.7">ユーザーがアイディアによってもたらされた効果で、何を結果として思ったか。</div>
+        </div>
+      </div>
+      <div class="img-full">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/StoryBoard.png" alt="ストーリーボード" onclick="openLightbox(this.src, 'ストーリーボード', true)" style="cursor:zoom-in">
+        <div class="img-cap">ストーリーボード（8コマ）</div>
+      </div>
+    </div>
+
+    <!-- USM -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>設計 — ユーザーストーリーマップ</span></div>
+      <div class="ds-body">
+        <p>アイデアを機能に落とし込むため、行動フローを5段階に分解。各段階に必要な機能を「必須 / 入れたい / MVPではない」で優先度を整理しました。</p>
+      </div>
+      <div class="img-full">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/USM.png" alt="ユーザーストーリーマップ" onclick="openLightbox(this.src, 'ユーザーストーリーマップ', true)" style="cursor:zoom-in">
+        <div class="img-cap">ユーザーストーリーマップ — 行動フロー5段階と機能優先度</div>
+      </div>
+    </div>
+
+    <!-- サービスビジョン -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>サービスビジョン・リーンキャンバス</span></div>
+      <div style="margin-bottom:24px">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px">3年後、このサービスでどういう未来を実現したいか？</div>
+        <div style="font-family:var(--serif);font-size:20px;font-weight:500;color:var(--react);margin-bottom:16px;letter-spacing:0.02em">＜ サービスビジョン ＞</div>
+        <div class="ds-body">
+          <p>観劇体験を後から振り返りたいのに、情報や感情を残しきれていない観劇ファンに向けて、「Re:ACT」は、観劇の思い出をひとまとまりの体験として記録・保存できる「観劇体験記録アプリ」です。</p>
+          <p>写真フォルダやSNS、紙のチケット保管と異なり、公演情報と感情の記録を一つにまとめ、後から自然に思い出せる見返し体験に強みがあります。</p>
+          <p>このサービスを利用することで、顧客は観劇の思い出を整理して残すことができ、生活は"好きな体験をきちんと振り返られる"ものへと変わります。このような人々が増えることで、文化体験を大切に蓄積できる社会を実現します。</p>
+        </div>
+      </div>
+      <div class="img-full">
+        <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/LeanCanvas.png" alt="サービスビジョン・リーンキャンバス" onclick="openLightbox(this.src, 'サービスビジョン・リーンキャンバス', true)" style="cursor:zoom-in">
+        <div class="img-cap">サービスビジョン・リーンキャンバス</div>
+      </div>
+    </div>
+
+    <!-- ワイヤーフレーム -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>ワイヤーフレーム — 一覧表示5パターンの探索</span></div>
+      <div class="ds-body">
+        <p>「記録を見返す体験」の設計にあたり、一覧画面の表示形式を5パターンで検討しました。チケットという物理メディアをどのようにデジタルに昇華させるか、情報優先度と視覚的な楽しさのバランスを意識しました。</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card-imgs">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/wireframe/AlbumPattern_01_TicketHolder.png" alt="Pattern 01" onclick="openLightbox(this.src, 'Pattern 01 チケットホルダー型')" style="cursor:zoom-in">
+          </div>
+          <div class="feature-card-body">
+            <div class="feature-card-title">01. チケットホルダー型</div>
+            <div class="feature-card-desc">左インデックス＋スタック表示。月別グループで日付を強調。</div>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-imgs">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/wireframe/AlbumPattern_02_TicketToguro.png" alt="Pattern 02" onclick="openLightbox(this.src, 'Pattern 02 チケット型')" style="cursor:zoom-in">
+          </div>
+          <div class="feature-card-body">
+            <div class="feature-card-title">02. チケット型</div>
+            <div class="feature-card-desc">ミシン目ありの本物チケット風。左右にスクロール。</div>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-imgs">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/wireframe/AlbumPattern_03_TicketOver.png" alt="Pattern 03" onclick="openLightbox(this.src, 'Pattern 03 重ね表示型')" style="cursor:zoom-in">
+          </div>
+          <div class="feature-card-body">
+            <div class="feature-card-title">03. 重ね表示型</div>
+            <div class="feature-card-desc">カードが奥行きをもって重なる。コレクション感を演出。</div>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-imgs">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/wireframe/AlbumPattern_04_Album.png" alt="Pattern 04" onclick="openLightbox(this.src, 'Pattern 04 アルバム型')" style="cursor:zoom-in">
+          </div>
+          <div class="feature-card-body">
+            <div class="feature-card-title">04. アルバム型</div>
+            <div class="feature-card-desc">写真をサムネ表示するリスト。視覚的な記憶を手がかりに。</div>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-imgs">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/wireframe/AlbumPattern_05_TicketGrid.png" alt="Pattern 05" onclick="openLightbox(this.src, 'Pattern 05 グリッド型')" style="cursor:zoom-in">
+          </div>
+          <div class="feature-card-body">
+            <div class="feature-card-title">05. グリッド型</div>
+            <div class="feature-card-desc">情報量を抑えたコンパクト一覧。全体俯瞰に適している。</div>
+          </div>
+        </div>
+      </div>
+      <div class="callout react" style="margin-top:8px">
+        <div class="callout-title">採用パターンとその理由</div>
+        <p>最終的にアルバム型（Pattern 04）をベースに、日付スタブ＋月別グループの構造を加えたリスト型を採用しました。「いつ観たか」という日付情報を最優先にしつつ、写真サムネで記憶を手がかりに振り返れる点が、見返し体験の設計意図に最も合致していました。</p>
+      </div>
+      <div class="ds-body" style="margin-top:24px">
+        <p>一覧表示の検討と並行して、登録〜詳細閲覧の画面構成もワイヤーで整理しました。</p>
+      </div>
+      <div class="img-2up" style="margin-top:12px">
+        <div class="img-block">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/wireframe/ticketRegist.png" alt="チケット登録ワイヤー" onclick="openLightbox(this.src, 'チケット登録ワイヤー')" style="cursor:zoom-in">
+          <div class="img-cap">チケット登録画面 — 公演名・日時・会場・写真・座席・感想</div>
+        </div>
+        <div class="img-block">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/wireframe/ticketDetail.png" alt="チケット詳細ワイヤー" onclick="openLightbox(this.src, 'チケット詳細ワイヤー')" style="cursor:zoom-in">
+          <div class="img-cap">チケット詳細画面 — 登録情報の確認・編集起点</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 思考の軌跡 — 一時非表示 -->
+    <!--
+    <div class="ds fade-up">
+      <div class="ds-label"><span>思考の軌跡 — デザイン判断の記録</span></div>
+      <div class="ds-body">
+        <p>ビジュアルデザインは「ワインレッド×半券構造」という方向性から始まり、複数案の探索・統合・転換を経て現在の形に至りました。単に「良いデザイン」を目指すのではなく、ユーザーシナリオに立ち返ることで判断の軸を維持した過程を記録しています。</p>
+      </div>
+      <div class="insight-box" style="margin-bottom:20px">
+        <div class="insight-box-title">Critical Turn ★ — 最も重要な転換点</div>
+        <div class="insight-box-body">Figmaで実装された画面を見た時点で「ペルソナから離れていないか、高級感を持たせたい気持ちが先行している」という違和感が生まれました。自問したのは「帰りの電車でふと息をついた頃に開く、このデザインは自然に開けるか？」——答えはNoでした。高級感を「捨てる」のではなく「<strong style="color:rgba(255,255,255,0.9)">主役をコンテンツに戻す</strong>」という整理でリセット。デザインの「入口の重さ」は記録継続率に直結するという教訓を得ました。</div>
+      </div>
+      <div class="decision-grid">
+        <div class="decision-item">
+          <div class="decision-label">Phase 1-3 — 探索と収束</div>
+          <div class="decision-body">A案（ワインレッド×半券）・B案（ネオン）・C案（活版×深緑）の3案でトーン探索。B案を早期除外し、C案の質感＋A案の構造を統合した案Fとして詳細設計へ進む。</div>
+        </div>
+        <div class="decision-item">
+          <div class="decision-label">Phase 4 — 転換</div>
+          <div class="decision-body">「重たい」という気づきから方向転換。高級感よりコンテンツを主役に戻す整理でベースをリセット。</div>
+        </div>
+        <div class="decision-item">
+          <div class="decision-label">Phase 5 — 再考</div>
+          <div class="decision-body">「ワインレッドは私の好みかもしれない」という問いを立て、グレー・ブルー・テラコッタ・グリーンの4色案で検証。カードの構造が共通していればアクセントカラーは交換可能と確認。</div>
+        </div>
+        <div class="decision-item">
+          <div class="decision-label">Phase 6 — 現在地</div>
+          <div class="decision-body">完成度は上がったが未解決の問いも残る。月グルーパーの存在感・開きやすさとの両立・様々なジャンルの公演との共存が次の検証課題。</div>
+        </div>
+      </div>
+      <div style="margin-top:20px">
+        <a class="figma-btn" href="react_thinking_journal.html" target="_blank" rel="noopener" style="background:var(--react)">思考の軌跡を全文で読む →</a>
+      </div>
+    </div>
+    -->
+
+    <!-- ビジュアルデザイン -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>ビジュアルデザイン</span></div>
+      <div class="ds-body">
+        <p>「観劇の余韻を持ち帰れる場所」というコンセプトに合わせ、ブランドのトーン・カラー・ロゴを設計しました。</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0;padding:28px 24px;background:var(--off);border-radius:var(--r)">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/react_maincolor.png" alt="メインカラー" style="height:48px;width:auto;display:block" onclick="openLightbox(this.src, 'メインカラー')" style="cursor:zoom-in">
+          <span style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em">メインカラー</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+          <div style="background:#1a1a18;border-radius:6px;padding:8px 16px;display:flex;align-items:center;justify-content:center;height:48px">
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/react_logo.png" alt="ロゴ" style="height:32px;width:auto;display:block" onclick="openLightbox(this.src, 'ロゴ')" style="cursor:zoom-in">
+          </div>
+          <span style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em">ロゴ</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/process/raect_icon.png" alt="アイコン" style="height:48px;width:auto;display:block;border-radius:10px" onclick="openLightbox(this.src, 'アイコン')" style="cursor:zoom-in">
+          <span style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em">アイコン</span>
+        </div>
+      </div>
+      <div class="callout react">
+        <div class="callout-title">カラー選定の意図</div>
+        <p>「劇場の緞帳・深みのある赤」を基調としたダークレッド（#6B1E2E）を採用。高級感と温度感を両立し、どんなジャンルの公演記録とも喧嘩しない落ち着いた存在感を意識しています。ロゴはワインレッドのセリフ体で、"Re;" の記号がブランドの核となるモチーフです。</p>
+      </div>
+    </div>
+
+    <!-- 最終UI -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>最終デザイン</span></div>
+      <div class="mockup-row">
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_No1_TicketAll.png" alt="記録一覧" onclick="openLightbox(this.src, '記録一覧')">
+          <div class="mockup-label" style="color:var(--ink2);font-size:12px;font-weight:500">記録一覧</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_No1_TicketDetail.png" alt="チケット詳細" onclick="openLightbox(this.src, 'チケット詳細')">
+          <div class="mockup-label" style="color:var(--ink2);font-size:12px;font-weight:500">チケット詳細</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_No1_TicketRegist.png" alt="新規登録" onclick="openLightbox(this.src, '新規登録')">
+          <div class="mockup-label" style="color:var(--ink2);font-size:12px;font-weight:500">新規登録</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 学びと今後 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>現在地と今後</span></div>
+      <div class="ds-body">
+        <p>ユーザビリティテストを2名実施し、結果をもとにUIを改善しました。</p>
+      </div>
+
+      <!-- インタビュー結果 -->
+      <div class="card-2" style="margin-bottom:32px">
+        <div class="mini-card" style="border-color:var(--react);background:var(--react-bg)">
+          <div class="mini-card-head" style="color:var(--react)">松原さん　56歳 / 年3〜5回</div>
+          <div class="mini-card-body">
+            <p>残したかった情報：キャスト写真・劇場へのアクセス・カフェのURL</p>
+            <p>チケットが白くて印象が薄い。写真があると思い出しやすい。</p>
+            <p>劇場名をタップしたら地図に飛べると思っていた。</p>
+          </div>
+        </div>
+        <div class="mini-card" style="border-color:var(--react);background:var(--react-bg)">
+          <div class="mini-card-head" style="color:var(--react)">原さん　26歳 / 年10回以上</div>
+          <div class="mini-card-body">
+            <p>入力は特に迷いなくできた。</p>
+            <p>残したかった情報：劇場までのアクセス・チケットの金額</p>
+            <p>座席の見え方を他の人とシェアできるようにしたい。検索で調べられるようにしたい。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Before/After -->
+      <div class="ds-label"><span>改善 — Before / After</span></div>
+
+      <div class="ba-section">
+        <div class="ba-title">チケット一覧に写真を追加 — パッと見て思い出せるように</div>
+        <div class="ba-grid">
+          <div class="ba-item">
+            <div class="ba-header">
+              <div class="ba-label before">BEFORE</div>
+              <div class="ba-note">課題：テキストだけでは記憶と結びつきにくい</div>
+            </div>
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_No1_TicketAll.png" alt="Before チケット一覧" onclick="openLightbox(this.src, 'Before チケット一覧')">
+          </div>
+          <div class="ba-item">
+            <div class="ba-header">
+              <div class="ba-label" style="background:var(--react);color:white">AFTER</div>
+              <div class="ba-note">改善：サムネイル写真を追加し、一覧で記憶を手繰り寄せやすく</div>
+            </div>
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_No2_TicketAll.png" alt="After チケット一覧" onclick="openLightbox(this.src, 'After チケット一覧')">
+          </div>
+        </div>
+      </div>
+
+      <div class="ba-section" style="margin-top:32px">
+        <div class="ba-title">登録画面のプレースホルダーを改善 — 劇場アクセスもここに書けると伝える</div>
+        <div class="ba-grid">
+          <div class="ba-item">
+            <div class="ba-header">
+              <div class="ba-label before">BEFORE</div>
+              <div class="ba-note">課題：メモ欄に何を書くか伝わっていなかった</div>
+            </div>
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_No1_TicketRegist.png" alt="Before 登録" onclick="openLightbox(this.src, 'Before 登録')">
+          </div>
+          <div class="ba-item">
+            <div class="ba-header">
+              <div class="ba-label" style="background:var(--react);color:white">AFTER</div>
+              <div class="ba-note">改善：プレースホルダーにアクセス例を追加</div>
+            </div>
+            <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_No2_TicketRegist.png" alt="After 登録" onclick="openLightbox(this.src, 'After 登録')">
+          </div>
+        </div>
+      </div>
+
+      <div class="next-step" style="margin-top:32px">
+        <div class="next-step-title">進捗</div>
+        <ul>
+          <li><strong>完了</strong>　ユーザビリティテスト計画の作成</li>
+          <li><strong>完了</strong>　2名実施（松原さん・原さん）、結果をもとにUI改善</li>
+          <li><strong>予定</strong>　あと1名実施し、改善の妥当性を確認</li>
+          <li><strong>予定</strong>　改善後、ローンチフェーズへ</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 最終デザイン再掲 -->
+    <div class="ds fade-up">
+      <div class="ds-label"><span>最終デザイン（改善後）</span></div>
+      <div class="mockup-row">
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_No2_TicketAll.png" alt="チケット一覧" onclick="openLightbox(this.src, 'チケット一覧')">
+          <div class="mockup-label">記録一覧</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_No2_TicketDetail.png" alt="チケット詳細" onclick="openLightbox(this.src, 'チケット詳細')">
+          <div class="mockup-label">チケット詳細</div>
+        </div>
+        <div class="mockup-item zoomable">
+          <img src="https://raw.githubusercontent.com/scent428/portfolio/main/assets/images/works/react/UI/ReACT_No2_TicketRegist.png" alt="新規登録" onclick="openLightbox(this.src, '新規登録')">
+          <div class="mockup-label">新規登録</div>
+        </div>
+      </div>
+      <a class="figma-btn" href="https://www.figma.com/proto/veUIAYpLvFxePCGim6m0zB/%E7%84%A1%E9%A1%8C?node-id=1105-1695&t=xfXYU8f9233hquGt-1" target="_blank" rel="noopener" style="background:var(--react)">▶ Figmaでプロトタイプを見る</a>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <nav class="footer-nav">
+    <button class="footer-tab active" data-tab="works" onclick="switchTab('works')">作品集</button>
+    <button class="footer-tab" data-tab="study" onclick="switchTab('study')">学習記録</button>
+    <button class="footer-tab" data-tab="about" onclick="switchTab('about')">プロフィール</button>
+  </nav>
+  <div class="footer-copy">© 2025 木村萌香　掲載されているデザイン・画像の無断転載を禁じます。</div>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-inner" id="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    <div class="lightbox-label" id="lightbox-label"></div>
+  </div>
+</div>
+
+<script>
+function openLightbox(src, label, wide){
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-label').textContent = label;
+  document.getElementById('lightbox').classList.add('open');
+  document.getElementById('lightbox-inner').classList.toggle('wide', !!wide);
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(e){
+  if(e && e.target !== document.getElementById('lightbox') && !e.target.closest('.lightbox-close')) return;
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key === 'Escape') { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow=''; }});
+document.querySelectorAll(".tab-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const tab=btn.dataset.tab;
+    switchTab(tab);
+  });
+});
+function switchTab(tab){
+  document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+  document.querySelectorAll(".footer-tab").forEach(b=>b.classList.remove("active"));
+  document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));
+  document.querySelectorAll("[data-tab="+tab+"]").forEach(b=>b.classList.add("active"));
+  document.getElementById("tab-"+tab).classList.add("active");
+  document.querySelectorAll(".detail-panel").forEach(p=>p.classList.remove("active"));
+  window.scrollTo(0,0);triggerFadeUps();
+}
+function openProject(id){
+  document.querySelectorAll(".panel,.detail-panel").forEach(p=>p.classList.remove("active"));
+  document.getElementById("proj-"+id).classList.add("active");
+  document.body.classList.add("detail-open");
+  window.scrollTo(0,0);triggerFadeUps();
+}
+function closeProject(){
+  document.querySelectorAll(".detail-panel,.panel").forEach(p=>p.classList.remove("active"));
+  document.querySelectorAll(".tab-btn,.footer-tab").forEach(b=>b.classList.remove("active"));
+  document.querySelectorAll("[data-tab=works]").forEach(b=>b.classList.add("active"));
+  document.getElementById("tab-works").classList.add("active");
+  document.body.classList.remove("detail-open");
+  window.scrollTo(0,0);
+}
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("in");});},{threshold:0.05});
+function triggerFadeUps(){setTimeout(()=>{document.querySelectorAll(".fade-up:not(.in)").forEach(el=>obs.observe(el));},50);}
+triggerFadeUps();
+</script>
+</body>
+</html>
